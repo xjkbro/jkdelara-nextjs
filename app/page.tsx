@@ -1,8 +1,13 @@
-import Image from 'next/image'
+import Introduction from '../components/introduction'
 
-
-export default function Home() {
+export default async function Home() {
   return (
-    <main className='bg-blue-200 font-bold'>hello world</main>
+    <>
+        <div className="w-2/3 mx-auto bg-first">
+            <Introduction />
+            <a className="" href="/notes">Notes</a>
+            <h2 className="text-3xl font-bold underline"> Hello World!</h2>
+        </div>
+    </>
   )
 }

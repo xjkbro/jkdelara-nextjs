@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import Navigation from '../components/navigation'
 
 export default function RootLayout({
   children,
@@ -12,7 +13,10 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body className="w-2/3 mx-auto bg-first">
+      <Navigation />
+        {children}
+        </body>
     </html>
   )
 }
