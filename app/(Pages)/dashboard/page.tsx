@@ -1,8 +1,9 @@
+// "use client";
 // import "../../../pages/api/spotify"
 
 export default async function Dashboard() {
     const {unsplash_data, spotify_data} = await getPageProps();
-    console.log(spotify_data)
+    // console.log(spotify_data)
 
   return (
     <>
@@ -24,8 +25,12 @@ function SpotifyPlaying({spotify_data}) {
 }
 async function getPageProps() {
     // Fetch data from external API
-    const unsplash = await fetch(`${process.env.URL}/api/unsplash`)
-    const spotify = await fetch(`${process.env.URL}/api/spotify`)
+    const unsplashURL = "development" === process.env.NEXT_PUBLIC_ENV ? "http://localhost:3000/api/unsplash" : "https://jkdelara-nextjs-production.up.railway.app/api/unsplash"
+    const spotifyURL = "development" === process.env.NEXT_PUBLIC_ENV ? "http://localhost:3000/api/spotify" : "https://jkdelara-nextjs-production.up.railway.app/api/spotify"
+    const unsplash = await fetch(unsplashURL, { next: { revalidate: 120 } })
+    const spotify = await fetch(spotifyURL, { next: { revalidate: 120 } })
+    // const unsplash = await fetch(`http://localhost:3000/api/unsplash`)
+    // const spotify = await fetch(`http://localhost:3000/api/spotify`)
     
     const unsplash_data = await unsplash.json()
     const spotify_data = await spotify.json()
