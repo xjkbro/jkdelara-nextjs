@@ -24,8 +24,8 @@ function SpotifyPlaying({spotify_data}) {
 }
 async function getPageProps() {
     // Fetch data from external API
-    const unsplash = await fetch(`http://localhost:3000/api/unsplash`)
-    const spotify = await fetch(`http://localhost:3000/api/spotify`)
+    const unsplash = await fetch(`${process.env.URL}/api/unsplash`)
+    const spotify = await fetch(`${process.env.URL}/api/spotify`)
     
     const unsplash_data = await unsplash.json()
     const spotify_data = await spotify.json()
