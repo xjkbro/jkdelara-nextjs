@@ -1,14 +1,15 @@
 import Introduction from '../components/introduction'
 
 export default async function Home() {
-  return (
-    <>
-        <div className="h-[200vh]">
-            <Introduction />
-            <a className="" href="/notes">Notes</a>
-            <h2 className="text-3xl font-bold underline"> Hello World!</h2>
-        </div>
-        
-    </>
-  )
+    // const router = useRouter();
+    return (
+        <>
+            <div className="h-[200vh]">
+                <Introduction />
+                <a className="" href="/notes">Notes</a>
+                <h2 className="text-3xl font-bold underline"> Hello World!</h2>
+            </div>
+        </>
+
+    )
 }

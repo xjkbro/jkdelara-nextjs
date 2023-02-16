@@ -1,4 +1,10 @@
-#grid-system img {
+#art-system img{
+    object-fit: cover;
+    overflow: hidden;
+    height: 250px;
+}
+
+#project-system img {
     object-fit: cover;
     overflow: hidden;
     height: 250px;

@@ -19,7 +19,7 @@ export default async function Note(
 
 async function getNote(slug: string) {
     const URL = "https://cms.jsondelara.com/api/posts?filters[slug][$eq]=" + slug;
-    console.log(URL)
+    // console.log(URL)
     const res = await fetch(URL, { cache: 'no-store' } )
     return res.json();
 }

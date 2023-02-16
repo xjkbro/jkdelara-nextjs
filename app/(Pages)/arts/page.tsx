@@ -6,11 +6,11 @@ export default async function Art() {
     const regex = /(<([^>]+)>)/ig;
   return (
     <>
-    <div id="grid-system" className="grid grid-cols-4 gap-4">
+    <div id="art-system" className="grid grid-cols-4 gap-4">
         {
             arts.data.map((art) => (
                 <div key={art.id} className="w-full h-full">
-                    <Image src={art.attributes.photograph.data.attributes.formats.medium.url} alt={art.attributes.summary.replace(regex,'')} width={500} height={500} />
+                    <Image src={art.attributes.photograph.data.attributes.url} alt={art.attributes.summary.replace(regex,'')} width={500} height={500} />
                 </div>
             ))
         } 
@@ -27,6 +27,6 @@ export default async function Art() {
 }
 
 async function getArt() {
-    const res = await fetch('https://cms.jsondelara.com/api/photos?populate=photograph')
+    const res = await fetch('https://cms.jsondelara.com/api/photos?populate[photograph][fields][0]=url')
     return res.json();
 }
