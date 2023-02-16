@@ -1,6 +1,8 @@
 // "use client";
 
-// import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faMoon as MoonOn} from "@fortawesome/free-solid-svg-icons";
+import {faMoon as MoonOff}  from "@fortawesome/free-regular-svg-icons";
 
 export default function Navigation({isDark, setIsDark}) {
     return (
@@ -13,7 +15,7 @@ export default function Navigation({isDark, setIsDark}) {
             <li className="text-lg font-bold hover:text-sixth"><a href="/notes">Notes</a></li>
             <li className="text-lg font-bold hover:text-sixth"><a href="/arts">Arts</a></li>
         </ul>
-        <button onClick={() => setIsDark(!isDark)}>{isDark ? 'ON' : 'OFF'}</button>
+        <button onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button>
     </nav>
     )
   }
