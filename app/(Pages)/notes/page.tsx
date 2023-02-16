@@ -17,6 +17,6 @@ export default async function Notes() {
 }
 
 async function getNotes() {
-    const res = await fetch('https://cms.jsondelara.com/api/posts?populate=*')
+    const res = await fetch('https://cms.jsondelara.com/api/posts?populate=*', { cache: 'no-store' })
     return res.json();
 }

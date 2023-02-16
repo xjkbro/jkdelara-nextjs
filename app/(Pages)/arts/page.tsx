@@ -26,6 +26,6 @@ export default async function Art() {
 }
 
 async function getArt() {
-    const res = await fetch('https://cms.jsondelara.com/api/photos?populate[photograph][fields][0]=url')
+    const res = await fetch('https://cms.jsondelara.com/api/photos?populate[photograph][fields][0]=url' ,{ cache: 'no-store' })
     return res.json();
 }
