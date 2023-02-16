@@ -11,12 +11,14 @@ export default function SingleProject({project}) {
             <>{console.log(project?.attributes?.image?.data?.attributes?.url)}</>
         </div>
         <div>
-            <div className="">
-                <span className="ml-8 text-lg font-bold">{project.attributes.name}</span>
+            <div className="ml-2">
+                <span className="text-lg font-bold ">{project.attributes.name}</span>
                 <span className="ml-2 text-sm text-fourth"></span>
             </div>
-            <span className="mx-8 mb-2 text-sm font-bold">{project.attributes.title}</span>
-            <p className="mx-8">{project.attributes.description.replace(regex,'').substring(0, 120)}...</p>
+            <div className="mx-4">
+                <span className="mb-2 text-sm font-bold">{project.attributes.title}</span>
+                <p className="">{project.attributes.description.replace(regex,'').substring(0, 120)}...</p>
+            </div>
         </div>
     </div>
   )
