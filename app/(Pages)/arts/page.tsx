@@ -9,7 +9,7 @@ export default async function Art() {
         {
             arts.data.map((art) => (
                 <div key={art.id} className="w-full h-full">
-                    <Image src={art.attributes.photograph.data.attributes.url} alt={art.attributes.summary.replace(regex,'')} width={500} height={500} />
+                    <Image src={art?.attributes?.photograph?.data?.attributes?.url} alt={art.attributes.summary.replace(regex,'')} width={500} height={500} />
                 </div>
             ))
         } 
