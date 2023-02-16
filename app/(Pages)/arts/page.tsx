@@ -2,7 +2,6 @@ import Image from 'next/image'
 
 export default async function Art() {
     const arts = await getArt();
-    // console.log(arts.data);
     const regex = /(<([^>]+)>)/ig;
   return (
     <>

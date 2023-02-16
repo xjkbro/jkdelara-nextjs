@@ -19,5 +19,7 @@ module.exports = {
         'nineth': '#EA591F',
     },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography')
+    ],
   }
