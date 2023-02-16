@@ -9,23 +9,23 @@ export default async function Art() {
         {
             arts.data.map((art) => (
                 <div key={art.id} className="w-full h-full">
-                    <Image src={art?.attributes?.photograph?.data?.attributes?.url} alt={art?.attributes?.summary?.replace(regex,'')} width={500} height={500} />
+                    <Image src={art?.attributes?.photograph?.data?.attributes?.url} alt={art?.attributes?.summary?.replace(regex,'')} width={800} height={800} />
                 </div>
             ))
         } 
         
-        <div className="w-full h-full">
-            <Image src="https://res.cloudinary.com/dryhha34v/image/upload/v1676485634/medium_IMG_3447_0702205fec.jpg" width={500} height={500} alt="asdas"/>
+        {/* <div className="w-full h-full">
+            <Image src="https://res.cloudinary.com/dryhha34v/image/upload/v1676485634/medium_IMG_3447_0702205fec.jpg" width={200} height={200} alt="asdas"/>
         </div>
         <div className="w-full h-full">
-            <Image src="https://res.cloudinary.com/dryhha34v/image/upload/v1676485418/large_IMG_3383_b2485e68e3.jpg" width={500} height={500} alt="asdas"/>
-        </div>
+            <Image src="https://res.cloudinary.com/dryhha34v/image/upload/v1676485418/large_IMG_3383_b2485e68e3.jpg" width={1000} height={1000} alt="asdas"/>
+        </div> */}
     </div>
     </>
   )
 }
 
 async function getArt() {
-    const res = await fetch('https://cms.jsondelara.com/api/photos?populate[photograph][fields][0]=url' ,{ cache: 'no-store' })
+    const res = await fetch('https://cms.jsondelara.com/api/photos?populate[photograph][fields][0]=url' , { next: { revalidate: 30 } })
     return res.json();
 }
