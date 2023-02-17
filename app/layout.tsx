@@ -13,19 +13,19 @@ export default function RootLayout({
 }) {
     
     /* ==== Dark Mode Set Up ===== */
-    let boolDark= true
+    let boolDark = true
     const [isDark, setIsDark] = useState(boolDark)
     // const [boolDark, setBoolDark] = useState()
-    console.log("Start isDark:", isDark)
+    // console.log("Start isDark:", isDark)
     useEffect(()=>{
         const storedDarkMode = localStorage.getItem("DARK_MODE");
-        (storedDarkMode == "false") ? boolDark = true : boolDark = false;
+        (storedDarkMode == "false") ? boolDark = false : boolDark = true;
         localStorage.setItem("DARK_MODE", String(boolDark));
         console.log("1 boolDark: ",  boolDark)
         setIsDark(boolDark);
     },[])
     useEffect(() => {
-        console.log("2 isDark: ", isDark)
+        // console.log("2 isDark: ", isDark)
         localStorage.setItem("DARK_MODE", String(isDark));
     }, [isDark]);
     

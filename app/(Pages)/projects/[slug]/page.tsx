@@ -17,7 +17,7 @@ export default async function Note(
             {project.attributes.technologies.data.map((tech)=>(<span className="px-4 py-2 mr-1 font-semibold text-white rounded-full dark:text-white bg-seventh" key={tech.id}>{tech.attributes.name}</span>))}
             <div className="" dangerouslySetInnerHTML={{ __html: project.attributes.description }} />
             <h3>Links</h3>
-            {project.attributes.links.map((source)=>(<a className="mr-4" key={source.id} href={source.url}>{source.name}</a>))}
+            {project.attributes.links.map((source)=>(<a className="mr-4" key={source.id} href={source.link}>{source.name}</a>))}
         </div>
     )
 }
