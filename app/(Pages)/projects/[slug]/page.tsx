@@ -11,10 +11,10 @@ export default async function Note(
     const res = await getProject(slug);
     const project = res.data[0]
     return (
-        <div id="feature-image" className="prose prose-invert mx-auto">
+        <div id="feature-image" className="mx-auto prose dark:prose-invert">
             <Image src={project?.attributes?.image?.data?.attributes?.url} width={1000} height={1000} alt={project.attributes.title}/>
             <h1 className="">{project.attributes.title}</h1>
-            {project.attributes.technologies.data.map((tech)=>(<span className="mr-1 px-4 py-2 rounded-full bg-seventh text-white font-semibold" key={tech.id}>{tech.attributes.name}</span>))}
+            {project.attributes.technologies.data.map((tech)=>(<span className="px-4 py-2 mr-1 font-semibold text-white rounded-full dark:text-white bg-seventh" key={tech.id}>{tech.attributes.name}</span>))}
             <div className="" dangerouslySetInnerHTML={{ __html: project.attributes.description }} />
             <h3>Links</h3>
             {project.attributes.links.map((source)=>(<a className="mr-4" key={source.id} href={source.url}>{source.name}</a>))}

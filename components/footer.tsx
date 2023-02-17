@@ -23,7 +23,6 @@ export default function Footer() {
                     </p>
                     <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
                         {socials.data.map((social) => (
-                            <>
                                 <a className="mr-2 text-gray-500" key={social.id} href={social.attributes.url}>
                                     {
                                         (social.attributes.name == "Twitter") ? <FontAwesomeIcon icon={Twitter} /> :
@@ -36,7 +35,7 @@ export default function Footer() {
                                                                     <></>
                                     }
                                 </a>
-                            </>))}
+                            ))}
                     </span>
                 </div>
             </div>

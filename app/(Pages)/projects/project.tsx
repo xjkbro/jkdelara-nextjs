@@ -3,10 +3,9 @@ import Image from "next/image";
 export default function SingleProject({ project }) {
     const regex = /(<([^>]+)>)/ig;
     return (
-        <Link href={"/projects/" + project.attributes.slug} className="p-4 mb-2 transition-all border-2 rounded-xl border-third hover:bg-second">
+        <Link href={"/projects/" + project.attributes.slug} className="p-4 mb-2 transition-all border-2 rounded-xl dark:border-third border-fourth hover:bg-second">
             <div className="w-full h-[260px]">
                 <Image src={project?.attributes?.image?.data?.attributes?.url} alt={project.attributes.name} width={500} height={250} />
-                {/* <Image src="https://res.cloudinary.com/dryhha34v/image/upload/v1676571354/sbmc_959bdaca45.png" alt={project.attributes.name} width={500} height={250} /> */}
             </div>
             <div>
                 <div className="md:ml-2">
