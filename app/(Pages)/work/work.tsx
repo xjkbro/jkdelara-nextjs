@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function SingleWork({work}) {
     const regex = /(<([^>]+)>)/ig;
     const getDateRange = (work) => {
@@ -13,7 +15,7 @@ export default function SingleWork({work}) {
 
     }
   return (
-    <div className="p-4 mb-2 transition-all border-2 rounded-lg md:rounded-full border-third hover:bg-second">
+    <div className="p-4 mb-2">
         <div className="">
             {/* <span className="ml-2 text-lg font-bold">{work.attributes.title}</span> */}
             <span className="text-lg font-bold md:ml-8">{work.attributes.name}</span>

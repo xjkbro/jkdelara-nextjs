@@ -1,7 +1,7 @@
 import {makeTitle} from "../../../../lib/utils"
 export default function Head({params}) {
     const title = makeTitle(params.slug)
-    console.log(title)
+    // console.log(title)
   return (
     <>
       <title>{title} | Jason Kyle De Lara</title>

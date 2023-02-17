@@ -7,7 +7,10 @@ export default async function Notes() {
     <>
     <div className="grid gap-2 md:grid-cols-2">
         {notes.data.map((note) => (
-            <Link key={note.id} href={"/notes/"+ note.attributes.slug}>
+            <Link
+                className="animate-border rounded-xl bg-white from-teal-500 via-purple-500 to-pink-500 bg-[length:400%_400%] p-0.5 transition bg-gradient-to-r" 
+                key={note.id} 
+                href={"/notes/"+ note.attributes.slug}>
                 <SingleNote note={note}/>
             </Link>
         ))}

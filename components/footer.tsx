@@ -15,15 +15,15 @@ export default function Footer() {
 
     const date = new Date()
     return (
-        <footer className="text-gray-600 body-font">
-            <div className="bg-gray-100">
+        <footer className="dark:text-fifth body-font">
+            <div className="dark:bg-first">
                 <div className="container flex flex-col flex-wrap px-5 py-4 mx-auto sm:flex-row">
-                    <p className="text-sm text-center text-gray-500 sm:text-left">© <>{date.getFullYear()}</> —
-                        <a href="https://twitter.com/jkdelara" rel="noopener noreferrer" className="ml-1 text-gray-600" target="_blank">Jason-Kyle De Lara</a>
+                    <p className="text-sm text-center sm:text-left">© <>{date.getFullYear()}</> —
+                        <a href="https://twitter.com/jkdelara" rel="noopener noreferrer" className="ml-1" target="_blank">Jason-Kyle De Lara</a>
                     </p>
                     <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
                         {socials.data.map((social) => (
-                                <a className="mr-2 text-gray-500" key={social.id} href={social.attributes.url}>
+                                <a className="mr-2 " key={social.id} href={social.attributes.url}>
                                     {
                                         (social.attributes.name == "Twitter") ? <FontAwesomeIcon icon={Twitter} /> :
                                             (social.attributes.name == "Instagram") ? <FontAwesomeIcon icon={Instagram} /> :
