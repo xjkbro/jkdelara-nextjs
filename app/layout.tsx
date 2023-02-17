@@ -13,18 +13,21 @@ export default function RootLayout({
 }) {
     
     /* ==== Dark Mode Set Up ===== */
-    let boolDark = true;
-    if (typeof window !== 'undefined') {
-        const storedDarkMode = window.localStorage.getItem("DARK_MODE");
-        (storedDarkMode == "false") ? boolDark = false : boolDark = true;
-        window.localStorage.setItem("DARK_MODE", String(boolDark));
-    }
-    const [isDark, setIsDark] = useState(boolDark)
+    const [isDark, setIsDark] = useState(true)
+    const [boolDark, setBoolDark] = useState(true)
+    console.log("Start isDark:", isDark)
+    useEffect(()=>{
+        const storedDarkMode = localStorage.getItem("DARK_MODE");
+        (storedDarkMode == "false") ? setBoolDark(true) : setBoolDark(false);
+        localStorage.setItem("DARK_MODE", String(boolDark));
+        // console.log("1 boolDark: ",  boolDark)
+        setIsDark(boolDark);
+    },[boolDark])
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            window.localStorage.setItem("DARK_MODE", String(isDark));
-        }
+        // console.log("2 isDark: ", isDark)
+        localStorage.setItem("DARK_MODE", String(isDark));
     }, [isDark]);
+    
     /* =========================== */
     const [overlay, setOverlay] = useState(false)
 
