@@ -14,12 +14,16 @@ export default function RootLayout({
     
     /* ==== Dark Mode Set Up ===== */
     let boolDark = true;
+    if (typeof window !== 'undefined') {
         const storedDarkMode = window.localStorage.getItem("DARK_MODE");
         (storedDarkMode == "false") ? boolDark = false : boolDark = true;
         window.localStorage.setItem("DARK_MODE", String(boolDark));
+    }
     const [isDark, setIsDark] = useState(boolDark)
     useEffect(() => {
+        if (typeof window !== 'undefined') {
             window.localStorage.setItem("DARK_MODE", String(isDark));
+        }
     }, [isDark]);
     /* =========================== */
     const [overlay, setOverlay] = useState(false)
