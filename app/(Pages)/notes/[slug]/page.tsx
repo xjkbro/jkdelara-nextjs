@@ -12,7 +12,7 @@ export default async function Note(
     const postData = note.data[0]
     return (
         <>
-            <div className="prose-invert" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
+            <div className="prose prose-invert" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
         </>
     )
 }
