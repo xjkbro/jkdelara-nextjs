@@ -4,6 +4,7 @@ import '../styles/custom.css'
 import Navigation from '../components/navigation'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
+import Footer from "../components/footer"
 
 export default function RootLayout({
     children,
@@ -21,9 +22,10 @@ export default function RootLayout({
             <head />
             {/* <AnimatePresence> */}
                 <motion.body
-                 className={isDark ? "w-2/3 mx-auto bg-first text-fifth" : "w-2/3 mx-auto bg-fifth text-first"}>
+                 className={isDark ? "w-[90vw] md:w-2/3 mx-auto bg-first text-fifth" : "w-2/3 mx-auto bg-fifth text-first"}>
                     <Navigation isDark={isDark} setIsDark={setIsDark} />
                     {children}
+                    <Footer />
                 </motion.body>
             {/* </AnimatePresence> */}
         </html>

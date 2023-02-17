@@ -4,7 +4,7 @@ export default async function Projects() {
     // Sort response in decending order by start date
     return (
         <>
-    <div id="project-system" className="grid grid-cols-3 gap-4">
+    <div id="project-system" className="grid gap-4 md:grid-cols-3">
         {projects.data.map((project) => (
             <SingleProject key={project.id} project={project}/>
         ))}

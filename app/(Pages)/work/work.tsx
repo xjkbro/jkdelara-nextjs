@@ -13,15 +13,15 @@ export default function SingleWork({work}) {
 
     }
   return (
-    <div className="p-4 mb-2 transition-all border-2 rounded-full border-third hover:bg-second">
+    <div className="p-4 mb-2 transition-all border-2 rounded-lg md:rounded-full border-third hover:bg-second">
         <div className="">
             {/* <span className="ml-2 text-lg font-bold">{work.attributes.title}</span> */}
-            <span className="ml-8 text-lg font-bold">{work.attributes.name}</span>
-            <span className="ml-2 text-sm text-fourth">{getDateRange(work)}</span>
+            <span className="text-lg font-bold md:ml-8">{work.attributes.name}</span>
+            <span className="block text-sm md:inline md:ml-2 text-fourth">{getDateRange(work)}</span>
         </div>
-        <span className="mx-8 mb-2 text-sm font-bold">{work.attributes.title}</span>
-        {/* <span className="ml-2 px-2 py-1 text-sm rounded-full bg-eighth text-fifth">{work.attributes.title}</span> */}
-        <p className="mx-8">{work.attributes.summary}</p>
+        <span className="mb-2 text-sm font-bold md:mx-8">{work.attributes.title}</span>
+        {/* <span className="px-2 py-1 ml-2 text-sm rounded-full bg-eighth text-fifth">{work.attributes.title}</span> */}
+        <p className="md:mx-8">{work.attributes.summary}</p>
     </div>
   )
 }

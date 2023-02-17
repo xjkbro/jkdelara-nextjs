@@ -5,7 +5,7 @@ export default async function Notes() {
     // console.log(notes.data);
   return (
     <>
-    <div className="grid grid-cols-2 gap-2">
+    <div className="grid gap-2 md:grid-cols-2">
         {notes.data.map((note) => (
             <Link key={note.id} href={"/notes/"+ note.attributes.slug}>
                 <SingleNote note={note}/>

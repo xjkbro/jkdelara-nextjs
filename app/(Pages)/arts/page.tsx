@@ -5,7 +5,7 @@ export default async function Art() {
     const regex = /(<([^>]+)>)/ig;
   return (
     <>
-    <div id="art-system" className="grid grid-cols-4 gap-4">
+    <div id="art-system" className="grid gap-4 md:grid-cols-4">
         {
             arts.data.map((art) => (
                 <div key={art.id} className="w-full h-full">
@@ -26,6 +26,6 @@ export default async function Art() {
 }
 
 async function getArt() {
-    const res = await fetch('https://cms.jsondelara.com/api/photos?populate[photograph][fields][0]=url' , { next: { revalidate: 30 } })
+    const res = await fetch('https://cms.jsondelara.com/api/photos?populate[photograph][fields][0]=url' , {cache: "no-store"})
     return res.json();
 }

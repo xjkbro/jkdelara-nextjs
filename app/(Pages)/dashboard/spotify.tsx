@@ -2,6 +2,9 @@
 
 import { useEffect } from 'react';
 import useSWR from 'swr';
+import {faSpotify} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 type playingOnSpotify = {
     isPlaying: boolean;
@@ -21,10 +24,10 @@ export default function SpotifyPlaying() {
   const { data } = useSWR<playingOnSpotify>('/api/spotify', fetcher);
     if(data) {
         if(data?.isPlaying == false) {
-            return <a href="https://spotify.com"><i className="mr-2 fa-brands fa-spotify"></i><span className="font-bold">Not Playing</span></a>
+            return <a href="https://spotify.com"><FontAwesomeIcon icon={faSpotify}/><span className="mx-2font-bold">Not Playing</span></a>
         }
         else
-            return <a href={data.songUrl}><i className="mr-2 fa-brands fa-spotify"></i><span className="mr-2 font-bold">Now Playing</span>{data.artist} - {data.title}</a>
+            return <a href={data.songUrl}><FontAwesomeIcon icon={faSpotify}/><span className="mx-2 font-bold">Now Playing</span><div>{data.artist} - {data.title}</div></a>
     } else 
     return <></>   
 }
