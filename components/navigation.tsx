@@ -37,7 +37,7 @@ function DesktopNav({isDark, setIsDark}){
                 <li className="text-xl font-light hover:text-sixth"><a href="/notes">Notes</a></li>
                 <li className="text-xl font-light hover:text-sixth"><a href="/arts">Arts</a></li>
             </ul>
-            {/* <button className="hidden w-8 h-8 border-2 rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button> */}
+            <button className="hidden w-8 h-8 border-2 rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button>
         </nav>
     )
 }
@@ -68,7 +68,7 @@ function MobileNav({isDark, setIsDark, overlay, setOverlay}){
                         <li className="text-xl font-light hover:text-sixth"><a href="/projects">Projects</a></li>
                         <li className="text-xl font-light hover:text-sixth"><a href="/notes">Notes</a></li>
                         <li className="text-xl font-light hover:text-sixth"><a href="/arts">Arts</a></li>
-                        {/* <li className="my-2 mt-12"><button className="w-8 h-8 border-2 rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button></li> */}
+                        <li className="my-2 mt-12"><button className="w-8 h-8 border-2 rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button></li>
                         <li className="my-2"><button className="w-8 h-8 md:block" onClick={() => setOverlay(false)}><FontAwesomeIcon icon={faX}/></button></li>
                     </ul>
                 </motion.div>)}
