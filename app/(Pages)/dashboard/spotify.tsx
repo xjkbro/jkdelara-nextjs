@@ -24,7 +24,7 @@ export default function SpotifyPlaying() {
   const { data } = useSWR<playingOnSpotify>('/api/spotify', fetcher);
     if(data) {
         if(data?.isPlaying == false) {
-            return <a href="https://spotify.com"><FontAwesomeIcon icon={faSpotify}/><span className="mx-2font-bold">Not Playing</span></a>
+            return <a href="https://spotify.com"><FontAwesomeIcon icon={faSpotify}/><span className="mx-2 font-bold">Not Playing</span></a>
         }
         else
             return <a href={data.songUrl}><FontAwesomeIcon icon={faSpotify}/><span className="mx-2 font-bold">Now Playing</span><div>{data.artist} - {data.title}</div></a>

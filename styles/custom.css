@@ -2,6 +2,7 @@
     object-fit: cover;
     overflow: hidden;
     height: 250px;
+    width: inherit;
 }
 
 #project-system img {
@@ -13,4 +14,7 @@
     object-fit: cover;
     overflow: hidden;
     height: 100%;
+}
+#feature-img img {
+    width: fit-content;
 }

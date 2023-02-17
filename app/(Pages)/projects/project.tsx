@@ -1,8 +1,9 @@
+import Link from "next/link";
 import Image from "next/image";
 export default function SingleProject({ project }) {
     const regex = /(<([^>]+)>)/ig;
     return (
-        <div className="p-4 mb-2 transition-all border-2 rounded-xl border-third hover:bg-second">
+        <Link href={"/projects/" + project.attributes.slug} className="p-4 mb-2 transition-all border-2 rounded-xl border-third hover:bg-second">
             <div className="w-full h-[260px]">
                 <Image src={project?.attributes?.image?.data?.attributes?.url} alt={project.attributes.name} width={500} height={250} />
                 {/* <Image src="https://res.cloudinary.com/dryhha34v/image/upload/v1676571354/sbmc_959bdaca45.png" alt={project.attributes.name} width={500} height={250} /> */}
@@ -17,7 +18,7 @@ export default function SingleProject({ project }) {
                     <p className="">{project.attributes.description.replace(regex, '').substring(0, 120)}...</p>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 
