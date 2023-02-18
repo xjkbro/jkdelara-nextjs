@@ -53,7 +53,7 @@ function MobileNav({isDark, setIsDark, overlay, setOverlay}){
                 >
                     <Image src="/favicon/android-chrome-192x192.png" width={50} height={50} alt='Logo'/>
                 </motion.a>
-                <button className="w-12 h-12 border-2 rounded-lg shadow-md border-second md:block" onClick={()=> setOverlay(!overlay)}> <FontAwesomeIcon className="text-white" icon={faBars}/> </button>
+                <button className="md:block" onClick={()=> setOverlay(!overlay)}> <FontAwesomeIcon className="dark:text-white h-8 w-8" icon={faBars}/> </button>
             </nav>
             <AnimatePresence>
                 {overlay && (<motion.div 
@@ -68,7 +68,7 @@ function MobileNav({isDark, setIsDark, overlay, setOverlay}){
                         <li className="text-xl font-light hover:text-sixth"><a href="/projects">Projects</a></li>
                         <li className="text-xl font-light hover:text-sixth"><a href="/notes">Notes</a></li>
                         <li className="text-xl font-light hover:text-sixth"><a href="/arts">Arts</a></li>
-                        <li className="my-2 mt-12"><button className="w-8 h-8 border-2 rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button></li>
+                        <li className="my-2 mt-12"><button className="w-8 h-8 border-2 dark:border-fifth border-first rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button></li>
                         <li className="my-2"><button className="w-8 h-8 md:block" onClick={() => setOverlay(false)}><FontAwesomeIcon icon={faX}/></button></li>
                     </ul>
                 </motion.div>)}

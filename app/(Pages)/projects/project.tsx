@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function SingleProject({ project }) {
     const regex = /(<([^>]+)>)/ig;
     return (
-        <Link href={"/projects/" + project.attributes.slug} className="p-4 mb-2 transition-all border-2 rounded-xl dark:border-third border-fourth hover:bg-second">
+        <Link href={"/projects/" + project.attributes.slug} className="p-4 mb-2 transition-all border-2 rounded-xl dark:border-third border-fourth hover:bg-sixth dark:hover:bg-second">
         {/* <Link href={"/projects/" + project.attributes.slug} className="animate-border rounded-xl bg-white from-teal-500 via-purple-500 to-pink-500 bg-[length:400%_400%] p-0.5 transition bg-gradient-to-r"> */}
             <div className="transition-all rounded-[11px] h-full">
                 <div className="w-full h-[260px]">

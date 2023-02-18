@@ -13,11 +13,15 @@ export default async function Note(
     registerView(slug)
     return (
         <>
-            <div className="flex justify-between mx-auto mb-2 prose border-b dark:prose-invert">
+        <div className="mx-auto prose dark:prose-invert">
+            
+            <h1>{postData.attributes.title}</h1>
+            <div className="flex justify-between mb-2 border-b">
                 <div>Publish On {new Date(postData.attributes.publishedAt).toDateString()}</div>
                 <div>{postData.attributes.views} views</div>
             </div>
-            <div className="mx-auto prose dark:prose-invert" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
+            <div className="" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
+        </div>
         </>
     )
 }
