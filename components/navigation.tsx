@@ -7,18 +7,45 @@ import {faBars}  from "@fortawesome/free-solid-svg-icons";
 import {faX}  from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import {motion, AnimatePresence } from "framer-motion";
+import clsx from "clsx";
 
+import {usePathname} from "next/navigation"
+
+const navItems = {
+    '/dashboard': {
+      name: 'Dashboard',
+    },
+    '/work': {
+        name: 'Work',
+    },
+    '/projects': {
+        name: 'Projects',
+    },
+    '/notes': {
+      name: 'Notes',
+    },
+    '/arts': {
+        name: 'Art',
+    },
+  };
 
 export default function Navigation({isDark, setIsDark, overlay, setOverlay}) {
+    let pathname = usePathname() || '/';
+    if (pathname.includes('/notes/')) {
+        pathname = '/notes';
+    }
+    if (pathname.includes('/projects/')) {
+        pathname = '/projects';
+    }
     return (
         <>
-            <DesktopNav  isDark={isDark} setIsDark={setIsDark} />
-            <MobileNav  isDark={isDark} setIsDark={setIsDark} overlay={overlay} setOverlay={setOverlay}/>
+            <DesktopNav  isDark={isDark} setIsDark={setIsDark} pathname={pathname} />
+            <MobileNav  isDark={isDark} setIsDark={setIsDark} overlay={overlay} setOverlay={setOverlay} pathname={pathname} />
         </>
     )
   }
   
-function DesktopNav({isDark, setIsDark}){
+function DesktopNav({isDark, setIsDark, pathname}){
     return(
         <nav className="flex-row items-center justify-between hidden my-8 md:flex">
             <ul className="flex flex-row overflow-scroll md:overflow-auto gap-x-8 md:gap-12">
@@ -31,17 +58,23 @@ function DesktopNav({isDark, setIsDark}){
                         <Image src="/favicon/android-chrome-192x192.png" width={30} height={30} alt='Logo'/>
                     </a>
                 </motion.li>
-                <li className="text-xl font-light hover:text-sixth"><a href="/dashboard">Dashboard</a></li>
-                <li className="text-xl font-light hover:text-sixth"><a href="/work">Work</a></li>
-                <li className="text-xl font-light hover:text-sixth"><a href="/projects">Projects</a></li>
-                <li className="text-xl font-light hover:text-sixth"><a href="/notes">Notes</a></li>
-                <li className="text-xl font-light hover:text-sixth"><a href="/arts">Arts</a></li>
+                {
+                    Object.entries(navItems).map(([path, { name }]) => {
+                    const isActive = path === pathname;
+                    return (<><li className={clsx("text-xl font-light hover:text-sixth",{ 'text-sixth': isActive,})}><a href={path}>{name}</a></li></>);
+                    }
+                )}
+                 {/* <li className="text-xl font-light hover:text-sixth"><a href="/dashboard">Dashboard</a></li>
+                 <li className="text-xl font-light hover:text-sixth"><a href="/work">Work</a></li>
+                 <li className="text-xl font-light hover:text-sixth"><a href="/projects">Projects</a></li>
+                 <li className="text-xl font-light hover:text-sixth"><a href="/notes">Notes</a></li>
+                 <li className="text-xl font-light hover:text-sixth"><a href="/arts">Arts</a></li> */}
             </ul>
             <button className="hidden w-8 h-8 border-2 rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button>
         </nav>
     )
 }
-function MobileNav({isDark, setIsDark, overlay, setOverlay}){
+function MobileNav({isDark, setIsDark, overlay, setOverlay, pathname}){
     return(
         <>
             <nav className="flex justify-between my-8 md:hidden">

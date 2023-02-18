@@ -1,4 +1,7 @@
-export default async function unsplash(req, res) {
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+export default async function handler(req: NextApiRequest, res:  NextApiResponse) {
+
     const accessToken = process.env.UNSPLASH_ACCESS_TOKEN;
     const response = await fetch(
       `https://api.unsplash.com/users/jkdelara/statistics?client_id=${accessToken}`,
@@ -6,6 +9,9 @@ export default async function unsplash(req, res) {
         method: 'GET'
       }
     );
+    if (response.status === 204 || response.status > 400) {
+      return res.status(200).json({ notFound: true });
+    }
   
     const unsplashdata = await response.json();
   
