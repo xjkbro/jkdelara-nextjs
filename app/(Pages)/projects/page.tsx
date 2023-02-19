@@ -6,8 +6,8 @@ export default async function Projects() {
     return (
         <>
             <div id="project-system" className="grid gap-4 grid-cols-1 lg:grid-cols-3">
-                {projects.data.map((project) => (
-                    <SingleProject key={project.id} project={project}/>
+                {projects.data.map((project,i) => (
+                    <SingleProject key={project.id} project={project}  option={3} i={i}/>
                 ))}
             </div>
         </>

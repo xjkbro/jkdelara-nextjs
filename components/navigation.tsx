@@ -10,6 +10,7 @@ import {motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
 import {usePathname} from "next/navigation"
+import Link from "next/link";
 
 const navItems = {
     '/dashboard': {
@@ -61,7 +62,7 @@ function DesktopNav({isDark, setIsDark, pathname}){
                 {
                     Object.entries(navItems).map(([path, { name }]) => {
                     const isActive = path === pathname;
-                    return (<><li className={clsx("text-xl font-light hover:text-sixth",{ 'text-sixth': isActive,})}><a href={path}>{name}</a></li></>);
+                    return (<><li className={clsx("text-xl font-light hover:text-sixth",{ 'text-sixth': isActive,})}><Link href={path}>{name}</Link></li></>);
                     }
                 )}
                  {/* <li className="text-xl font-light hover:text-sixth"><a href="/dashboard">Dashboard</a></li>
@@ -92,15 +93,16 @@ function MobileNav({isDark, setIsDark, overlay, setOverlay, pathname}){
                 {overlay && (<motion.div 
                     initial={{ width:"0%", }}
                     animate={{ width:"100%"}}
+                    exit={{ width: "0%" }}
                     transition={{ duration: 0.5 }}
-                    className={(overlay) ? ("flex fixed top-0 left-0 flex justify-center w-screen h-screen dark:bg-first bg-nineth z-2 align-center") : ("hidden absolute top-0 left-0 flex justify-center w-screen h-screen dark:bg-first bg-nineth z-2 align-center")}>
+                    className={(overlay) ? ("flex fixed top-0 left-0 justify-center w-screen h-screen dark:bg-first bg-nineth z-2 align-center") : ("hidden absolute top-0 left-0 flex justify-center w-screen h-screen dark:bg-first bg-nineth z-2 align-center")}>
                     <ul className="flex flex-col justify-center text-center gap-x-8 md:gap-12">
                         <li className="flex justify-center mb-4 text-xl font-light hover:text-sixth"><a href="/"><Image className="" src="/favicon/android-chrome-192x192.png" width={30} height={30} alt='Logo'/></a></li>
-                        <li className="text-xl font-light hover:text-sixth"><a href="/dashboard">Dashboard</a></li>
-                        <li className="text-xl font-light hover:text-sixth"><a href="/work">Work</a></li>
-                        <li className="text-xl font-light hover:text-sixth"><a href="/projects">Projects</a></li>
-                        <li className="text-xl font-light hover:text-sixth"><a href="/notes">Notes</a></li>
-                        <li className="text-xl font-light hover:text-sixth"><a href="/arts">Arts</a></li>
+                        <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/dashboard">Dashboard</Link></li>
+                        <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/work">Work</Link></li>
+                        <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/projects">Projects</Link></li>
+                        <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/notes">Notes</Link></li>
+                        <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/arts">Arts</Link></li>
                         <li className="my-2 mt-12"><button className="w-8 h-8 border-2 dark:border-fifth border-first rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button></li>
                         <li className="my-2"><button className="w-8 h-8 md:block" onClick={() => setOverlay(false)}><FontAwesomeIcon icon={faX}/></button></li>
                     </ul>

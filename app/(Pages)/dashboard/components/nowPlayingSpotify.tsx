@@ -21,7 +21,7 @@ async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Prom
 }
 
 export default function SpotifyPlaying() {
-  const { data } = useSWR<playingOnSpotify>('/api/spotify', fetcher);
+  const { data } = useSWR<playingOnSpotify>('/api/spotify/nowPlaying', fetcher);
     if(data) {
         if(data?.isPlaying == false) {
             return (

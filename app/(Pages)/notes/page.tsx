@@ -5,13 +5,12 @@ export default async function Notes() {
     // console.log(notes.data);
   return (
     <>
-    <div className="grid gap-2 md:grid-cols-2">
-        {notes.data.map((note) => (
+    <div className="grid gap-2 md:grid-cols-2 h-j min-h-[20vh]">
+        {notes.data.map((note, i) => (
             <Link
-                className="animate-border rounded-xl bg-white from-teal-500 via-purple-500 to-pink-500 bg-[length:400%_400%] p-0.5 transition bg-gradient-to-r" 
                 key={note.id} 
                 href={"/notes/"+ note.attributes.slug}>
-                <SingleNote note={note}/>
+                <SingleNote note={note} i={i}/>
             </Link>
         ))}
     </div>
