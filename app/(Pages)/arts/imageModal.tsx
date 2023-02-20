@@ -38,7 +38,7 @@ export default function ImageModal({art, i}) {
                                 className=" flex flex-col justify-center items-center w-[90%] md:w-fit md:h-[85%]"
                                 onClick={()=> setModalImgUrl(null)} 
                                 >
-                                <Image src={modalImgUrl} alt={"artbyjkd "+art?.attributes?.summary?.replace(regex,'')} className="!h-[95%]"  width={1000} height={1000} />
+                                <Image src={modalImgUrl} alt={"artbyjkd "+art?.attributes?.summary?.replace(regex,'')} className="!h-[95%]"  width={1000} height={1000} quality={100} />
                                 <div className="h-8">
                                     {/* EXIF DATA DISPLAY */}
                                 </div>
