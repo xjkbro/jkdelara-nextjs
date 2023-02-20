@@ -1,6 +1,6 @@
 import Introduction from '../components/introduction'
 
-export default async function Home() {
+export default function Home() {
     // const router = useRouter();
     return (
         <>

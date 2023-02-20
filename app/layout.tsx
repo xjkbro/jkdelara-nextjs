@@ -40,14 +40,14 @@ export default function RootLayout({
                 head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
             */}
             <head />
-            {/* <AnimatePresence> */}
+            <AnimatePresence>
                 <motion.body
                  className={isDark ? "dark w-[90vw] md:w-2/3 mx-auto bg-first text-fifth" : "w-[90vw] md:w-2/3 mx-auto bg-fifth text-first"}>
                     <Navigation isDark={isDark} setIsDark={setIsDark} overlay={overlay} setOverlay={setOverlay} />
                     {children}
                     <Footer />
                 </motion.body>
-            {/* </AnimatePresence> */}
+            </AnimatePresence>
         </html>
     )
 }
