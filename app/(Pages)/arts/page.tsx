@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link';
-import ImageModal from "./imageModal"
+import ImageModal from "./imageModal" 
+import "../../../public/spinner.svg"
 
 export default async function Art() {
     const arts = await getArt();
@@ -21,7 +22,7 @@ export default async function Art() {
             } 
             
             {/* <div className="w-full h-full">
-                <Image src="https://res.cloudinary.com/dryhha34v/image/upload/v1676485634/medium_IMG_3447_0702205fec.jpg" width={200} height={200} alt="asdas"/>
+                <Image src="/spinner.svg" width={200} height={200} alt="asdas"/>
                 </div>
                 <div className="w-full h-full">
                 <Image src="https://res.cloudinary.com/dryhha34v/image/upload/v1676485418/large_IMG_3383_b2485e68e3.jpg" width={1000} height={1000} alt="asdas"/>
