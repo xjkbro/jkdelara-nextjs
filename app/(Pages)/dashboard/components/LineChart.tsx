@@ -33,7 +33,9 @@ export default function LineChart({ data , label }) {
                         legend: {
                             display: false
                         }
-                    }
+                    },
+                    maintainAspectRatio : false
+
                 }}
             />
         </div>
