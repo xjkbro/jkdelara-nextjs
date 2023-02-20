@@ -95,7 +95,7 @@ function MobileNav({isDark, setIsDark, overlay, setOverlay, pathname}){
                     animate={{ width:"100%"}}
                     exit={{ width: "0%" }}
                     transition={{ duration: 0.5 }}
-                    className={(overlay) ? ("flex fixed top-0 left-0 justify-center w-screen h-screen dark:bg-first bg-nineth z-2 align-center") : ("hidden absolute top-0 left-0 flex justify-center w-screen h-screen dark:bg-first bg-nineth z-2 align-center")}>
+                    className={(overlay) ? ("flex fixed top-0 left-0 justify-center w-screen h-screen dark:bg-first bg-nineth z-2 align-center") : ("")}>
                     <ul className="flex flex-col justify-center text-center gap-x-8 md:gap-12">
                         <li className="flex justify-center mb-4 text-xl font-light hover:text-sixth"><a href="/"><Image className="" src="/favicon/android-chrome-192x192.png" width={30} height={30} alt='Logo'/></a></li>
                         <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/dashboard">Dashboard</Link></li>
