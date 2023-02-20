@@ -28,6 +28,9 @@ const navItems = {
     '/arts': {
         name: 'Art',
     },
+    '/contact': {
+        name: 'Contact'
+    }
   };
 
 export default function Navigation({isDark, setIsDark, overlay, setOverlay}) {
@@ -62,7 +65,7 @@ function DesktopNav({isDark, setIsDark, pathname}){
                 {
                     Object.entries(navItems).map(([path, { name }]) => {
                     const isActive = path === pathname;
-                    return (<><li className={clsx("text-xl font-light hover:text-sixth",{ 'text-sixth': isActive,})}><Link href={path}>{name}</Link></li></>);
+                    return (<li key={name} className={clsx("text-xl font-light hover:text-sixth",{ 'text-sixth': isActive,})}><Link href={path}>{name}</Link></li>);
                     }
                 )}
                  {/* <li className="text-xl font-light hover:text-sixth"><a href="/dashboard">Dashboard</a></li>
@@ -103,6 +106,7 @@ function MobileNav({isDark, setIsDark, overlay, setOverlay, pathname}){
                         <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/projects">Projects</Link></li>
                         <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/notes">Notes</Link></li>
                         <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/arts">Arts</Link></li>
+                        <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/contact">Contact</Link></li>
                         <li className="my-2 mt-12"><button className="w-8 h-8 border-2 dark:border-fifth border-first rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button></li>
                         <li className="my-2"><button className="w-8 h-8 md:block" onClick={() => setOverlay(false)}><FontAwesomeIcon icon={faX}/></button></li>
                     </ul>

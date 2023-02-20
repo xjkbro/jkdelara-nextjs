@@ -21,7 +21,7 @@ export default function RootLayout({
         const storedDarkMode = localStorage.getItem("DARK_MODE");
         (storedDarkMode == "false") ? boolDark = false : boolDark = true;
         localStorage.setItem("DARK_MODE", String(boolDark));
-        console.log("1 boolDark: ",  boolDark)
+        // console.log("1 boolDark: ",  boolDark)
         setIsDark(boolDark);
     },[])
     useEffect(() => {

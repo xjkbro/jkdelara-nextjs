@@ -9,10 +9,6 @@ export default function ContactForm() {
     const [message, setMessage] = useState("")
     const [submitted, setSubmitted] = useState(false)
     
-    useEffect(() => {
-        console.log(name, email, message)
-    }, [name,email,message])
-
     const handleSubmit = (e) => { 
         e.preventDefault()
         console.log('Sending')
@@ -33,6 +29,7 @@ export default function ContactForm() {
             console.log('Response received')
             if (res.status === 200) {
                 console.log('Response succeeded!')
+                console.log(submitted)
                 setSubmitted(true)
                 setName('')
                 setEmail('')
@@ -50,34 +47,51 @@ export default function ContactForm() {
 
                     <form className="mt-10">
 
-                        {/* <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" /> */}
                         <div className="grid gap-6 sm:grid-cols-2">
                             <div className="relative z-0">
                                 <input 
-                                type="text" name="name" 
-                                onChange={(e)=>{setName(e.target.value)}}
-                                className="peer block w-full appearance-none border-0 border-b border-fourth bg-transparent py-2.5 px-0 text-sm  focus:border-sixth focus:outline-none focus:ring-0" placeholder=" " />
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-eighth peer-focus:dark:text-seventh">Your name</label>
+                                    type="text" name="name" 
+                                    onChange={(e)=>{setName(e.target.value)}}
+                                    className="peer block w-full appearance-none border-0 border-b border-fourth bg-transparent py-2.5 px-0 text-sm  focus:border-sixth focus:outline-none focus:ring-0" placeholder=" " />
+                                <label 
+                                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-eighth peer-focus:dark:text-seventh">Your name</label>
                             </div>
                             <div className="relative z-0">
                                 <input 
-                                type="text" name="email" 
-                                onChange={(e)=>{setEmail(e.target.value)}}
-                                className="peer block w-full appearance-none border-0 border-b border-fourth bg-transparent py-2.5 px-0 text-sm  focus:border-sixth focus:outline-none focus:ring-0" placeholder=" " />
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-eighth peer-focus:dark:text-seventh">Your email</label>
+                                    type="text" name="email" 
+                                    onChange={(e)=>{setEmail(e.target.value)}}
+                                    className="peer block w-full appearance-none border-0 border-b border-fourth bg-transparent py-2.5 px-0 text-sm  focus:border-sixth focus:outline-none focus:ring-0" placeholder=" " />
+                                <label 
+                                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-eighth peer-focus:dark:text-seventh">Your email</label>
                             </div>
                             <div className="relative z-0 col-span-2">
                                 <textarea 
-                                name="message" rows={5} 
-                                onChange={(e)=>{setMessage(e.target.value)}}
-                                className="peer block w-full appearance-none border-0 border-b border-fourth bg-transparent py-2.5 px-0 text-sm  focus:border-sixth focus:outline-none focus:ring-0" placeholder=" "></textarea>
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-eighth peer-focus:dark:text-seventh">Your message</label>
+                                    name="message" rows={5} 
+                                    onChange={(e)=>{setMessage(e.target.value)}}
+                                    className="peer block w-full appearance-none border-0 border-b border-fourth bg-transparent py-2.5 px-0 text-sm  focus:border-sixth focus:outline-none focus:ring-0" placeholder=" "></textarea>
+                                <label 
+                                    className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-eighth peer-focus:dark:text-seventh">Your message</label>
                             </div>
                         </div>
-                        <input type="submit" value={"Send Message"} onClick={(e)=>{handleSubmit(e)}} className="mt-5 rounded-md transition-all dark:bg-fifth hover:bg-second hover:dark:bg-sixth  bg-first px-10 py-2 text-white dark:text-first" />
+                        <>
+                            <SubmitButton submitted={submitted} name={name} email={email} message={message} handleSubmit={handleSubmit}/>
+                         </>
                     </form>
                 </div>
             </div>
         </>
     )
+}
+
+
+const SubmitButton = ({submitted, name, email, message, handleSubmit}) => {
+    if(!submitted){
+        if(name && email && message) {
+            return (<input type="submit" value={"Send Message"} onClick={(e)=>{handleSubmit(e)}} className="mt-5 rounded-md transition-all dark:bg-fifth hover:bg-second hover:dark:bg-sixth  bg-first px-10 py-2 text-white dark:text-first" />)
+        } else {
+            return (<></>)
+        }
+    } else {
+        return (<div className="text-center text-sm mt-2">Thank you for your submission!</div>)
+    }
 }
