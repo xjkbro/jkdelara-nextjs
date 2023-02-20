@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import {faSpotify} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from 'next/image';
+
 interface track {
   artist: string,
     songUrl: string,
@@ -26,7 +27,7 @@ export default function TopTracksSpotify() {
         <>
           {
             data.tracks.map((track)=> (
-              <div key={track.title} className="flex gap-2 mb-2">
+              <div key={track.title} className="flex items-center gap-2 mb-2">
                 <Image src={track.imageUrl} alt={track.title} width={50} height={50} />
                 <a href={track.songUrl}>{track.artist} - {track.title}</a>
               </div>

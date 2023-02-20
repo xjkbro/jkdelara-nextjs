@@ -1,9 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect } from 'react';
 import useSWR from 'swr';
-import {faSpotify} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 type playingOnSpotify = {
@@ -26,17 +25,22 @@ export default function SpotifyPlaying() {
         if(data?.isPlaying == false) {
             return (
               <>
-                <a href="https://spotify.com"><FontAwesomeIcon icon={faSpotify}/><span className="mx-2 font-bold">Not Playing</span></a>
+                <a href="https://spotify.com"><span className="font-bold dark:text-fourth text-first">Not Playing</span></a>
               </>
             )
-        }
-        else
+        }else if(data.album && data.artist && data.title && data.albumImageUrl)
             return (
               <>
-                <a href={data.songUrl}><FontAwesomeIcon icon={faSpotify}/><span className="mx-2 font-bold">Now Playing</span><div>{data.artist} - {data.title}</div></a>
+                <a href={data.songUrl}>
+                    <div className="mb-2 font-bold dark:text-fourth text-first">Now Playing</div>
+                    <div className="flex items-center gap-4">
+                        <Image src={data.albumImageUrl} alt={data.title} width={50} height={50} /> {data.artist} - {data.title}
+                    </div>
+                </a>
               </>
             )
     } else {
       return <>Loading...</>   
     }
+    return <></>
 }

@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 import useSWR from 'swr';
+import { numberWithCommas } from '@/lib/utils';
+
 
 type unsplashData = {
   notFound?: boolean,
@@ -23,10 +25,10 @@ export default function UnsplashStatistics() {
       return (
         <>
           <div className="flex justify-between">
-            <span>Downloads</span><span>{data?.downloads}</span>
+            <span>Downloads</span><span>{numberWithCommas(data?.downloads)}</span>
           </div>
           <div className="flex justify-between">
-            <span>Views</span><span>{data?.views}</span>
+            <span>Views</span><span>{numberWithCommas(data?.views)}</span>
           </div>
         </>
       )

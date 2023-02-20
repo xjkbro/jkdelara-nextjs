@@ -2,33 +2,37 @@ import SpotifyPlaying from "./components/nowPlayingSpotify"
 import TopArtistsSpotify from "./components/topArtistsSpotify"
 import TopTracksSpotify from "./components/topTracksSpotify"
 import UnsplashStatistics from "./components/unsplash"
+import {faSpotify} from "@fortawesome/free-brands-svg-icons";
+import {faUnsplash} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 export default async function Dashboard() {
   return (
     <>
       {/* <h1 className="font-black text-[2rem] mb-4">Dashboard</h1> */}
-      <div className="grid md:grid-cols-2 gap-2">
+      <div className="grid gap-2 md:grid-cols-2">
         <AnimateBorderWrapper>
           <AnimateBorderBG>
-            <h2 className="font-bold text-xl mb-2">Now Playing</h2>
+            <h2 className="mb-2 text-xl font-bold"><FontAwesomeIcon icon={faSpotify} className="mr-2"/>Now Playing</h2>
            <SpotifyPlaying />
           </AnimateBorderBG>
         </AnimateBorderWrapper>
         <AnimateBorderWrapper>
           <AnimateBorderBG>
-            <h2 className="font-bold text-xl mb-2">Top Tracks</h2>
+            <h2 className="mb-2 text-xl font-bold"><FontAwesomeIcon icon={faSpotify} className="mr-2"/>Top Tracks</h2>
            <TopTracksSpotify />
           </AnimateBorderBG>
         </AnimateBorderWrapper>
         <AnimateBorderWrapper>
           <AnimateBorderBG>
-            <h2 className="font-bold text-xl mb-2">Top Albums</h2>
+            <h2 className="mb-2 text-xl font-bold"><FontAwesomeIcon icon={faSpotify} className="mr-2"/>Top Artists</h2>
            <TopArtistsSpotify />
           </AnimateBorderBG>
         </AnimateBorderWrapper>
         <AnimateBorderWrapper>
           <AnimateBorderBG>
-            <h2 className="font-bold text-xl mb-2">Unsplash</h2>
+            <h2 className="mb-2 text-xl font-bold">Unsplash</h2>
            <UnsplashStatistics />
           </AnimateBorderBG>
         </AnimateBorderWrapper>
