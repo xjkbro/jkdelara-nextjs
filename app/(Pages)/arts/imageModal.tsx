@@ -35,7 +35,7 @@ export default function ImageModal({art, i}) {
                                 initial={{ opacity: 0, translateY: 50 }}
                                 animate={{opacity:1, translateY:0}}
                                 transition={{duration: 0.2, delay: 0.1}}
-                                className=" flex flex-col justify-center items-center w-[90%] md:w-fit md:h-[85%]"
+                                className=" flex flex-col justify-center items-center w-[90%] md:w-fit"
                                 onClick={()=> setModalImgUrl(null)} 
                                 >
                                 <Image src={modalImgUrl} alt={"artbyjkd "+art?.attributes?.summary?.replace(regex,'')} className="!h-[95%]"  width={1000} height={1000} quality={100} placeholder='blur' blurDataURL='/spinner.svg' />
