@@ -3,12 +3,16 @@
 import { useEffect } from 'react';
 import useSWR from 'swr';
 import { numberWithCommas } from '@/lib/utils';
+import LineChart from './LineChart';
 
 
 type unsplashData = {
   notFound?: boolean,
   downloads: number,
   views: number,
+  downloadValues: any,
+  viewValues: any
+
 };
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
@@ -27,9 +31,11 @@ export default function UnsplashStatistics() {
           <div className="flex justify-between">
             <span>Downloads</span><span>{numberWithCommas(data?.downloads)}</span>
           </div>
+          {/* <LineChart data={data?.downloadValues} label="Downloads"/> */}
           <div className="flex justify-between">
             <span>Views</span><span>{numberWithCommas(data?.views)}</span>
           </div>
+          <LineChart data={data?.viewValues} label="Views"/>
         </>
       )
     }

@@ -11,28 +11,44 @@ export default async function Dashboard() {
   return (
     <>
       {/* <h1 className="font-black text-[2rem] mb-4">Dashboard</h1> */}
+      <div className="mb-4">
+            <h1 className="font-bold text-[2rem]">Dashboard</h1>
+            {/* <div className="text-sm">Featuring another passion of mine, Photography. While I still am fairly new and don&apos;t have the best equipment, you can <Link href="/contact" className="hover:underline text-eighth">contact</Link> me for any small inquiries.</div> */}
+        </div>
       <div className="grid gap-2 md:grid-cols-2">
         <AnimateBorderWrapper>
           <AnimateBorderBG>
-            <h2 className="mb-2 text-xl font-bold"><FontAwesomeIcon icon={faSpotify} className="mr-2"/>Now Playing</h2>
+            <h2 className="mb-2 text-xl font-bold">
+                <FontAwesomeIcon icon={faSpotify} className="mr-2"/>
+                Now Playing
+            </h2>
            <SpotifyPlaying />
           </AnimateBorderBG>
         </AnimateBorderWrapper>
         <AnimateBorderWrapper>
           <AnimateBorderBG>
-            <h2 className="mb-2 text-xl font-bold"><FontAwesomeIcon icon={faSpotify} className="mr-2"/>Top Tracks</h2>
+            <h2 className="mb-2 text-xl font-bold">
+                <FontAwesomeIcon icon={faSpotify} className="mr-2"/>
+                Jason&apos;s My Top Tracks
+            </h2>
            <TopTracksSpotify />
           </AnimateBorderBG>
         </AnimateBorderWrapper>
         <AnimateBorderWrapper>
           <AnimateBorderBG>
-            <h2 className="mb-2 text-xl font-bold"><FontAwesomeIcon icon={faSpotify} className="mr-2"/>Top Artists</h2>
+            <h2 className="mb-2 text-xl font-bold">
+                <FontAwesomeIcon icon={faSpotify} className="mr-2"/>
+                Jason&apos;s Top Artists
+            </h2>
            <TopArtistsSpotify />
           </AnimateBorderBG>
         </AnimateBorderWrapper>
         <AnimateBorderWrapper>
           <AnimateBorderBG>
-            <h2 className="mb-2 text-xl font-bold">Unsplash</h2>
+            <h2 className="mb-2 text-xl font-bold">
+                <FontAwesomeIcon icon={faSpotify} className="mr-2"/>
+                Jason&apos;s Unsplash Statistics
+            </h2>
            <UnsplashStatistics />
           </AnimateBorderBG>
         </AnimateBorderWrapper>

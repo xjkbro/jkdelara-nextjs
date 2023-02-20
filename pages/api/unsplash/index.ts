@@ -23,6 +23,8 @@ export default async function handler(req: NextApiRequest, res:  NextApiResponse
   
     return res.status(200).json({
       downloads: unsplashdata.downloads.total,
-      views: unsplashdata.views.total
+      views: unsplashdata.views.total,
+      downloadValues:  unsplashdata.downloads.historical.values,
+      viewValues:  unsplashdata.views.historical.values,
     });
   }
