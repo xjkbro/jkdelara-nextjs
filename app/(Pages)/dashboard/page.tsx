@@ -15,54 +15,37 @@ export default async function Dashboard() {
             <h1 className="font-bold text-[2rem]">Dashboard</h1>
             {/* <div className="text-sm">Featuring another passion of mine, Photography. While I still am fairly new and don&apos;t have the best equipment, you can <Link href="/contact" className="hover:underline text-eighth">contact</Link> me for any small inquiries.</div> */}
         </div>
-      <div className="grid gap-2 md:grid-cols-2">
-        <AnimateBorderWrapper>
-          <AnimateBorderBG>
-            <h2 className="mb-2 text-xl font-bold">
-                <FontAwesomeIcon icon={faSpotify} className="mr-2"/>
-                Now Playing
-            </h2>
-           <SpotifyPlaying />
-          </AnimateBorderBG>
-        </AnimateBorderWrapper>
-        <AnimateBorderWrapper>
-          <AnimateBorderBG>
-            <h2 className="mb-2 text-xl font-bold">
-                <FontAwesomeIcon icon={faSpotify} className="mr-2"/>
-                Jason&apos;s My Top Tracks
-            </h2>
-           <TopTracksSpotify />
-          </AnimateBorderBG>
-        </AnimateBorderWrapper>
-        <AnimateBorderWrapper>
-          <AnimateBorderBG>
-            <h2 className="mb-2 text-xl font-bold">
-                <FontAwesomeIcon icon={faSpotify} className="mr-2"/>
-                Jason&apos;s Top Artists
-            </h2>
-           <TopArtistsSpotify />
-          </AnimateBorderBG>
-        </AnimateBorderWrapper>
-        <AnimateBorderWrapper>
-          <AnimateBorderBG>
-            <h2 className="mb-2 text-xl font-bold">
-                <FontAwesomeIcon icon={faSpotify} className="mr-2"/>
-                Jason&apos;s Unsplash Statistics
-            </h2>
+      <div className="grid gap-2 md:grid-cols-2">        
+        <AnimatedBorder title={"Jason's Spotify Statistics"} icon={faSpotify}>
+            <h4 className="mb-2 text-lg font-bold">Currently Listening</h4>
+            <SpotifyPlaying />
+            <h4 className="my-2 text-lg font-bold">Top Tracks</h4>
+            <TopTracksSpotify />
+            <h4 className="my-2 text-lg font-bold">Top Artists</h4>
+            <TopArtistsSpotify />
+        </AnimatedBorder>
+        <AnimatedBorder title={"Jason's Unsplash Statistics"} icon={faUnsplash}>
            <UnsplashStatistics />
-          </AnimateBorderBG>
-        </AnimateBorderWrapper>
+        </AnimatedBorder>
       </div>
     </>
   )
 }
-function AnimateBorderWrapper({children}) {
-  return <div className="animate-border rounded-xl h-full bg-white from-teal-500 via-purple-500 to-pink-500 bg-[length:400%_400%] p-0.5 transition bg-gradient-to-r">
-    {children}
-  </div>
-}
-function AnimateBorderBG({children}){
-  return <div className=" p-4 transition-all h-full w-full rounded-[11px] dark:bg-first dark:hover:bg-second bg-fifth hover:bg-sixth">
-    {children}
-  </div>
+
+function AnimatedBorder({children, title, icon}){
+    return (
+        <div className="animate-border rounded-xl h-full bg-white from-teal-500 via-purple-500 to-pink-500 bg-[length:400%_400%] p-1 transition bg-gradient-to-r">
+            <div className=" p-4 transition-all h-full w-full rounded-[11px] dark:bg-first dark:hover:bg-second bg-fifth hover:bg-sixth">
+                <h2 className="mb-1 text-xl font-bold">
+                    <FontAwesomeIcon icon={icon} className="mr-2" width={25} height={25}/>
+                    {title}
+                </h2>
+                <div className="flex items-center w-full h-full ">
+                    <div className="w-full pb-4">
+                        {children}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }

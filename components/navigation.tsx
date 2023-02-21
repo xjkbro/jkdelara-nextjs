@@ -86,7 +86,7 @@ function DesktopNav({isDark, setIsDark, pathname}){
                  <li className="text-xl font-light hover:text-sixth"><a href="/notes">Notes</a></li>
                  <li className="text-xl font-light hover:text-sixth"><a href="/arts">Arts</a></li> */}
             </ul>
-            <button className="hidden w-8 h-8 border-2 rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button>
+            <button className="hidden w-8 h-8 border-2 rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn} width={16} height={16}/> : <FontAwesomeIcon icon={MoonOff} width={16} height={16}/>}</button>
         </nav>
     )
 }

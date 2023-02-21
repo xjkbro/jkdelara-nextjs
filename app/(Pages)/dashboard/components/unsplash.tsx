@@ -28,15 +28,19 @@ export default function UnsplashStatistics() {
     }else{
       return (
         <>
-          <div className="flex justify-between">
-            <span>Downloads</span><span>{numberWithCommas(data?.downloads)}</span>
-          </div>
-          {/* <LineChart data={data?.downloadValues} label="Downloads"/> */}
-          <div className="flex justify-between">
-            <span>Views</span><span>{numberWithCommas(data?.views)}</span>
-          </div>
-          <LineChart data={data?.viewValues} label="Views"/>
-        </>
+            <div className="mb-8">
+                <div className="flex justify-between">
+                    <span>Downloads</span>
+                    <span>{numberWithCommas(data?.downloads)}</span>
+                </div>
+                {/* <LineChart data={data?.downloadValues} label="Downloads"/> */}
+                <div className="flex justify-between">
+                    <span>Views</span>
+                    <span>{numberWithCommas(data?.views)}</span>
+                </div>
+            </div>
+            <LineChart data={data?.viewValues} label="Views"/>
+        </>          
       )
     }
   } else {

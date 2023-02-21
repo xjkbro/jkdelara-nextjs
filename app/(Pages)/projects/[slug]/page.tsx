@@ -14,7 +14,7 @@ export default async function Note(
         <div id="feature-image" className="mx-auto prose dark:prose-invert">
             <Image src={project?.attributes?.image?.data?.attributes?.url} width={1000} height={1000} alt={project.attributes.title}/>
             <h1 className="">{project.attributes.title}</h1>
-            {project.attributes.technologies.data.map((tech)=>(<span className="px-4 py-2 mr-1 font-semibold text-white rounded-full dark:text-white bg-seventh" key={tech.id}>{tech.attributes.name}</span>))}
+            {project.attributes.technologies.data.map((tech)=>(<span className="px-4 py-2 mr-1 text-sm font-semibold text-white rounded-full whitespace-nowrap dark:text-white bg-seventh" key={tech.id}>{tech.attributes.name}</span>))}
             <div className="" dangerouslySetInnerHTML={{ __html: project.attributes.description }} />
             <h3>Links</h3>
             {project.attributes.links.map((source)=>(<a className="mr-4" key={source.id} href={source.link}>{source.name}</a>))}

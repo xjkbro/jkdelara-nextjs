@@ -7,9 +7,9 @@ export default function SingleNote({note, i}) {
     const regex = /(<([^>]+)>)/ig;
   return (
       <motion.div
-        initial={{ opacity: 0, translateY: 100 }}
+        initial={{ opacity: 0, translateY: 50 }}
         animate={{opacity:1, translateY:0}}
-        transition={{duration: 0.5, delay: i * 0.2}}
+        transition={{duration: 0.3, delay: i * 0.1}}
         className="animate-border rounded-xl bg-white from-teal-500 via-purple-500 to-pink-500 bg-[length:400%_400%] p-1 transition bg-gradient-to-r" >
         {/* <div className="p-4 transition-all border-2 rounded-xl xl:rounded-full md:mb-2 border-third md:border-sixth dark:hover:bg-second hover:bg-sixth"> */}
         <div className="p-4 transition-all rounded-[11px] dark:bg-first dark:hover:bg-second bg-fifth hover:bg-sixth">

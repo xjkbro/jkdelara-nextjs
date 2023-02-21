@@ -32,9 +32,9 @@ export default function SingleProject({ project , option = 1 , i  }) {
                         <div className="w-full h-[260px]">
                             <Image src={project?.attributes?.image?.data?.attributes?.url} alt={project.attributes.name} width={500} height={250} className="ounded-[11px]" />
                         </div>
-                        <div className="mx-auto flex flex-col justify-center">
-                            <span className="text-center text-lg font-semibold">{project.attributes.name}</span>
-                            <span className="text-center font-light text-sm">{project.attributes.title}</span>  
+                        <div className="flex flex-col justify-center mx-auto">
+                            <span className="text-lg font-semibold text-center">{project.attributes.name}</span>
+                            <span className="text-sm font-light text-center">{project.attributes.title}</span>  
                         </div>
                     </div>
                 </Link>
@@ -42,17 +42,17 @@ export default function SingleProject({ project , option = 1 , i  }) {
         case 3: 
             return (
                 <motion.div 
-                    initial={{ opacity: 0, translateY: 100 }}
+                    initial={{ opacity: 0, translateY: 50 }}
                     animate={{opacity:1, translateY:0}}
-                    transition={{duration: 0.5, delay: i * 0.2}}>
+                    transition={{duration: 0.3, delay: i * 0.1}}>
                     <Link href={"/projects/" + project.attributes.slug} className="p-4 mb-2 transition-all hover:scale-[101%] ">
                         <div className="transition-all rounded-[11px] h-full">
                             <div className="w-full h-[260px] ">
                                 <Image src={project?.attributes?.image?.data?.attributes?.url} alt={project.attributes.name} width={500} height={250} className="ounded-[11px]" />
                             </div>
-                            <div className="mx-auto flex flex-col justify-center">
-                                {/* <span className="text-center text-lg font-semibold">{project.attributes.name}</span> */}
-                                <span className="text-center font-light text-sm">{project.attributes.title}</span>  
+                            <div className="flex flex-col justify-center mx-auto">
+                                {/* <span className="text-lg font-semibold text-center">{project.attributes.name}</span> */}
+                                <span className="text-sm font-light text-center">{project.attributes.title}</span>  
                             </div>
                         </div>
                     </Link>
@@ -68,9 +68,9 @@ export default function SingleProject({ project , option = 1 , i  }) {
                 <div className="w-full h-[260px]">
                     <Image src={project?.attributes?.image?.data?.attributes?.url} alt={project.attributes.name} width={500} height={250} className="ounded-[11px]" />
                 </div>
-                <div className="mx-auto flex flex-col justify-center">
-                    <span className="text-center text-lg font-semibold">{project.attributes.name}</span>
-                    <span className="text-center font-light text-sm">{project.attributes.title}</span>  
+                <div className="flex flex-col justify-center mx-auto">
+                    <span className="text-lg font-semibold text-center">{project.attributes.name}</span>
+                    <span className="text-sm font-light text-center">{project.attributes.title}</span>  
                 </div>
                 {/* <div className="m-2 md:m-0">
                     <div className="md:ml-2">

@@ -10,10 +10,10 @@ export default function LineChart({ data , label }) {
         labels: data.map((x) => x.date), 
         datasets: [
         {
-            label: "User " + label,
+            label: label,
             data: data.map((x) => x.value),
-            backgroundColor: ["#ffffff"],
-            borderColor: "black",
+            backgroundColor: ["#EA591F"],
+            borderColor: "#EA591F",
             borderWidth: 2
         }
         ]
@@ -28,13 +28,13 @@ export default function LineChart({ data , label }) {
                     plugins: {
                         title: {
                             display: true,
-                            text: label
+                            text: label + " over the past 30 days"
                         },
                         legend: {
                             display: false
                         }
                     },
-                    maintainAspectRatio : false
+                    // maintainAspectRatio : false
 
                 }}
             />
