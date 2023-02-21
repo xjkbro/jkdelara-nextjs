@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Introduction() {
   return (
     <>
-        <motion.div drag 
+        <motion.div 
             initial={{opacity: 0, translateY: 50}} 
             animate={{opacity: 1, translateY: 0}} 
             exit={{opacity: 0, translateY: 50}} 
@@ -18,7 +18,6 @@ export default function Introduction() {
                 <motion.a 
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    drag
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     className="block font-bold text-[1.5rem] bg-eighth hover:bg-seventh rounded-full p-2 w-24 text-center mt-2"
                     href="/resume2022b.pdf" download>
