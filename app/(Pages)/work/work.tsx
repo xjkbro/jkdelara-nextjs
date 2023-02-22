@@ -29,7 +29,7 @@ export default function SingleWork({ work , i }) {
             }}
             animate={{opacity:1, translateY:0}}
             transition={{duration: 0.5, delay: i * 0.2}}
-            className="p-4 mb-2">
+            className="py-4 mb-2 border-l-4 border-eighth">
             <div className="">
                 {/* <span className="ml-2 text-lg font-bold">{work.attributes.title}</span> */}
                 <span className="text-lg font-bold md:ml-8">{work.attributes.name}</span>

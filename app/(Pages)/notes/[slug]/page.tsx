@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import { registerView } from "@/pages/api/strapi/viewCounter";
+import Image from "next/image";
 export default async function Note(
     { params, searchParams }:
         {
@@ -14,7 +15,7 @@ export default async function Note(
     return (
         <>
         <div className="mx-auto prose dark:prose-invert">
-            
+            {(postData?.attributes?.feature?.data?.attributes?.url) ? <Image src={postData?.attributes?.feature?.data?.attributes?.url} width={700} height={400} alt={postData.attributes.title}/>: <></>}
             <h1>{postData.attributes.title}</h1>
             <div className="flex justify-between mb-2 border-b">
                 <div>Publish On {new Date(postData.attributes.publishedAt).toDateString()}</div>

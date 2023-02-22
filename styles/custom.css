@@ -18,3 +18,29 @@
 #feature-img img {
     width: fit-content;
 }
+
+
+nav a.underline-hover-effect {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+nav .underline-hover-effect {
+    display: inline-block;
+    padding-bottom: 0.25rem; /* defines the space between text and underline */
+    position: relative;
+}
+
+nav .underline-hover-effect::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: theme("colors.eighth");
+    transition: width 0.25s ease-out;
+}
+nav .underline-hover-effect:hover::before {
+ width: 100%;
+}

@@ -77,7 +77,11 @@ function DesktopNav({isDark, setIsDark, pathname}){
                 {
                     Object.entries(navItems).map(([path, { name }]) => {
                     const isActive = path === pathname;
-                    return (<li key={name} className={clsx("text-xl font-light hover:text-sixth",{ 'text-sixth': isActive,})}><Link href={path}>{name}</Link></li>);
+                    return (
+                        <li key={name} className={clsx("underline-hover-effect text-xl font-light hover:text-sixth",{ 'text-sixth before:!absolute before:!bottom-0 before:!left-0 before:!w-full before:!content-[""] before:!h-[2px] before:!bg-eighth': isActive,})}>
+                            <Link href={path}>{name}</Link>
+                        </li>
+                    );
                     }
                 )}
                  {/* <li className="text-xl font-light hover:text-sixth"><a href="/dashboard">Dashboard</a></li>
