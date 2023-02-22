@@ -18,7 +18,7 @@ export default async function Category({ params, searchParams }:
         <>
         
         <NoteHeading category={catInfo.data[0]}/>
-        <NoteNav categories={categories} results={catInfo.meta.pagination.total} />
+        <NoteNav categories={categories} results={catNotes.meta.pagination.total} />
         <div className="grid gap-2 md:grid-cols-2 h-j min-h-[20vh]">
         {catNotes.data.map((note, i) => (
             <Link
