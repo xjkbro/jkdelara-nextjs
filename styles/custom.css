@@ -46,10 +46,6 @@ nav .underline-hover-effect:hover::before {
 }
 
 
-.vertical-timeline:before {
-    /* background: theme("colors.eighth") !important; */
-    /* background: white !important; */
-}
 .vertical-timeline-element-title {
     font-size: 1.5rem;
     font-weight:700;

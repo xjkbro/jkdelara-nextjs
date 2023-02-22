@@ -35,7 +35,7 @@ const navItems = {
 
 export default function Navigation({isDark, setIsDark, overlay, setOverlay}) {
     let pathname = usePathname() || '/';
-    if (pathname.includes('/notes/')) {
+    if (pathname.includes('/notes/') || pathname.includes('/note/')) {
         pathname = '/notes';
     }
     if (pathname.includes('/projects/')) {

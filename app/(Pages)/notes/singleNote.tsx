@@ -2,6 +2,7 @@
 
 import { getViews } from "@/pages/api/strapi/viewCounter";
 import { motion } from "framer-motion";
+import Link from "next/link";
 export default function SingleNote({note, i}) {
     // console.log(note)
     const regex = /(<([^>]+)>)/ig;
@@ -20,7 +21,11 @@ export default function SingleNote({note, i}) {
             </div>
             <div className="block md:hidden md:mb-2">
                 <div className="mb-2">
-                    <span className="px-2 py-1 text-sm rounded-full bg-eighth text-fifth">{note.attributes?.categories?.data[0].attributes.title}</span>
+                {note.attributes?.categories?.data.map((cat)=>{
+                    return (
+                        <a key={cat.id} className="z-10 px-2 py-1 text-sm rounded-full bg-eighth text-fifth">{cat.attributes.title}</a>
+                    )
+                })}                    
                     <span className="ml-2 text-sm text-second dark:text-fourth">{note.attributes.views} views</span>
                 </div>
                 <span className="block text-lg font-bold">{note.attributes.title}</span>

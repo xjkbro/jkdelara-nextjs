@@ -2,8 +2,6 @@ import {makeTitle} from "../../../../lib/utils"
 export default async function Head({params}) {
     const slug: string = params.slug;
     const note = await getNote(slug);
-    console.log("note: ", note?.data[0].attributes?.title)
-    console.log(2)
   return (
     <>
       <title>{note?.data[0]?.attributes?.title + " | Jason Kyle De Lara"}</title>

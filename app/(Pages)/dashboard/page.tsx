@@ -35,7 +35,7 @@ export default async function Dashboard() {
 function AnimatedBorder({children, title, icon}){
     return (
         <div className="animate-border rounded-xl h-full bg-white from-teal-500 via-purple-500 to-pink-500 bg-[length:400%_400%] p-1 transition bg-gradient-to-r">
-            <div className=" p-4 transition-all h-full w-full rounded-[11px] dark:bg-first dark:hover:bg-second bg-fifth hover:bg-sixth">
+            <div className=" p-4 transition-all h-full w-full rounded-[11px] dark:bg-first bg-fifth">
                 <h2 className="mb-1 text-xl font-bold">
                     <FontAwesomeIcon icon={icon} className="mr-2" width={25} height={25}/>
                     {title}
