@@ -2,13 +2,16 @@ import Link from "next/link";
 import NoteNav from "../NoteNav";
 import SingleNote from "../singleNote";
 
-export default async function Category({ params, searchParams }) {
-    console.log(params)
+export default async function Category({ params, searchParams }:
+    {
+        params: { category: string };
+        searchParams?: { [key: string]: string | string[] | undefined };
+    }
+) {
     const category: string = params.category;
     const catInfo = await getCategoryInfo(category);
     const catNotes = await getCategoryNotes(category);
     const postData = catNotes.data[0]
-    console.log(catInfo)
     return (
         <>
         <div className="flex justify-between mb-4 items-end">
