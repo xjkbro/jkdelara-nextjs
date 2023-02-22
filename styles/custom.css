@@ -47,7 +47,7 @@ nav .underline-hover-effect:hover::before {
 
 
 .vertical-timeline:before {
-    background: theme("colors.eighth") !important;
+    /* background: theme("colors.eighth") !important; */
     /* background: white !important; */
 }
 .vertical-timeline-element-title {
