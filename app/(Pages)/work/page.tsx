@@ -1,5 +1,6 @@
 import SingleWork from "./work";
 import {motion} from "framer-motion"
+import Timeline from "./timeline";
 export default async function Work() {
     const works = await getWork();
     // Sort response in decending order by start date
@@ -7,9 +8,10 @@ export default async function Work() {
   return (
     <>
     <div className="">
-        {works.data.map((work, i) => (
+        {/* {works.data.map((work, i) => (
             <SingleWork key={work.id} work={work} i={i}/>
-        ))}
+        ))} */}
+        <Timeline works={works} />
     </div>
     </>
   )
