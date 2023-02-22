@@ -19,7 +19,7 @@ export default function Introduction() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    className="block font-bold text-[1.5rem] bg-eighth hover:bg-seventh rounded-full p-2 w-24 text-center mt-2"
+                    className="block font-bold text-[1.5rem] bg-eighth hover:bg-seventh rounded-full p-2 w-24 text-white text-center mt-2"
                     href="/resume2022b.pdf" download>
                         <FontAwesomeIcon icon={faAngleDoubleDown} className="mr-2" />CV
                 </motion.a>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NoteHeading from "../NoteHeading";
 import NoteNav from "../NoteNav";
 import SingleNote from "../singleNote";
 
@@ -11,17 +12,13 @@ export default async function Category({ params, searchParams }:
     const category: string = params.category;
     const catInfo = await getCategoryInfo(category);
     const catNotes = await getCategoryNotes(category);
+    const categories = await getCategories();
     const postData = catNotes.data[0]
     return (
         <>
-        <div className="flex justify-between mb-4 items-end">
-            <div className="">
-                <h1 className="text-[2rem] font-bold">{catInfo.data[0]?.attributes?.title}</h1>
-                <p className="text-sm">{catInfo.data[0]?.attributes?.description}</p>
-            </div>
-            {/* <div>{catInfo.meta.pagination.total} results found</div> */}
-        </div>
-        <NoteNav categories={catInfo} />
+        
+        <NoteHeading category={catInfo.data[0]}/>
+        <NoteNav categories={categories} results={catInfo.meta.pagination.total} />
         <div className="grid gap-2 md:grid-cols-2 h-j min-h-[20vh]">
         {catNotes.data.map((note, i) => (
             <Link
@@ -45,5 +42,9 @@ async function getCategoryInfo(slug: string) {
     const URL = "https://cms.jsondelara.com/api/categories?filters[slug][$eq]=" + slug +"&populate=*";
     // console.log(URL)
     const res = await fetch(URL, { cache: 'no-store' } )
+    return res.json();
+}
+async function getCategories() {
+    const res = await fetch('https://cms.jsondelara.com/api/categories?populate=*', { cache: 'no-store' })
     return res.json();
 }

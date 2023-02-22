@@ -1,20 +1,14 @@
 import Link from "next/link"
+import NoteHeading from "./NoteHeading";
 import NoteNav from "./NoteNav";
 import SingleNote from "./singleNote";
 export default async function Notes() {
     const notes = await getNotes();
-    const categories = await getCategoryInfo();
-    // console.log(notes.data);
+    const categories = await getCategories();
   return (
     <>
-    <div className="flex justify-between mb-4 items-end">
-        <div className="">
-            <h1 className="text-[2rem] font-bold">Notes</h1>
-            <p className="text-sm">This is a blog about coding, food journeys, and other writings by Jason-Kyle De Lara.</p>
-        </div>
-        {/* <div>{categories.meta.pagination.total} results found</div> */}
-    </div>
-    <NoteNav categories={categories}/>
+    <NoteHeading category={null} />
+    <NoteNav categories={categories} results={notes.meta.pagination.total}/>
     <div className="grid gap-2 md:grid-cols-2 h-j min-h-[20vh]">
         {notes.data.map((note, i) => (
             <Link
@@ -33,7 +27,7 @@ async function getNotes() {
     return res.json();
 }
 
-async function getCategoryInfo() {
+async function getCategories() {
     const res = await fetch('https://cms.jsondelara.com/api/categories?populate=*', { cache: 'no-store' })
     return res.json();
 }
