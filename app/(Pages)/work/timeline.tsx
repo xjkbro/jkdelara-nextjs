@@ -7,23 +7,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Timeline({ works }) {
     return (
-        <VerticalTimeline lineColor={"#ED6C31"}>
-            {works.data.map((work, i) => (
-                <SingleTimeline key={work.id} work={work}/>
-            ))}
-            <VerticalTimelineElement 
-                contentStyle={{ display: 'none'}}
-                iconStyle={{ background: '#ED6C31', color: '#fff' }}
-                icon={<FontAwesomeIcon icon={faChild}/>}
-                visible={false}
-            />
-            <VerticalTimelineElement 
-                contentStyle={{ display: 'none'}}
-                iconStyle={{ background: '#ED6C31', color: '#fff' }}
-                icon={<FontAwesomeIcon icon={faBabyCarriage}/>}
-                visible={false}
-            />
-        </VerticalTimeline>
+        <>
+            <VerticalTimeline lineColor={"#ED6C31"}>
+                {works.data.map((work, i) => (
+                    <SingleTimeline key={work.id} work={work}/>
+                ))}
+                <VerticalTimelineElement 
+                    contentStyle={{ display: 'none'}}
+                    iconStyle={{ background: '#ED6C31', color: '#fff' }}
+                    icon={<FontAwesomeIcon icon={faChild}/>}
+                    visible={false}
+                />
+                <VerticalTimelineElement 
+                    contentStyle={{ display: 'none'}}
+                    iconStyle={{ background: '#ED6C31', color: '#fff' }}
+                    icon={<FontAwesomeIcon icon={faBabyCarriage}/>}
+                    visible={false}
+                />
+            </VerticalTimeline>
+            <div className="mt-12 text-third dark:text-fourth text-center text-sm">Powered by React Vertical Timeline Components</div>
+        </>
     )
 } 
 export function SingleTimeline({work}) {
