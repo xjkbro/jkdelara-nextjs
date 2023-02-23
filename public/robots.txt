@@ -1,3 +1,4 @@
 # Allow all crawlers
 User-agent: *
 Allow: /
+Sitemap: https://jkdelara.com/api/sitemap.xml
