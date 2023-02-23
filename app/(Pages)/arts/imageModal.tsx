@@ -30,28 +30,36 @@ const toBase64 = (str: string) => {
   };
 
   
+  async function fetcher (id) {
+    if(id) {
+        const res = await fetch('https://cms.jsondelara.com/api/photos/'+ id +'?populate[photograph][fields][0]=url');
+        return res.json()
+    }
+    return {error: "error"}
+  }
 
 export default function ImageModal({art, i}) {
     // const [modalImgUrl, setModalImgUrl] = useState(null);
     const regex = /(<([^>]+)>)/ig;
     
     const [shouldFetch, setShouldFetch] = useState(false);
-    const [fetchID, setfetchID] = useState(0);
-    const fetcher = (url) => fetch(url).then(res => res.json())
-    const { data } = useSWR(!shouldFetch && fetchID ? null : `https://cms.jsondelara.com/api/photos/${fetchID}?populate[photograph][fields][0]=url`, fetcher);
-    console.log('====================================');
-    console.log("data", data);
-    console.log('====================================');
+    const [fetchID, setfetchID] = useState(null);
+
+
+    const { data } = useSWR(!shouldFetch && fetchID ? null : fetchID, fetcher);
+    // console.log('====================================');
+    // console.log("data", data);
+    // console.log('====================================');
     function handleClick(e, id) {
-        console.log(id)
+        // console.log(id)
         setfetchID(id)
         setShouldFetch(true);
     }
     useEffect(()=>{
-        console.log('====================================');
-        console.log(fetchID);
-        console.log(shouldFetch);
-        console.log('====================================');
+        // console.log('====================================');
+        // console.log(fetchID);
+        // console.log(shouldFetch);
+        // console.log('====================================');
     },[fetchID,shouldFetch])
 
 
@@ -100,7 +108,7 @@ export default function ImageModal({art, i}) {
                                         </div>
                                     </> : 
                                     <> 
-                                        <Image alt="Loading..." src="/spinner.svg" width={100} height={100} />
+                                        <Image alt="Loading..." src="/spinner.svg" width={50} height={50} />
                                     </>}
                             </motion.div>
                         </motion.div>
