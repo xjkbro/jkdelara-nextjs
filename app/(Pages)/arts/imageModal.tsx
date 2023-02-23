@@ -3,6 +3,7 @@ import EXIF from 'exif-js';
 import { useState, useEffect} from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import useSWR from 'swr';
 const toBase64 = (str: string) => {
     return typeof window === "undefined"
       ? Buffer.from(str).toString("base64")
@@ -31,12 +32,38 @@ const toBase64 = (str: string) => {
   
 
 export default function ImageModal({art, i}) {
-    const [modalImgUrl, setModalImgUrl] = useState(null);
+    // const [modalImgUrl, setModalImgUrl] = useState(null);
     const regex = /(<([^>]+)>)/ig;
-    const showImgModal = (e, imgURL) => {
-        setModalImgUrl(imgURL)
+    
+    const [shouldFetch, setShouldFetch] = useState(false);
+    const [fetchID, setfetchID] = useState(0);
+    const fetcher = (url) => fetch(url).then(res => res.json())
+    const { data } = useSWR(!shouldFetch && fetchID ? null : `https://cms.jsondelara.com/api/photos/${fetchID}?populate[photograph][fields][0]=url`, fetcher);
+    console.log('====================================');
+    console.log("data", data);
+    console.log('====================================');
+    function handleClick(e, id) {
+        console.log(id)
+        setfetchID(id)
+        setShouldFetch(true);
     }
-    useEffect(() => {
+    useEffect(()=>{
+        console.log('====================================');
+        console.log(fetchID);
+        console.log(shouldFetch);
+        console.log('====================================');
+    },[fetchID,shouldFetch])
+
+
+    // const showImgModal = (e, id) => {
+    //     // Add these lines
+    //     const { data, error } = useSWR('https://cms.jsondelara.com/api/photo/'+ id + '?populate[photograph][fields][0]=url', fetcher)
+    //     if (error) return <div>Failed to load</div>
+    //     if (!data) return <div>Loading...</div>
+    //     setModalImgUrl(data.data?.attributes?.photograph?.data?.attributes?.url )
+
+    // }
+    // useEffect(() => {
         // console.log(modalImgUrl)
         // if(modalImgUrl != null){
         //     EXIF.getData(modalImgUrl, function() {
@@ -44,38 +71,42 @@ export default function ImageModal({art, i}) {
         //         console.log(make)
         //     })
         // }
-    }, [modalImgUrl]);
+    // }, [modalImgUrl]);
     
     return (
         <AnimatePresence>
             {
-                (modalImgUrl) ? (
+                (shouldFetch) ? (
                     // <div className="w-full h-full">
                          <motion.div
                             initial={{ opacity: 0 }}
                             animate={{opacity:1}}
                             transition={{duration: 0.3}}
                             className="fixed top-0 left-0 z-10 flex items-center justify-center object-contain w-full h-full bg-black/70"
-                            onClick={()=> setModalImgUrl(null)}
+                            onClick={()=> setShouldFetch(false)}
                             >
                             <motion.div 
                                 initial={{ opacity: 0, translateY: 50 }}
                                 animate={{opacity:1, translateY:0}}
                                 transition={{duration: 0.2, delay: 0.1}}
                                 className=" flex flex-col justify-center items-center w-[90%] md:w-fit"
-                                onClick={()=> setModalImgUrl(null)} 
+                                onClick={()=> setShouldFetch(false)} 
                                 >
-                                <Image src={modalImgUrl} alt={"artbyjkd "+art?.attributes?.summary?.replace(regex,'')} className="!h-[95%]"  width={1000} height={1000} quality={100} placeholder='blur' blurDataURL={createSvgShimmer(748, 497)} />
-                                <div className="h-8">
-                                    {/* EXIF DATA DISPLAY */}
-                                </div>
+                                   {(data) ? 
+                                    <>
+                                        <Image src={data.data?.attributes?.photograph?.data?.attributes?.url} alt={"artbyjkd "+art?.attributes?.summary?.replace(regex,'')} className="!h-[95%]"  width={1000} height={1000} quality={100}  />
+                                        <div className="h-8">
+                                            {/* EXIF DATA DISPLAY */}
+                                        </div>
+                                    </> : 
+                                    <> 
+                                        <Image alt="Loading..." src="/spinner.svg" width={100} height={100} />
+                                    </>}
                             </motion.div>
                         </motion.div>
                     // </div>
                    
-                ) : (
-                    <></>
-                )
+                ) : (<></>)
             }
             <motion.div
                 initial={{ opacity: 0, translateY: 50 }}
@@ -83,7 +114,7 @@ export default function ImageModal({art, i}) {
                 transition={{duration: 0.2, delay: i*0.1}}
                 className="w-full h-full"
                 >
-                <Image src={art?.attributes?.photograph?.data?.attributes?.url} alt={"artbyjkd "+art?.attributes?.summary?.replace(regex,'')} width={300} height={300} className="hover:cursor-pointer" onClick={(e) => showImgModal(e, art?.attributes?.photograph?.data?.attributes?.url )} />
+                <Image src={art?.attributes?.photograph?.data?.attributes?.url} alt={"artbyjkd "+art?.attributes?.summary?.replace(regex,'')} width={300} height={300} className="hover:cursor-pointer" onClick={(e) => handleClick(e, art?.id)} />
             </motion.div>
         </AnimatePresence>
     )
