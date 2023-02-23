@@ -11,7 +11,6 @@ const navLinks = {
         name: 'All Notes',
     }
 };
-
 export default function NoteNav({ categories , results }) {
     categories.data.map((cat)=>{
         navLinks[`/notes/${cat.attributes.slug}`] = { name: `${cat.attributes.title}`}

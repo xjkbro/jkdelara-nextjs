@@ -23,11 +23,11 @@ export default async function Notes() {
 }
 
 async function getNotes() {
-    const res = await fetch('https://cms.jsondelara.com/api/posts?populate=*', { cache: 'no-store' })
+    const res = await fetch('https://cms.jsondelara.com/api/posts?populate=*', {next: {revalidate: 120}})
     return res.json();
 }
 
 async function getCategories() {
-    const res = await fetch('https://cms.jsondelara.com/api/categories?populate=*', { cache: 'no-store' })
+    const res = await fetch('https://cms.jsondelara.com/api/categories?populate=*', {next: {revalidate: 120}})
     return res.json();
 }

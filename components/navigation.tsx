@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faMoon as MoonOn} from "@fortawesome/free-solid-svg-icons";
@@ -16,8 +16,8 @@ const navItems = {
     '/dashboard': {
       name: 'Dashboard',
     },
-    '/work': {
-        name: 'Work',
+    '/story': {
+        name: 'Story',
     },
     '/projects': {
         name: 'Projects',
@@ -118,7 +118,7 @@ function MobileNav({isDark, setIsDark, overlay, setOverlay, pathname}){
                     <ul className="flex flex-col justify-center text-center gap-x-8 md:gap-12">
                         <li className="flex justify-center mb-4 text-xl font-light hover:text-sixth"><a href="/"><Image className="" src="/favicon/android-chrome-192x192.png" width={30} height={30} alt='Logo'/></a></li>
                         <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/dashboard">Dashboard</Link></li>
-                        <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/work">Work</Link></li>
+                        <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/story">Story</Link></li>
                         <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/projects">Projects</Link></li>
                         <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/notes">Notes</Link></li>
                         <li className="text-xl font-light hover:text-sixth" onClick={()=> setOverlay(false)}><Link href="/arts">Arts</Link></li>

@@ -4,12 +4,12 @@ import 'react-vertical-timeline-component/style.min.css';
 import { faBriefcase, faGraduationCap, faBabyCarriage, faChild } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function Timeline({ works }) {
+export default function Timeline({ stories }) {
     return (
         <>
             <VerticalTimeline lineColor={"#ED6C31"}>
-                {works.data.map((work, i) => (
-                    <SingleTimeline key={work.id} work={work}/>
+                {stories.data.map((story, i) => (
+                    <SingleTimeline key={story.id} story={story}/>
                 ))}
                 <VerticalTimelineElement 
                     contentStyle={{ display: 'none'}}
@@ -28,38 +28,38 @@ export default function Timeline({ works }) {
         </>
     )
 } 
-export function SingleTimeline({work}) {
+export function SingleTimeline({story}) {
     const regex = /(<([^>]+)>)/ig;
-    const getDateRange = (work) => {
-        const startDate = new Date(work.attributes.started);
+    const getDateRange = (story) => {
+        const startDate = new Date(story.attributes.started);
         const start = startDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 
         let end: Date | string = "Present";
-        if (work.attributes.ended != null) {
-            end = new Date(work.attributes.ended)
+        if (story.attributes.ended != null) {
+            end = new Date(story.attributes.ended)
             end = end.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
         }
         return "From " + start + " to " + end
 
     }
-    const getIconType = (work) =>{ 
-        if(work.attributes.type == "work")
+    const getIconType = (story) =>{ 
+        if(story.attributes.type == "story")
             return (<FontAwesomeIcon icon={faBriefcase}/>)
         else 
             return (<FontAwesomeIcon icon={faGraduationCap}/>)
     }
     return(
         <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                date={getDateRange(work)}
+                className="vertical-timeline-element--story"
+                date={getDateRange(story)}
                 // contentArrowStyle={{ borderRight: '7px solid #ED6C31' }}
                 iconStyle={{ background: '#ED6C31', color: '#fff' }}
                 dateClassName="dark:text-white text-third md:mx-4 m-0"
-                icon={getIconType(work)}
+                icon={getIconType(story)}
             >
-                <h3 className="vertical-timeline-element-title">{work.attributes.name}</h3>
-                <h4 className="vertical-timeline-element-subtitle">{work.attributes.title}</h4>
-                <p className="!text-sm !font-normal">{work.attributes.summary}</p>
+                <h3 className="vertical-timeline-element-title">{story.attributes.name}</h3>
+                <h4 className="vertical-timeline-element-subtitle">{story.attributes.title}</h4>
+                <p className="!text-sm !font-normal">{story.attributes.summary}</p>
         </VerticalTimelineElement>
     )
 
