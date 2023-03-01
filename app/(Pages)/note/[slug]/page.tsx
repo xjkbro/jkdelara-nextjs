@@ -2,7 +2,7 @@ import useSWR from "swr";
 import { registerView } from "@/pages/api/strapi/viewCounter";
 import Image from "next/image";
 import Link from "next/link";
-import NutritionLabel from "../../../../components/NutritionFacts/NutritionLabel";
+import NutritionLabel from "../../../../components/NutritionLabel/NutritionLabel";
 export default async function Note(
     { params, searchParams }:
         {
@@ -22,36 +22,40 @@ export default async function Note(
                 <h1>{postData.attributes.title}</h1>
                 <div className="flex mb-2">
                     {postData?.attributes?.categories?.data.map((cat) => {
-                        return (<Link className="rounded-full !no-underline bg-eighth py-2 px-4 hover:bg-seventh" key={cat.id} href={"/notes/" + cat.attributes.slug}>{cat.attributes.title}</Link>)
+                        return (<Link className="rounded-full !no-underline bg-eighth py-2 px-4 text-white hover:bg-seventh" key={cat.id} href={"/notes/" + cat.attributes.slug}>{cat.attributes.title}</Link>)
                     })}
                 </div>
                 <div className="flex justify-between mb-2 border-b">
                     <div>Published on {new Date(postData.attributes.publishedAt).toDateString()}</div>
                     <div>{postData.attributes.views} views</div>
                 </div>
-                <div className="" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
+                <div className="" dangerouslySetInnerHTML={{ __html: postData.attributes.body }}/>
+            </div>
+            <div>
+                {postData?.attributes?.categories?.data[0].attributes.slug == 'recipe' &&  postData?.attributes?.custom != null ? 
+                <div className="flex justify-center lg:block lg:fixed lg:right-1/2 lg:top-1/2 lg:translate-y-[-50%] lg:translate-x-[-100%]">
+                    <NutritionLabel
+                        servingSize={postData?.attributes?.custom?.servingSize}
+                        servingsPerContainer={postData?.attributes?.custom?.servingsPerContainer}
+                        calories={postData?.attributes?.custom?.calories}
+                        totalFat={postData?.attributes?.custom?.totalFat}
+                        saturatedFat={postData?.attributes?.custom?.saturatedFat}
+                        transFat={postData?.attributes?.custom?.transFat}
+                        cholesterol={postData?.attributes?.custom?.cholesterol}
+                        sodium={postData?.attributes?.custom?.sodium}
+                        totalCarbs={postData?.attributes?.custom?.totalCarbs}
+                        dietaryFiber={postData?.attributes?.custom?.dietaryFiber}
+                        sugars={postData?.attributes?.custom?.sugars}
+                        protein={postData?.attributes?.custom?.protein}
+                        vitaminA={postData?.attributes?.custom?.vitaminA}
+                        vitaminC={postData?.attributes?.custom?.vitaminC}
+                        calcium={postData?.attributes?.custom?.calcium}
+                        iron={postData?.attributes?.custom?.iron}
+                    />
+                </div> : 
+                <></> }
             </div>
 
-            {postData?.attributes?.categories?.data[0].attributes.slug == 'recipe' ? <>
-                <NutritionLabel
-                    servingSize={'1 cup (228g)'}
-                    servingsPerContainer={2}
-                    calories={260}
-                    totalFat={13}
-                    saturatedFat={5}
-                    transFat={2}
-                    cholesterol={30}
-                    sodium={660}
-                    totalCarbs={31}
-                    dietaryFiber={0}
-                    sugars={5}
-                    protein={5}
-                    vitaminA={4}
-                    vitaminC={2}
-                    calcium={15}
-                    iron={4}
-                />
-            </> : '<></>'}
         </>
     )
 }

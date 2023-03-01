@@ -1,25 +1,6 @@
 import Header from "./Header";
 import Nutrients from "./Nutrients";
 import Vitamins from "./Vitamins";
-
-export const styles = {
-    root: {
-        display: "flex",
-        flexFlow: "column",
-        padding: 3,
-        backgroundColor: "white",
-        border: "1px solid black",
-        boxShadow: "4px 4px 8px 0px rgba(0,0,0,0.25)",
-        fontFamily: "Libre Franklin, sans-serif",
-    },
-    attribute: {
-        fontWeight: 800,
-    },
-    italic: {
-        fontStyle: "italic",
-    },
-};
-
 export default function NutritionLabel(props) {
     const {
         classes,
@@ -49,7 +30,7 @@ export default function NutritionLabel(props) {
             />
 
             <Nutrients calories={calories} caloriesFromFat={totalFat * 9}>
-                <ul className="list-none m-0 p-0">
+                <ul className="p-0 m-0 list-none">
                     <li className="border-t border-t-black">
                         <b className="font-bolder">Total Fat</b> {totalFat}g
                         <ul className="pl-[8px]">
