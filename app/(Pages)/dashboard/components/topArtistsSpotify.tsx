@@ -5,12 +5,14 @@ import useSWR from 'swr';
 import {faSpotify} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { numberWithCommas } from '@/lib/utils';
+import Image from 'next/image';
 
 
 interface artist {
   artist: string,
   followers: number,
-  artistUrl: string
+  artistUrl: string,
+  img: string
 };
 
 type topArtists = {
@@ -35,7 +37,8 @@ export default function TopArtists() {
                 {
                 data.artists.map((artist) => (
                     <div key={artist.artist} className="flex justify-between mb-2">
-                        <a href={artist.artistUrl}>{artist.artist}</a>
+                        
+                        <a href={artist.artistUrl}><Image className="inline pr-2" src={artist.img} width={32} height={32} alt={artist.artist + " Album"} />{artist.artist}</a>
                         <div>{numberWithCommas(artist.followers)}</div>
                     </div>
                   ))
