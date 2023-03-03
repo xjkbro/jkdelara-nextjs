@@ -29,31 +29,31 @@ export default async function Note(
                     <div>Published on {new Date(postData.attributes.publishedAt).toDateString()}</div>
                     <div>{postData.attributes.views} views</div>
                 </div>
-                <div className="" dangerouslySetInnerHTML={{ __html: postData.attributes.body }}/>
+                <div className="" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
             </div>
             <div>
-                {postData?.attributes?.categories?.data[0].attributes.slug == 'recipe' &&  postData?.attributes?.custom != null ? 
-                <div className="flex justify-center lg:block lg:fixed lg:right-1/2 lg:top-1/2 lg:translate-y-[-50%] lg:translate-x-[-100%]">
-                    <NutritionLabel
-                        servingSize={postData?.attributes?.custom?.servingSize}
-                        servingsPerContainer={postData?.attributes?.custom?.servingsPerContainer}
-                        calories={postData?.attributes?.custom?.calories}
-                        totalFat={postData?.attributes?.custom?.totalFat}
-                        saturatedFat={postData?.attributes?.custom?.saturatedFat}
-                        transFat={postData?.attributes?.custom?.transFat}
-                        cholesterol={postData?.attributes?.custom?.cholesterol}
-                        sodium={postData?.attributes?.custom?.sodium}
-                        totalCarbs={postData?.attributes?.custom?.totalCarbs}
-                        dietaryFiber={postData?.attributes?.custom?.dietaryFiber}
-                        sugars={postData?.attributes?.custom?.sugars}
-                        protein={postData?.attributes?.custom?.protein}
-                        vitaminA={postData?.attributes?.custom?.vitaminA}
-                        vitaminC={postData?.attributes?.custom?.vitaminC}
-                        calcium={postData?.attributes?.custom?.calcium}
-                        iron={postData?.attributes?.custom?.iron}
-                    />
-                </div> : 
-                <></> }
+                {postData?.attributes?.categories?.data[0].attributes.slug == 'recipe' && postData?.attributes?.custom != null ?
+                    <div className="flex justify-center lg:block lg:fixed lg:left-1/4 lg:top-1/2 lg:translate-y-[-50%] lg:translate-x-[-100%]">
+                        <NutritionLabel
+                            servingSize={postData?.attributes?.custom?.servingSize}
+                            servingsPerContainer={postData?.attributes?.custom?.servingsPerContainer}
+                            calories={postData?.attributes?.custom?.calories}
+                            totalFat={postData?.attributes?.custom?.totalFat}
+                            saturatedFat={postData?.attributes?.custom?.saturatedFat}
+                            transFat={postData?.attributes?.custom?.transFat}
+                            cholesterol={postData?.attributes?.custom?.cholesterol}
+                            sodium={postData?.attributes?.custom?.sodium}
+                            totalCarbs={postData?.attributes?.custom?.totalCarbs}
+                            dietaryFiber={postData?.attributes?.custom?.dietaryFiber}
+                            sugars={postData?.attributes?.custom?.sugars}
+                            protein={postData?.attributes?.custom?.protein}
+                            vitaminA={postData?.attributes?.custom?.vitaminA}
+                            vitaminC={postData?.attributes?.custom?.vitaminC}
+                            calcium={postData?.attributes?.custom?.calcium}
+                            iron={postData?.attributes?.custom?.iron}
+                        />
+                    </div> :
+                    <></>}
             </div>
 
         </>
