@@ -1,12 +1,12 @@
 "use client"
 import { motion } from "framer-motion"
-export default function NoteHeading({category}){
-    if(category==null)
+export default function NoteHeading({ category }) {
+    if (category == null)
         return (
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, translateX: 50 }}
-                animate={{opacity:1, translateX: 0}}
-                transition={{duration: 0.3}}
+                animate={{ opacity: 1, translateX: 0 }}
+                transition={{ duration: 0.3 }}
                 className="flex items-end justify-between mb-4">
                 <div className="">
                     <h1 className="text-[2rem] font-bold">Notes</h1>
@@ -14,12 +14,12 @@ export default function NoteHeading({category}){
                 </div>
             </motion.div>
         )
-    if(category)
+    if (category)
         return (
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, translateX: 50 }}
-                animate={{opacity:1, translateX: 0}}
-                transition={{duration: 0.3}}
+                animate={{ opacity: 1, translateX: 0 }}
+                transition={{ duration: 0.3 }}
                 className="flex items-end justify-between mb-4">
                 <div className="">
                     <h1 className="text-[2rem] font-bold">{category.attributes?.title}</h1>

@@ -3,12 +3,12 @@ import NoteHeading from "./NoteHeading";
 import NoteNav from "./NoteNav";
 import SingleNote from "./singleNote";
 import Pages from "./pagination";
+import { currentPageSetup } from "@/lib/pagination";
 
-export default async function Notes({ searchParams }) {
-    if (searchParams.page == undefined)
-        searchParams.page = 1;
-    console.log(searchParams)
-    const notes = await getNotes(searchParams.page);
+
+export default async function Notes({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined }; }) {
+    const currentPage = currentPageSetup(searchParams)
+    const notes = await getNotes(currentPage);
     const categories = await getCategories();
     return (
         <>
@@ -23,7 +23,7 @@ export default async function Notes({ searchParams }) {
                     </Link>
                 ))}
             </div>
-            <Pages meta={notes.meta} page={searchParams?.page} />
+            <Pages meta={notes.meta} page={currentPage} />
         </>
     )
 }

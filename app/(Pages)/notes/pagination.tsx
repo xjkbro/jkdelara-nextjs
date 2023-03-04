@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Fragment } from 'react';
 import { usePathname } from 'next/navigation'
+
 export default function Pages({ meta, page }) {
     const path = usePathname()
     let pages: any[] = [];
@@ -18,3 +19,4 @@ export default function Pages({ meta, page }) {
         </div>
     )
 }
+
