@@ -3,6 +3,15 @@ import { registerView } from "@/pages/api/strapi/viewCounter";
 import Image from "next/image";
 import Link from "next/link";
 import NutritionLabel from "../../../../components/NutritionLabel/NutritionLabel";
+import type { Metadata } from 'next'
+
+export async function generateMetadata({ params }: { params: { slug: string }; }): Promise<Metadata> {
+    const note = await getNoteMetaData(params?.slug);
+    return {
+        title: note?.data[0]?.attributes?.title + " | Jason Kyle De Lara", description: note?.data[0]?.attributes?.summary
+    };
+}
+
 export default async function Note(
     { params, searchParams }:
         {
@@ -65,5 +74,10 @@ async function getNote(slug: string) {
     // console.log(URL)
     const res = await fetch(URL, { cache: 'no-store' })
     // const res = await fetch(URL,{ next: { revalidate: 60 } })
+    return res.json();
+}
+async function getNoteMetaData(slug: string) {
+    const URL = "https://cms.jsondelara.com/api/posts?filters[slug][$eq]=" + slug + "&fields[0]=title&fields[1]=summary";
+    const res = await fetch(URL, { cache: 'no-store' })
     return res.json();
 }

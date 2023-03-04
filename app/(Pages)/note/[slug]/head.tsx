@@ -1,15 +1,15 @@
-import {makeTitle} from "../../../../lib/utils"
-export default async function Head({params}) {
-    const slug: string = params.slug;
-    const note = await getNote(slug);
+// import {makeTitle} from "../../../../lib/utils"
+export default async function Head({ params }) {
+  // const slug: string = params.slug;
+  // const note = await getNote(slug);
   return (
     <>
-      <title>{note?.data[0]?.attributes?.title + " | Jason Kyle De Lara"}</title>
+      {/* <title>{note?.data[0]?.attributes?.title + " | Jason Kyle De Lara"}</title> */}
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta
+      {/* <meta
         name="description"
         content="Jason-Kyle De Lara, A Full-Stack Developer based in Las Vegas, NV. I help transform businesses ideas into tangible full scale application. "
-      />
+      /> */}
       <meta
         name="keywords"
         content="HTML,CSS,JavaScript,ES6,TailwindCSS,Bootstrap,React,ReactJS,Redux,Context API,Typescript,Next,NextJS,Vercel,Netlify,Firebase,Google Firebase,Sanity,SanityIO,GROQ,Deployment,Angular,Heroku,git,github,nodejs,express,expressjs,npm,yarn,php,C++,c#,mongodb,nosql,sql,mysql,api,business,apps,application,projects,ios,mobile,landing pages,website"
@@ -27,8 +27,8 @@ export default async function Head({params}) {
   )
 }
 
-async function getNote(slug) {
-    const URL = "https://cms.jsondelara.com/api/posts?filters[slug][$eq]=" + slug +"&fields[0]=title";
-    const res = await fetch(URL, { cache: 'no-store' } )
-    return res.json();
-  }
+// async function getNote(slug) {
+//     const URL = "https://cms.jsondelara.com/api/posts?filters[slug][$eq]=" + slug +"&fields[0]=title";
+//     const res = await fetch(URL, { cache: 'no-store' } )
+//     return res.json();
+//   }

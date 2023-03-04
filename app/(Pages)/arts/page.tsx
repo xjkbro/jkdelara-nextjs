@@ -4,6 +4,9 @@ import ImageModal from "./imageModal"
 import "../../../public/spinner.svg"
 import { Suspense } from 'react';
 
+export const metadata = {
+    title: "Arts | Jason Kyle De Lara"
+}
 export default async function Art() {
     const arts = await getArt();
     const regex = /(<([^>]+)>)/ig;

@@ -1,5 +1,14 @@
 import useSWR from "swr";
 import Image from "next/image";
+
+import type { Metadata } from 'next'
+
+export async function generateMetadata({ params }: { params: { slug: string }; }): Promise<Metadata> {
+    const note = await getProjectMetaData(params?.slug);
+    return {
+        title: note?.data[0]?.attributes?.name + " | Jason Kyle De Lara", description: note?.data[0]?.attributes?.title
+    };
+}
 export default async function Note(
     { params, searchParams }:
         {
@@ -12,17 +21,17 @@ export default async function Note(
     const project = res.data[0]
     return (
         <div id="feature-image" className="mx-auto prose dark:prose-invert">
-            <Image src={project?.attributes?.image?.data?.attributes?.url} width={1000} height={1000} alt={project.attributes.title}/>
+            <Image src={project?.attributes?.image?.data?.attributes?.url} width={1000} height={1000} alt={project.attributes.title} />
             <h1 className="">{project.attributes.title}</h1>
             <div className="flex flex-wrap gap-1">
-                {project.attributes.technologies.data.map((tech)=>(
+                {project.attributes.technologies.data.map((tech) => (
                     <span className="px-4 py-2 mr-1 text-sm font-semibold text-white rounded-full whitespace-nowrap dark:text-white bg-seventh" key={tech.id}>{tech.attributes.name}</span>
-                    )
+                )
                 )}
             </div>
             <div className="" dangerouslySetInnerHTML={{ __html: project.attributes.description }} />
             <h3>Links</h3>
-            {project.attributes.links.map((source)=>(<a className="mr-4" key={source.id} href={source.link}>{source.name}</a>))}
+            {project.attributes.links.map((source) => (<a className="mr-4" key={source.id} href={source.link}>{source.name}</a>))}
         </div>
     )
 }
@@ -30,7 +39,12 @@ export default async function Note(
 async function getProject(slug: string) {
     const URL = "https://cms.jsondelara.com/api/projects?filters[slug][$eq]=" + slug + "&fields[0]=name&fields[1]=description&fields[3]=title&fields[3]=slug&populate[links]=*&populate[technologies][fields][0]=name&populate[image][fields][0]=url";
     // const res = await fetch(URL, { next: { revalidate: 60 } })
-    const res = await fetch(URL, {cache: 'no-store'})
+    const res = await fetch(URL, { cache: 'no-store' })
 
+    return res.json();
+}
+async function getProjectMetaData(slug: string) {
+    const URL = "https://cms.jsondelara.com/api/projects?filters[slug][$eq]=" + slug + "&fields[0]=name&fields[1]=description&fields[3]=title";
+    const res = await fetch(URL, { cache: 'no-store' })
     return res.json();
 }

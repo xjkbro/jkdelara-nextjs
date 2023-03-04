@@ -1,14 +1,14 @@
-import {makeTitle} from "../../../../lib/utils"
-export default function Head({params}) {
-    const slug: string = params.slug;
+// import {makeTitle} from "../../../../lib/utils"
+export default function Head({ params }) {
+  // const slug: string = params.slug;
   return (
     <>
-      <title>{makeTitle(slug) + " | Jason Kyle De Lara"}</title>
+      {/* <title>{makeTitle(slug) + " | Jason Kyle De Lara"}</title> */}
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta
+      {/* <meta
         name="description"
         content="Jason-Kyle De Lara, A Full-Stack Developer based in Las Vegas, NV. I help transform businesses ideas into tangible full scale application. "
-      />
+      /> */}
       <meta
         name="keywords"
         content="HTML,CSS,JavaScript,ES6,TailwindCSS,Bootstrap,React,ReactJS,Redux,Context API,Typescript,Next,NextJS,Vercel,Netlify,Firebase,Google Firebase,Sanity,SanityIO,GROQ,Deployment,Angular,Heroku,git,github,nodejs,express,expressjs,npm,yarn,php,C++,c#,mongodb,nosql,sql,mysql,api,business,apps,application,projects,ios,mobile,landing pages,website"
