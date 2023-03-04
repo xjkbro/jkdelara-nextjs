@@ -65,3 +65,10 @@ a.underline-hover-effect {
 .vertical-timeline-element-title, .vertical-timeline-element-subtitle, .vertical-timeline-element-content > p{
     color: white
 }
+
+
+.dangerousHTML iframe {
+    width: 100%;
+    height: 30vh;
+
+}

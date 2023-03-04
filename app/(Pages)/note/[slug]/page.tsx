@@ -29,7 +29,7 @@ export default async function Note(
                     <div>Published on {new Date(postData.attributes.publishedAt).toDateString()}</div>
                     <div>{postData.attributes.views} views</div>
                 </div>
-                <div className="" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
+                <div className="dangerousHTML" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
             </div>
             <div>
                 {postData?.attributes?.categories?.data[0].attributes.slug == 'recipe' && postData?.attributes?.custom != null ?
