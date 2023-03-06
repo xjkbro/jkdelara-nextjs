@@ -38,7 +38,7 @@ function AnimatedBorder({ children }) {
 
 
 const getQuote = async () => {
-    const res = await fetch("http://localhost:3000/api/quotes");
+    const res = await fetch(process.env.HOST+"/api/quotes");
     const data = await res.json();
     return data
 }
