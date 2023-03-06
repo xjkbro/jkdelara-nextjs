@@ -8,14 +8,14 @@ import Introduction from '../components/introduction'
 
 export default async function Home() {
     // const router = useRouter();
-    // const data = await getQuote();
-    // const {quote, quotee} = data;
+    const data = await getQuote();
+    const {quote, quotee} = data;
 
     return (
         <>
             <div className="">
                 <Introduction />
-                {/* <DisplayQuote quote={quote} quotee={quotee} /> */}
+                <DisplayQuote quote={quote} quotee={quotee} />
                 {/* <a className="" href="/notes">Notes</a>
                 <h2 className="text-3xl font-bold underline"> Hello World!</h2> */}
                 <TextToScreen />
@@ -38,8 +38,8 @@ function AnimatedBorder({ children }) {
 }
 
 
-// const getQuote = async () => {
-//     const res = await fetch(process.env.HOST+"/api/quotes");
-//     const data = await res.json();
-//     return data
-// }
+const getQuote = async () => {
+    const res = await fetch("http://jkdelara.com/api/quotes");
+    const data = await res.json();
+    return data
+}
