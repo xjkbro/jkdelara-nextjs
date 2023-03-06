@@ -1,33 +1,23 @@
-"use client"
+// "use client"
+import DisplayQuote from '@/components/DisplayQuote';
+import TextToScreen from '@/components/TextToScreen';
 import Introduction from '../components/introduction'
-import Typewriter from 'typewriter-effect';
-import { IBM_Plex_Mono } from '@next/font/google';
 
-const typewriter = IBM_Plex_Mono({ weight: ['500'], subsets: ['latin'] })
+// import Quote from '@/components/quote';
 
-export default function Home() {
+
+export default async function Home() {
     // const router = useRouter();
+    const {quote, quotee} = await getQuote();
 
     return (
         <>
-            <div className="h-fit md:h-screen">
+            <div className="">
                 <Introduction />
+                <DisplayQuote quote={quote} quotee={quotee} />
                 {/* <a className="" href="/notes">Notes</a>
                 <h2 className="text-3xl font-bold underline"> Hello World!</h2> */}
-                <div className={"w-full p-2 mx-auto text-justify md:w-full md:mb-96 " + typewriter.className}>
-                    {/* <AnimatedBorder> */}
-                    <Typewriter
-                        onInit={(typewriter) => {
-                            typewriter.typeString("Hello, I'm Jason and I like to create things. ")
-                                .pauseFor(500).
-                                typeString('With the help of VS Code, Chrome, and a scoop of preworkout, I help transform businesses ideas into tangible full scale application. ')
-                                .pauseFor(500)
-                                .typeString("Let's build something together! =)")
-                                .start();
-                        }}
-                    />
-                    {/* </AnimatedBorder> */}
-                </div>
+                <TextToScreen />
 
             </div>
 
@@ -44,4 +34,11 @@ function AnimatedBorder({ children }) {
             </div>
         </div>
     )
+}
+
+
+const getQuote = async () => {
+    const res = await fetch("http://localhost:3000/api/quotes");
+    const data = await res.json();
+    return data
 }
