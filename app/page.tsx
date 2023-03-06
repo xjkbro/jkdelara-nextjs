@@ -14,10 +14,10 @@ export default async function Home() {
         <>
             <div className="">
                 <Introduction />
-                <DisplayQuote quote={quote} quotee={quotee} />
+                {/* <DisplayQuote quote={quote} quotee={quotee} /> */}
                 {/* <a className="" href="/notes">Notes</a>
                 <h2 className="text-3xl font-bold underline"> Hello World!</h2> */}
-                <TextToScreen />
+                {/* <TextToScreen /> */}
 
             </div>
 
