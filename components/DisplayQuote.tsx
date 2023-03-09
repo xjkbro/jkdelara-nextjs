@@ -6,7 +6,7 @@ const QuoteFont = Catamaran({ weight: ['500', '700', '900'], subsets: ['latin'] 
 const lQuoteVariants: Variants = {
     offscreen: {
       x: -50,
-      opacity:0.5
+      opacity:0
     },
     onscreen: {
       x: 0,
@@ -19,7 +19,7 @@ const lQuoteVariants: Variants = {
 const rQuoteVariants: Variants = {
     offscreen: {
       x: 50,
-      opacity:0.5
+      opacity:0
     },
     onscreen: {
       x: 0,
@@ -32,7 +32,7 @@ const rQuoteVariants: Variants = {
 const quoteVariants: Variants = {
     offscreen: {
       y: 100,
-      opacity:0.5
+      opacity:0
     },
     onscreen: {
       y: 0,
