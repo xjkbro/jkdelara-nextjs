@@ -48,7 +48,7 @@ export default function DisplayQuote({quote, quotee}) {
     <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: false, amount: 0.8 }}
+        viewport={{ once: true, amount: 0.8 }}
                 className="flex items-center justify-center py-16 h-fit">
         <div className={"grid grid-cols-3 md:grid-cols-[200px_minmax(900px,_1fr)_100px] mx-auto text-center align-middle " + QuoteFont.className}>
             <motion.div variants={lQuoteVariants} className="text-[5rem] md:text-[10rem] h-16 md:h-32 text-eighth font-black">&ldquo;</motion.div>

@@ -3,20 +3,18 @@ import DisplayQuote from '@/components/DisplayQuote';
 import TextToScreen from '@/components/TextToScreen';
 import Introduction from '@/components/introduction'
 
-// import Quote from '@/components/quote';
-// import {meta} from '@/constants/meta';
+import {meta} from '@/constants/meta';
+export const metadata = {...meta, title:"Home"}
 
 export default async function Home() {
     const data = await getQuote();
     const {quote, quotee} = data;
     return (
-        <>
-            <div className="">
-                <Introduction />
-                <DisplayQuote quote={quote} quotee={quotee} />
-                <TextToScreen />
-            </div>
-        </>
+        <div className="">
+            <Introduction />
+            <DisplayQuote quote={quote} quotee={quotee} />
+            <TextToScreen />
+        </div>
     )
 }
 
