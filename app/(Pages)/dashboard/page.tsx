@@ -6,6 +6,7 @@ import {faSpotify} from "@fortawesome/free-brands-svg-icons";
 import {faUnsplash} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+export const metadata = { title: "Dashboard" }
 
 export default async function Dashboard() {
   return (

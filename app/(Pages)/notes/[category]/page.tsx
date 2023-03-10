@@ -5,6 +5,12 @@ import SingleNote from "../singleNote";
 import Pages from '../pagination'
 import { currentPageSetup } from "@/lib/pagination";
 
+export async function generateMetadata({ params, searchParams }) {
+    const category: string = params.category;
+    const catInfo = await getCategoryInfo(category);
+    return { title: catInfo.data[0].attributes.title }
+  }
+
 export default async function Category({ params, searchParams }:
     {
         params: { category: string };
@@ -39,13 +45,13 @@ export default async function Category({ params, searchParams }:
 
 async function getCategoryNotes(slug: string, page: string | number) {
     const URL = "https://cms.jsondelara.com/api/posts?filters[categories][slug][$eq]=" + slug + "&populate=*&sort=publishedAt&pagination[pageSize]=10&pagination[page]=" + page;
-    console.log(URL)
+    // console.log(URL)
     const res = await fetch(URL, { cache: 'no-store' })
     return res.json();
 }
 async function getCategoryInfo(slug: string) {
     const URL = "https://cms.jsondelara.com/api/categories?filters[slug][$eq]=" + slug + "&populate=*";
-    console.log(URL)
+    // console.log(URL)
     const res = await fetch(URL, { cache: 'no-store' })
     return res.json();
 }

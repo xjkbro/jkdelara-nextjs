@@ -1,19 +1,9 @@
-"use client"
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import Contact from "../../../components/contact"
+import ClientWrapper from "./ClientWrapper"
 
-export default function Art() {
+export const metadata = { title: "Contact" }
+
+export default function Contact() {
     return (
-    <motion.div
-    initial={{ height: "0vh", translateX: 100, opacity: 0 }}
-    animate={{height: "75vh", translateX: 0, opacity: 1}}
-    transition={{duration: 0.3}}
-    exit={{height: "0vh"}}
-    className="overflow-hidden"
-    >
-        <Contact/>
-    </motion.div>
-    
+        <ClientWrapper/>
   )
 }

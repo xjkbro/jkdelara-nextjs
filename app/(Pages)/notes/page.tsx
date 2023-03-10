@@ -5,6 +5,7 @@ import SingleNote from "./singleNote";
 import Pages from "./pagination";
 import { currentPageSetup } from "@/lib/pagination";
 
+export const metadata = { title: "Notes" }
 
 export default async function Notes({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined }; }) {
     const currentPage = currentPageSetup(searchParams)

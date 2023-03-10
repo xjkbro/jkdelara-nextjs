@@ -13,14 +13,12 @@ export default function SingleStory({ story , i }) {
             end = end.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
         }
         return "From " + start + " to " + end
-
     }
     
     const item = {
         hidden: { opacity: 0 },
         show: { opacity: 1 }
     }
-
     return (
         <motion.div 
             initial={{

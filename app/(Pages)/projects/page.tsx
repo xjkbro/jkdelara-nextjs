@@ -1,11 +1,14 @@
 import SingleProject from "./project";
+
+export const metadata = { title: "Projects" }
+
 export default async function Projects() {
     const projects = await getProjects();
     // Sort response in decending order by start date
     projects.data.sort((project1, project2)=>(project1.attributes.started < project2.attributes.started) ? 1 : (project1.attributes.started > project2.attributes.started) ? -1 : 0);
     return (
         <>
-            <div id="project-system" className="grid gap-4 grid-cols-1 lg:grid-cols-3">
+            <div id="project-system" className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                 {projects.data.map((project,i) => (
                     <SingleProject key={project.id} project={project}  option={3} i={i}/>
                 ))}

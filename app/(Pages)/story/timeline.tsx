@@ -1,8 +1,8 @@
 "use client";
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
 import { faBriefcase, faGraduationCap, faBabyCarriage, faChild } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import 'react-vertical-timeline-component/style.min.css';
 
 export default function Timeline({ stories }) {
     return (
@@ -24,7 +24,7 @@ export default function Timeline({ stories }) {
                     visible={false}
                 />
             </VerticalTimeline>
-            <div className="mt-12 text-third dark:text-fourth text-center text-sm">Powered by React Vertical Timeline Components</div>
+            <div className="mt-12 text-sm text-center text-third dark:text-fourth">Powered by React Vertical Timeline Components</div>
         </>
     )
 } 
