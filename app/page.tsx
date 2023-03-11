@@ -1,21 +1,24 @@
 // "use client"
-import DisplayQuote from '@/components/DisplayQuote';
-import TextToScreen from '@/components/TextToScreen';
-import Introduction from '@/components/introduction'
+import DisplayQuote from "@/components/DisplayQuote";
+import TextToScreen from "@/components/TextToScreen";
+import Introduction from "@/components/introduction";
 
-import {meta} from '@/constants/meta';
-export const metadata = {...meta, title:"Home"}
+import { meta } from "@/constants/meta";
+export const metadata = { ...meta, title: "Home" };
 
 export default async function Home() {
     const data = await getQuote();
-    const {quote, quotee} = data;
+    const { quote, quotee } = data;
     return (
         <div className="">
             <Introduction />
             <DisplayQuote quote={quote} quotee={quotee} />
+            {/* <div className="bg-red-500 -ml-[5%] -mr-[5%] md:-ml-[100%] md:-mr-[100%] overflow-hidden h-12">
+                lkjalsd
+            </div> */}
             <TextToScreen />
         </div>
-    )
+    );
 }
 
 function AnimatedBorder({ children }) {
@@ -25,10 +28,10 @@ function AnimatedBorder({ children }) {
                 {children}
             </div>
         </div>
-    )
+    );
 }
 const getQuote = async () => {
     const res = await fetch("http://jkdelara.com/api/quotes");
     const data = await res.json();
-    return data
-}
+    return data;
+};
