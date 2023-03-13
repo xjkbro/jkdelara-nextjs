@@ -18,8 +18,8 @@ export default async function Home() {
                 lkjalsd
             </div> */}
 
-            <Terminal />
-            {/* <TextToScreen /> */}
+            {/* <Terminal /> */}
+            <TextToScreen />
         </div>
     );
 }

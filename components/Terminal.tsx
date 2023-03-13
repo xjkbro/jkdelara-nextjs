@@ -30,7 +30,7 @@ export const commandLibrary = [
     },
     {
         name: "ls",
-        output: "<div class='flex gap-x-8 gap-y-2 flex-wrap'><span>dashboard</span><span>story</span><span>projects</span><span>notes</span><span>art</span><span>contact</span></div>",
+        output: "<div class='flex gap-x-8 gap-y-2 flex-wrap'><span>home</span><span>dashboard</span><span>story</span><span>projects</span><span>notes</span><span>art</span><span>contact</span></div>",
     },
     {
         name: "pwd",
@@ -72,7 +72,7 @@ export default function Terminal() {
         <>
             <div
                 id="terminal"
-                className="w-full h-64 mb-8 bg-black border border-gray-300 rounded-md shadow-md"
+                className="w-full h-64 mb-4 bg-black border border-gray-300 rounded-md shadow-md"
                 onClick={() => {
                     input.current ? input.current.focus() : "";
                 }}
@@ -102,7 +102,7 @@ export default function Terminal() {
                     ))}
                 </div>
             </div>
-            <p className="mb-2 text-sm">Feel free to use this command window to get any quick information. Use &apos; help &apos; to see the available commands.</p>
+            <p className="mb-4 text-sm">Feel free to use this command window to get any quick information. Use &apos; help &apos; to see the available commands.</p>
 
         </>
     );
@@ -143,7 +143,10 @@ export function CommandLine({ refToInput, cmdCount, setCmdCount,terminalContaine
                 else {
                     if(avail_routes.includes(arr[1])){
                         setOutput("Changing directory...");
-                        window.location.href = "/"+arr[1];
+                        if(arr[1] == 'home')
+                            window.location.href = "/";
+                        else
+                            window.location.href = "/"+arr[1];
                     }
                     else
                         setOutput("Folder not available...");

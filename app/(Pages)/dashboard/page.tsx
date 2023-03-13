@@ -5,6 +5,7 @@ import UnsplashStatistics from "./components/unsplash";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { faUnsplash } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Terminal from "@/components/Terminal";
 
 export const metadata = { title: "Dashboard" };
 
@@ -16,7 +17,7 @@ export default async function Dashboard() {
                 <h1 className="font-bold text-[2rem]">Dashboard</h1>
                 {/* <div className="text-sm">Featuring another passion of mine, Photography. While I still am fairly new and don&apos;t have the best equipment, you can <Link href="/contact" className="hover:underline text-eighth">contact</Link> me for any small inquiries.</div> */}
             </div>
-            <div className="grid gap-2 md:grid-cols-2">
+            <div className="grid gap-2 mb-2 md:grid-cols-2">
                 <AnimatedBorder
                     title={"Jason's Spotify Statistics"}
                     icon={faSpotify}
@@ -37,6 +38,8 @@ export default async function Dashboard() {
                     <UnsplashStatistics />
                 </AnimatedBorder>
             </div>
+            <Terminal />
+
         </>
     );
 }
