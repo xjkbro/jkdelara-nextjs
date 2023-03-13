@@ -8,40 +8,40 @@ const QuoteFont = Catamaran({
 
 const lQuoteVariants: Variants = {
     offscreen: {
-        x: -50,
+        x: -25,
         opacity: 0,
     },
     onscreen: {
         x: 0,
         opacity: 1,
         transition: {
-            duration: 0.5,
+            duration: 0.4,
         },
     },
 };
 const rQuoteVariants: Variants = {
     offscreen: {
-        x: 50,
+        x: 25,
         opacity: 0,
     },
     onscreen: {
         x: 0,
         opacity: 1,
         transition: {
-            duration: 0.5,
+            duration: 0.4,
         },
     },
 };
 const quoteVariants: Variants = {
     offscreen: {
-        y: 100,
+        y: -25,
         opacity: 0,
     },
     onscreen: {
         y: 0,
         opacity: 1,
         transition: {
-            duration: 0.4,
+            duration: 0.3,
         },
     },
 };
@@ -52,7 +52,7 @@ export default function DisplayQuote({ quote, quotee }) {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
-            className="flex items-center justify-center py-16 h-fit overflow-hidden md:overflow-visible"
+            className="flex items-center justify-center py-16 overflow-hidden h-fit md:overflow-visible"
         >
             <div
                 className={
@@ -83,7 +83,7 @@ export default function DisplayQuote({ quote, quotee }) {
                 <div className="col-span-2"></div>
                 <motion.div
                     variants={rQuoteVariants}
-                    className="text-[5rem] md:text-[10rem] h-32 md:h-64 text-eighth font-black"
+                    className="text-[5rem] md:text-[10rem] h-16 md:h-32 text-eighth font-black"
                 >
                     &rdquo;
                 </motion.div>

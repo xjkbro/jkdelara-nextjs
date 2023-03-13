@@ -5,6 +5,8 @@ import Introduction from "@/components/introduction";
 
 import { meta } from "@/constants/meta";
 import Terminal from "@/components/Terminal";
+import IntroBlock from "@/components/IntroBlock";
+import AboutBlock from "@/components/AboutBlock";
 export const metadata = { ...meta, title: "Home" };
 
 export default async function Home() {
@@ -12,14 +14,17 @@ export default async function Home() {
     const { quote, quotee } = data;
     return (
         <div className="">
-            <Introduction />
+            <IntroBlock />
+            <AboutBlock />
             <DisplayQuote quote={quote} quotee={quotee} />
             {/* <div className="bg-red-500 -ml-[5%] -mr-[5%] md:-ml-[100%] md:-mr-[100%] overflow-hidden h-12">
                 lkjalsd
             </div> */}
 
             {/* <Terminal /> */}
-            <TextToScreen />
+            <div className="z-[5] flex flex-col items-center mx-auto md:justify-between py-12 px-8 lg:flex-row bg-sixth dark:bg-second -ml-[5%] -mr-[5%] md:-ml-[25%] md:-mr-[25%]">
+                <TextToScreen />
+            </div>
         </div>
     );
 }

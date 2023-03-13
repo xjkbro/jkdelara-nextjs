@@ -14,7 +14,7 @@ export default function TextToScreen({ text }) {
     return (
         <div
             className={
-                "w-full p-2 mx-auto text-justify md:w-full md:mb-96 " +
+                "w-full p-2 mx-auto text-justify md:w-2/3 " +
                 typewriter.className
             }
         >

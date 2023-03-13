@@ -73,12 +73,12 @@ export default function Navigation({ isDark, setIsDark, overlay, setOverlay }) {
 
 function DesktopNav({ isDark, setIsDark, pathname }) {
     return (
-        <nav className="flex-row items-center justify-between hidden my-8 md:flex">
-            <ul className="flex flex-row overflow-scroll md:overflow-auto gap-x-8 md:gap-12">
+        <nav className="flex-row items-center justify-between hidden my-8 lg:flex">
+            <ul className="flex flex-row gap-x-8 md:gap-12">
                 <motion.li
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 0.7 }}
+                    initial={{ width: "100%", translateX: -15, opacity: 0 }}
+                    animate={{ width: "100%", translateX: 0, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
                     className="text-xl font-light hover:text-sixth"
                 >
                     <Link href="/">
@@ -129,11 +129,11 @@ function DesktopNav({ isDark, setIsDark, pathname }) {
 function MobileNav({ isDark, setIsDark, overlay, setOverlay, pathname }) {
     return (
         <>
-            <nav className="flex justify-between my-8 md:hidden">
+            <nav className="flex justify-between my-8 lg:hidden">
                 <motion.a
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 1.5 }}
+                    initial={{ width: "0%", translateX: -15, opacity: 0 }}
+                    animate={{ width: "100%", translateX: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
                     href="/"
                 >
                     <Image
