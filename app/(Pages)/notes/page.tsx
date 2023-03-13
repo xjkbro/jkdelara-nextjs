@@ -14,7 +14,7 @@ export default async function Notes({ searchParams }: { searchParams?: { [key: s
     return (
         <>
             <NoteHeading category={null} />
-            <NoteNav categories={categories} results={notes.meta.pagination.total} />
+            <NoteNav categories={categories} results={notes?.meta.pagination.total} />
             <div className="grid gap-2 md:grid-cols-2 h-j min-h-[20vh]">
                 {notes.data.map((note, i) => (
                     <Link
