@@ -7,11 +7,22 @@ const consoleText = IBM_Plex_Mono({
 });
 import { socials } from "@/constants/socials";
 
-export const commandList = ["about", "ls"];
 export const commandLibrary = [
     {
         name: "help",
-        output: "Available commands are: help, about, ls, pwd, onlyfans, socials, cv, resume",
+        output: `
+        <span>Available commands are: help, about, ls, pwd, onlyfans, socials, cv, resume, clear</span>
+        <div class="grid grid-cols-[150px_minmax(0,_1fr)] gap-y-2">
+            <span class="w-24">ls</span><span>Show files/folders in current directory</span>
+            <span class="w-24">cd</span><span>Changes directory</span>
+            <span class="w-24">pwd</span><span>Path of working directory</span>
+            <span class="w-24">clear</span><span>Clears the command window</span>
+            <span class="w-24">about</span><span>A quick summary of Jason-Kyle De Lara</span>
+            <span class="w-24">socials</span><span>Links to all my socials</span>
+            <span class="w-24">cv</span><span>Link to CV</span>
+            <span class="w-24">resume</span><span>Link to Resume</span>
+            <span class="w-24">onlyfans</span><span>Link to onlyfans</span>
+        </ul>`,
     },
     {
         name: "about",
@@ -19,15 +30,15 @@ export const commandLibrary = [
     },
     {
         name: "ls",
-        output: "Nothing in directory",
+        output: "<div class='flex gap-x-8 gap-y-2 flex-wrap'><span>dashboard</span><span>story</span><span>projects</span><span>notes</span><span>art</span><span>contact</span></div>",
     },
     {
         name: "pwd",
-        output: "<a class='text-sixth hover:underline' href='https://jkdelara.com'>https://jkdelara.com</a>",
+        output: "<a class='text-eighth hover:underline' href='https://jkdelara.com'>https://jkdelara.com</a>",
     },
     {
         name: "onlyfans",
-        output: "HAHA YOU THOUGHT!",
+        output: "HAHAHA YOU THOUGHT!",
     },
     {
         name: "socials",
@@ -37,12 +48,16 @@ export const commandLibrary = [
     },
     {
         name: "cv",
-        output: "<a class='text-sixth hover:underline' href='https://jkdelara.com/resume2022b.pdf'>Jason-Kyle De Lara's CV</a>",
+        output: "<a class='text-eighth hover:underline' href='https://jkdelara.com/resume2022b.pdf'>Jason-Kyle De Lara's CV</a>",
     },
     {
         name: "resume",
-        output: "<a class='text-sixth hover:underline' href='https://jkdelara.com/resume2022b.pdf'>Jason-Kyle De Lara's Resume</a>",
+        output: "<a class='text-eighth hover:underline' href='https://jkdelara.com/resume2022b.pdf'>Jason-Kyle De Lara's Resume</a>",
     },
+    {
+        name: "cd",
+        output: "Changing directory..."
+    }
 ];
 
 export default function Terminal() {
@@ -56,15 +71,16 @@ export default function Terminal() {
     return (
         <>
             <div
-                className="h-64 w-full rounded-md border bg-black border-gray-300 mb-8 shadow-md"
+                id="terminal"
+                className="w-full h-64 mb-8 bg-black border border-gray-300 rounded-md shadow-md"
                 onClick={() => {
                     input.current ? input.current.focus() : "";
                 }}
             >
-                <div className="bg-gradient-to-tr from-gray-300 to-gray-400 rounded-t-sm h-fit p-1 w-full flex gap-2">
-                    <span className="h-4 w-4 rounded-full bg-red-500"></span>
-                    <span className="h-4 w-4 rounded-full bg-yellow-500"></span>
-                    <span className="h-4 w-4 rounded-full bg-green-500"></span>
+                <div className="flex w-full gap-2 p-1 rounded-t-sm bg-gradient-to-tr from-gray-300 to-gray-400 h-fit">
+                    <span className="w-4 h-4 bg-red-500 rounded-full"></span>
+                    <span className="w-4 h-4 bg-yellow-300 rounded-full"></span>
+                    <span className="w-4 h-4 bg-green-500 rounded-full"></span>
                 </div>
                 <div
                     className={
@@ -113,8 +129,25 @@ export function CommandLine({ refToInput, cmdCount, setCmdCount,terminalContaine
                     terminalContainer.current.removeChild(terminalContainer.current.lastChild);
                 }
             } 
+
+            
             if(!found && e.target.value != "") {
                 setOutput(`Invalid Command: ${e.target.value }`)
+            }
+            if(e.target.value.split(" ")[0] == "cd") {
+                const arr = e.target.value.split(" ")
+                const avail_routes=['dashboard', 'story', 'projects', 'notes', 'arts', 'contact']
+                console.log(arr)
+                if(arr.length < 2) 
+                    setOutput("A second argument is required...");
+                else {
+                    if(avail_routes.includes(arr[1])){
+                        setOutput("Changing directory...");
+                        window.location.href = "/"+arr[1];
+                    }
+                    else
+                        setOutput("Folder not available...");
+                }
             }
             setCmdCount(cmdCount + 1);
             setLastCmd([...lastCmd, e.target.value])
@@ -138,11 +171,11 @@ export function CommandLine({ refToInput, cmdCount, setCmdCount,terminalContaine
     refToInput.c
     return (
         <>
-            <span className="text-green-400"> &gt; </span>
+            <span className="text-green-400"> @jkdelara ~ &gt; </span>
             <input
                 type="text"
                 ref={refToInput}
-                className="bg-black text-white-400 focus:outline-none w-fit cursor-default"
+                className="bg-black cursor-default text-white-400 focus:outline-none w-fit"
                 onKeyDown={commandChecker}
             />
             <div dangerouslySetInnerHTML={{__html: output}} />

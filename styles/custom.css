@@ -1,74 +1,93 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@900&display=swap");
 #art-system img {
-    object-fit: cover;
-    overflow: hidden;
-    height: 250px;
-    width: inherit;
+  object-fit: cover;
+  overflow: hidden;
+  height: 250px;
+  width: inherit;
 }
 
 #project-system img {
-    object-fit: cover;
-    overflow: hidden;
-    height: 250px;
+  object-fit: cover;
+  overflow: hidden;
+  height: 250px;
 }
 #home-avatar img {
-    object-fit: cover;
-    overflow: hidden;
-    height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  height: 100%;
 }
 #feature-img img {
-    width: fit-content;
+  width: fit-content;
 }
 
 a.underline-hover-effect {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 .underline-hover-effect {
-    display: inline-block;
-    padding-bottom: 0.25rem; /* defines the space between text and underline */
-    position: relative;
+  display: inline-block;
+  padding-bottom: 0.25rem; /* defines the space between text and underline */
+  position: relative;
 }
 
 .underline-hover-effect::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: theme("colors.eighth");
-    transition: width 0.25s ease-out;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: theme("colors.eighth");
+  transition: width 0.25s ease-out;
 }
 .underline-hover-effect:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 .vertical-timeline-element-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 .vertical-timeline-element-subtitle {
-    font-size: 1.3rem;
-    font-weight: 500;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 .vertical-timeline-element-content-arrow {
-    border-right: 7px solid theme("colors.eighth") !important;
+  border-right: 7px solid theme("colors.eighth") !important;
 }
 .vertical-timeline-element-content {
-    background-color: theme("colors.eighth") !important;
+  background-color: theme("colors.eighth") !important;
 }
 .vertical-timeline-element-title,
 .vertical-timeline-element-subtitle,
 .vertical-timeline-element-content > p {
-    color: white;
+  color: white;
 }
 
 .dangerousHTML iframe {
-    width: 100%;
-    height: 30vh;
+  width: 100%;
+  height: 30vh;
 }
-.Typewriter {
-    display: inline;
+/* .Typewriter {
+  display: inline;
+} */
+
+/* change scrollbar */
+/* width */
+#terminal ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+#terminal ::-webkit-scrollbar-track {
+/* box-shadow: inset 0 0 5px grey; */
+border-radius: 10px;
 }
+
+/* Handle */
+#terminal ::-webkit-scrollbar-thumb {
+    background: var(--third);
+    border-radius: 10px;
+}
+  
