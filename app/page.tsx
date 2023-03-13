@@ -4,6 +4,7 @@ import TextToScreen from "@/components/TextToScreen";
 import Introduction from "@/components/introduction";
 
 import { meta } from "@/constants/meta";
+import Terminal from "@/components/Terminal";
 export const metadata = { ...meta, title: "Home" };
 
 export default async function Home() {
@@ -16,7 +17,9 @@ export default async function Home() {
             {/* <div className="bg-red-500 -ml-[5%] -mr-[5%] md:-ml-[100%] md:-mr-[100%] overflow-hidden h-12">
                 lkjalsd
             </div> */}
-            <TextToScreen />
+
+            <Terminal />
+            {/* <TextToScreen /> */}
         </div>
     );
 }
