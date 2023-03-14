@@ -7,7 +7,7 @@ import { meta } from "@/constants/meta";
 import Terminal from "@/components/Terminal";
 import IntroBlock from "@/components/IntroBlock";
 import AboutBlock from "@/components/AboutBlock";
-import Link from "next/link";
+import RecentPostBlock from "@/components/RecentPostBlock";
 export const metadata = { ...meta, title: "Home" };
 
 export default async function Home() {
@@ -27,42 +27,7 @@ export default async function Home() {
             {/* <div className="z-[5] flex flex-col items-center mx-auto md:justify-between py-12 px-8 lg:flex-row bg-sixth dark:bg-second -ml-[5%] -mr-[5%] md:-ml-[25%] md:-mr-[25%]">
                 <TextToScreen />
             </div> */}
-            <div className="z-[5] md:justify-between pt-12 pb-4 px-[15vw] bg-fifth dark:bg-second -ml-[5%] -mr-[5%] md:-ml-[25%] md:-mr-[25%]">
-                <h3 className="text-[2rem] md:text-[3rem] font-black mb-2">
-                    Featured Notes
-                </h3>
-            </div>
-            <div className="z-[5] md:justify-between pb-12 pt-4 px-[10vw] bg-fifth dark:bg-second -ml-[5%] -mr-[5%] md:-ml-[25%] md:-mr-[25%]">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto my-8">
-                    <Link
-                        href={"/note/" + notes.data[0].attributes.slug}
-                        className="border-4 border-eighth rounded-full p-4 h-32 flex justify-center items-center"
-                    >
-                        {notes.data[0].attributes.title}
-                        <span className="before:absolute -mt-[9.5rem] absolute inline-block">
-                            <span className="absolute rounded-full left-[2rem] bg-eighth py-1 px-2 text-white whitespace-nowrap">{notes.data[0].attributes.views} views</span>
-                        </span>
-                    </Link>
-                    <Link
-                        href={"/note/" + notes.data[1].attributes.slug}
-                        className="border-4 border-eighth rounded-full p-4 h-32 flex justify-center items-center"
-                    >
-                        {notes.data[1].attributes.title}
-                        <span className="before:absolute -mt-[9.5rem] absolute inline-block">
-                            <span className="absolute rounded-full left-[2rem] bg-eighth py-1 px-2 text-white whitespace-nowrap">{notes.data[0].attributes.views} views</span>
-                        </span>
-                    </Link>
-                    <Link
-                        href={"/note/" + notes.data[2].attributes.slug}
-                        className="border-4 border-eighth rounded-full p-4 h-32 flex justify-center items-center"
-                    >
-                        {notes.data[2].attributes.title}
-                        <span className="before:absolute -mt-[9.5rem] absolute inline-block">
-                            <span className="absolute rounded-full left-[2rem] bg-eighth py-1 px-2 text-white whitespace-nowrap">{notes.data[0].attributes.views} views</span>
-                        </span>
-                    </Link>
-                </div>
-            </div>
+            <RecentPostBlock notes={notes}/>
         </div>
     );
 }

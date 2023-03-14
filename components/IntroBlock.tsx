@@ -18,7 +18,7 @@ export default function IntroBlock() {
                     className="order-2 w-full mx-auto my-8 md:w-fit md:order-1"
                     id="title"
                 >
-                    <h2 className="text-[5rem] md:text-[15rem] font-black md:leading-[12.5rem] flex gap-4 md:gap-12 items-center">
+                    <h2 className="text-[5rem] md:text-[10rem] lg:text-[15rem] font-black md:leading-[12.5rem] flex gap-4 md:gap-12 items-center">
                         Hello <span className="text-[2.5rem] md:text-[7.5rem]">👋</span>
                     </h2>
                     <h1 className="text-[1.5rem] md:text-[2rem] font-bold flex md:block flex-col mb-8 md:mb-4">
