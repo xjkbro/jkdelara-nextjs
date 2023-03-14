@@ -56,7 +56,7 @@ export default function DisplayQuote({ quote, quotee }) {
         >
             <div
                 className={
-                    "grid grid-cols-3 md:grid-cols-[200px_minmax(900px,_1fr)_100px] mx-auto text-center align-middle " +
+                    "grid grid-cols-3 md:grid-cols-[100px_minmax(900px,_1fr)_100px] mx-auto text-center align-middle " +
                     QuoteFont.className
                 }
             >
