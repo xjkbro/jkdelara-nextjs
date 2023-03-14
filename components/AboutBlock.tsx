@@ -11,7 +11,7 @@ export default function AboutBlock() {
         <>
             <div
                 
-                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-fifth dark:bg-second -ml-[6%] -mr-[6%] md:-ml-[25%] md:-mr-[25%]"
+                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-fifth dark:bg-second"
             >
                 <motion.div 
                     initial={{ opacity: 0, translateY: 10 }}
@@ -21,9 +21,9 @@ export default function AboutBlock() {
                     className="flex flex-wrap items-center justify-between mx-auto md:w-3/4"
                 >
                     <div className="order-2 w-full md:w-1/2 md:order-1">
-                        <h3 className="text-[2rem] md:text-[3rem] font-black">About</h3>
+                        <h3 className="text-[2rem] md:text-[3rem] font-black">Who</h3>
                         {/* {text2.map((p,i) =>  <p className="mb-1 text-sm md:text-normal md:text-justify" key={i}>{p}</p> )} */}
-                        <p className="text-justify">{text}</p>
+                        <p className="font-thin text-justify font-notosans">{text}</p>
                     </div>
                     <div className="order-1 hidden w-full md:w-96 md:order-2 md:block">
                         <div

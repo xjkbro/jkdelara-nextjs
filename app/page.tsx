@@ -8,6 +8,8 @@ import Terminal from "@/components/Terminal";
 import IntroBlock from "@/components/IntroBlock";
 import AboutBlock from "@/components/AboutBlock";
 import RecentPostBlock from "@/components/RecentPostBlock";
+import ServiceBlock from "@/components/ServiceBlock";
+import WhereBlock from "@/components/WhereBlock";
 export const metadata = { ...meta, title: "Home" };
 
 export default async function Home() {
@@ -27,13 +29,15 @@ export default async function Home() {
             {/* <div className="z-[5] flex flex-col items-center mx-auto md:justify-between py-12 px-8 lg:flex-row bg-sixth dark:bg-second -ml-[5%] -mr-[5%] md:-ml-[25%] md:-mr-[25%]">
                 <TextToScreen />
             </div> */}
+            {/* <ServiceBlock />
+            <WhereBlock /> */}
             <RecentPostBlock notes={notes}/>
         </div>
     );
 }
 function AnimatedBorderFixed({ children }) {
     return (
-        <div className="border-4 border-eighth rounded-full p-4 flex justify-center items-center">
+        <div className="flex items-center justify-center p-4 border-4 rounded-full border-eighth">
             {children}
         </div>
     );

@@ -12,8 +12,8 @@ export default async function Art() {
     const arts = await getArt();
     const regex = /(<([^>]+)>)/ig;
     return (
-        <>
-            <div className="mb-4">
+        <div className="w-[90vw] md:w-2/3 mx-auto">
+            <div className="mb-4 ">
                 <h1 className="font-bold text-[2rem]">Arts</h1>
                 <div className="text-sm">Featuring another passion of mine, Photography. While I still am fairly new and don&apos;t have the best equipment, you can <Link href="/contact" className="hover:underline text-eighth">contact</Link> me for any small inquiries.</div>
             </div>
@@ -30,7 +30,7 @@ export default async function Art() {
                 }
             </div>
             {/* </Suspense>  */}
-        </>
+        </div>
     )
 }
 

@@ -7,7 +7,7 @@ export default async function Story() {
     // Sort response in decending order by start date
     stories.data.sort((one, two)=>(one.attributes.started < two.attributes.started) ? 1 : (one.attributes.started > two.attributes.started) ? -1 : 0);
   return (
-    <div className="">
+    <div className="w-[90vw] md:w-2/3 mx-auto">
         <Timeline stories={stories} />
     </div>
   )

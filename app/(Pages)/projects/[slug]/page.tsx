@@ -20,7 +20,7 @@ export default async function Note(
     const res = await getProject(slug);
     const project = res.data[0]
     return (
-        <div id="feature-image" className="mx-auto prose dark:prose-invert">
+        <div id="feature-image" className="mx-auto font-thin prose dark:prose-invert">
             <Image src={project?.attributes?.image?.data?.attributes?.url} width={1000} height={1000} alt={project.attributes.title} />
             <h1 className="">{project.attributes.title}</h1>
             <div className="flex flex-wrap gap-1">

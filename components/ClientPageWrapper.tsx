@@ -24,8 +24,8 @@ export default function ClientPageWrapper({ children }) {
             <motion.body
                 className={
                     isDark
-                        ? "dark w-[90vw] md:w-2/3 mx-auto bg-first text-fifth"
-                        : "w-[90vw] md:w-2/3 mx-auto bg-fifth text-first"
+                        ? "dark bg-first text-fifth"
+                        : "bg-fifth text-first"
                 }
             >
                 <Navigation

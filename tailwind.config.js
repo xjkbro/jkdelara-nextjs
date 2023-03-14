@@ -19,6 +19,8 @@ module.exports = {
             },
             fontFamily: {
                 "nutrition-label": ["Libre Franklin", "sans-serif"],
+                "catamaran": ['"Catamaran"'],
+                "notosans": ['"Noto Sans"']
             },
             colors: {
                 first: "#252422",

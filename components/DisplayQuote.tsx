@@ -52,7 +52,7 @@ export default function DisplayQuote({ quote, quotee }) {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
-            className="flex items-center justify-center py-16 overflow-hidden h-fit md:overflow-visible"
+            className="flex items-center justify-center py-16 overflow-hidden h-fit md:overflow-visible w-[90vw] md:w-2/3 mx-auto"
         >
             <div
                 className={

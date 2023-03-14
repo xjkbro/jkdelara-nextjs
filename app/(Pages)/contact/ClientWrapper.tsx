@@ -10,7 +10,7 @@ export default function ClientWrapper() {
         animate={{height: "75vh", translateX: 0, opacity: 1}}
         transition={{duration: 0.3}}
         exit={{height: "0vh"}}
-        className="overflow-hidden"
+        className="overflow-hidden  w-[90vw] md:w-2/3 mx-auto"
         >
         <Contact/>
     </motion.div>

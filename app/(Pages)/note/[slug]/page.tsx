@@ -26,7 +26,7 @@ export default async function Note(
     registerView(slug)
     return (
         <>
-            <div className="mx-auto prose dark:prose-invert">
+            <div className="mx-auto prose dark:prose-invert w-[90vw] md:w-2/3 mx-auto">
                 {(postData?.attributes?.feature?.data?.attributes?.url) ? <Image src={postData?.attributes?.feature?.data?.attributes?.url} width={700} height={400} alt={postData.attributes.title} /> : <></>}
                 <h1>{postData.attributes.title}</h1>
                 <div className="flex mb-2">
@@ -38,7 +38,7 @@ export default async function Note(
                     <div>Published on {new Date(postData.attributes.publishedAt).toDateString()}</div>
                     <div>{postData.attributes.views} views</div>
                 </div>
-                <div className="dangerousHTML" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
+                <div className="font-thin dangerousHTML" dangerouslySetInnerHTML={{ __html: postData.attributes.body }} />
             </div>
             <div>
                 {postData?.attributes?.categories?.data[0].attributes.slug == 'recipe' && postData?.attributes?.custom != null ?

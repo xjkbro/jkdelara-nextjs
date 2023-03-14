@@ -11,7 +11,7 @@ export const metadata = { title: "Dashboard" };
 
 export default async function Dashboard() {
     return (
-        <>
+        <div className="w-[90vw] md:w-2/3 mx-auto">
             {/* <h1 className="font-black text-[2rem] mb-4">Dashboard</h1> */}
             <div className="mb-4">
                 <h1 className="font-bold text-[2rem]">Dashboard</h1>
@@ -40,7 +40,7 @@ export default async function Dashboard() {
             </div>
             <Terminal />
 
-        </>
+        </div>
     );
 }
 
