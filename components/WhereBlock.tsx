@@ -7,6 +7,9 @@ export default function WhereBlock() {
             <div className="order-2 w-full md:w-1/2 md:order-1">
                 <h3 className="text-[2rem] md:text-[3rem] font-black">Where</h3>
             </div>
+            <div>
+                Located in the South Bay Area in Southern California. 
+            </div>
         </div>
     </motion.div>
   );
