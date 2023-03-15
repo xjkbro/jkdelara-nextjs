@@ -5,7 +5,6 @@ export default function ServiceBlock() {
   return (
         <>
             <div
-                
                 className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-fifth dark:bg-second"
             >
                 <motion.div 

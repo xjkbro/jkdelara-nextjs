@@ -10,11 +10,13 @@ import AboutBlock from "@/components/AboutBlock";
 import RecentPostBlock from "@/components/RecentPostBlock";
 import ServiceBlock from "@/components/ServiceBlock";
 import WhereBlock from "@/components/WhereBlock";
+import FeaturedProjectsBlock from "@/components/FeaturedProjectsBlock";
 export const metadata = { ...meta, title: "Home" };
 
 export default async function Home() {
     const data = await getQuote();
     const notes = await getNotes();
+    const projects = await getProjects();
     const { quote, quotee } = data;
     return (
         <div className="">
@@ -29,6 +31,7 @@ export default async function Home() {
             {/* <div className="z-[5] flex flex-col items-center mx-auto md:justify-between py-12 px-8 lg:flex-row bg-sixth dark:bg-second -ml-[5%] -mr-[5%] md:-ml-[25%] md:-mr-[25%]">
                 <TextToScreen />
             </div> */}
+            <FeaturedProjectsBlock projects={projects} />
             {/* <ServiceBlock />
             <WhereBlock /> */}
             <RecentPostBlock notes={notes}/>
@@ -63,5 +66,12 @@ async function getNotes() {
         "https://cms.jsondelara.com/api/posts?populate=*&sort=publishedAt:desc&pagination[pageSize]=3&pagination[page]=1",
         { next: { revalidate: 120 } }
     );
+    return res.json();
+}
+
+
+async function getProjects() {
+    const res = await fetch('https://cms.jsondelara.com/api/projects?fields[0]=name&fields[1]=description&fields[3]=title&fields[3]=slug&fields[4]=started&populate[links]=*&populate[technologies][fields][0]=name&populate[image][fields][0]=url&sort=publishedAt:desc&pagination[pageSize]=3&pagination[page]=1',
+    {next: {revalidate: 120}})
     return res.json();
 }

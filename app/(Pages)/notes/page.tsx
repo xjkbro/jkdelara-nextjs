@@ -15,7 +15,7 @@ export default async function Notes({ searchParams }: { searchParams?: { [key: s
         <div className="w-[90vw] md:w-2/3 mx-auto">
             <NoteHeading category={null} />
             <NoteNav categories={categories} results={notes?.meta.pagination.total} />
-            <div className="grid gap-2 md:grid-cols-2 h-j min-h-[20vh]">
+            <div className="grid gap-4 md:grid-cols-2 mt-4 min-h-[20vh]">
                 {notes.data.map((note, i) => (
                     <Link
                         key={note.id}

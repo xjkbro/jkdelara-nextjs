@@ -20,7 +20,8 @@ module.exports = {
             fontFamily: {
                 "nutrition-label": ["Libre Franklin", "sans-serif"],
                 "catamaran": ['"Catamaran"'],
-                "notosans": ['"Noto Sans"']
+                "notosans": ['"Noto Sans"'],
+                "mono": ['"Roboto Mono"']
             },
             colors: {
                 first: "#252422",

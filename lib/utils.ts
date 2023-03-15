@@ -17,3 +17,7 @@ export function numberWithCommas(x):string {
         x = x.replace(pattern, "$1,$2");
     return x;
 }
+
+export function stripTags(str):string {
+    return str.replaceAll(/<\/?[^>]+(>|$)/gi, "")
+}

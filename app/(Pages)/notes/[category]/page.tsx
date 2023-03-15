@@ -24,8 +24,7 @@ export default async function Category({ params, searchParams }:
     const categories = await getCategories();
     const postData = catNotes.data[0]
     return (
-        <>
-
+        <div className="w-[90vw] md:w-2/3 mx-auto">
             <NoteHeading category={catInfo.data[0]} />
             <NoteNav categories={categories} results={catNotes.meta.pagination.total} />
             <div className="grid gap-2 md:grid-cols-2 h-j min-h-[20vh]">
@@ -39,7 +38,7 @@ export default async function Category({ params, searchParams }:
             </div>
             <Pages meta={catNotes.meta} page={currentPage} />
 
-        </>
+        </div>
     )
 }
 

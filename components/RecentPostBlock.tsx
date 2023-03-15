@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function RecentPostBlock({ notes }) {
     return (
-        <div className="z-[5] md:justify-between pt-12 pb-4 px-8 w-full bg-fifth dark:bg-second">
+        <div className="z-[5] md:justify-between pt-12 pb-4 px-8 w-full bg-white dark:bg-second">
             <div className="mx-auto md:w-3/4">
                 <h3 className="text-[2rem] md:text-[3rem] font-black mb-2">
                     Featured Notes
@@ -47,7 +47,7 @@ export default function RecentPostBlock({ notes }) {
                         >
                             <Link
                                 href={"/note/" + note.attributes.slug}
-                                className="flex flex-col items-start justify-center h-32 p-4 transition-all border-l-4 group border-eighth hover:translate-x-1 hover:bg-third"
+                                className="flex flex-col items-start justify-center h-32 p-4 transition-all border-l-4 group border-eighth hover:translate-x-1 hover:dark:bg-third hover:bg-sixth"
                             >
                                 <span className="font-bold text-left font-catamaran">
                                     {note.attributes.categories.data[0].attributes.title}
