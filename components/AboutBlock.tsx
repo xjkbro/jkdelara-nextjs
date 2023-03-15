@@ -46,7 +46,7 @@ export default function AboutBlock() {
                             I started my coding journey at the age of 12 when I
                             found out about a platform called{" "}
                             <a
-                                className="underline font-bold text-eighth"
+                                className="underline font-normal text-eighth"
                                 href="https://www.gaiaonline.com/"
                             >
                                 GaiaOnline
@@ -59,7 +59,7 @@ export default function AboutBlock() {
                         <p className="font-thin text-justify font-notosans mb-2">
                             Today, I am fortunate enough to be working at{" "}
                             <a
-                                className="underline font-bold text-eighth"
+                                className="underline font-normal text-eighth"
                                 href="https://www.icpdas-usa.com/"
                             >
                                 ICP DAS USA

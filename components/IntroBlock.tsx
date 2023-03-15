@@ -12,10 +12,10 @@ export default function IntroBlock() {
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: 50 }}
                 transition={{ duration: 0.3 }}
-                className="z-[5] flex flex-col items-center md:justify-between md:h-[80vh] lg:flex-row w-[90vw] md:w-2/3 mx-auto"
+                className="z-[5] flex flex-col items-center justify-start md:justify-between h-fit pb-12 md:pb-0 md:h-[80vh] lg:flex-row w-[90vw] md:w-2/3 mx-auto"
             >
                 <div
-                    className="order-2 w-full mx-auto my-8 md:w-fit md:order-1"
+                    className="order-2 w-full mx-auto my-2 md:my-8 md:w-fit md:order-1"
                     id="title"
                 >
                     <h2 className="text-[5rem] md:text-[10rem] lg:text-[15rem] font-black md:leading-[12.5rem] flex gap-4 md:gap-12 items-center">
@@ -48,21 +48,21 @@ export default function IntroBlock() {
                         CV
                     </motion.a>
                 </div>
-                {/* <div
+                <div
                     id="home-avatar"
-                    className="mx-auto my-8 w-[300px] h-[300px]  md:order-2 order-1"
+                    className="mx-auto w-fit md:hidden md:order-2 order-1"
                 >
-                    <AnimatedBorder>
+                    {/* <AnimatedBorder> */}
                         <Image
-                            className="mx-auto bg-transparent rounded-full"
+                            className="mx-auto bg-transparent rounded-xl"
                             src="/feature.png"
                             priority
-                            width={300}
-                            height={300}
+                            width={400}
+                            height={400}
                             alt="Photo of Jason Kyle De Lara"
                         />
-                    </AnimatedBorder>
-                </div> */}
+                    {/* </AnimatedBorder> */}
+                </div>
             </motion.div>
         </>
     );

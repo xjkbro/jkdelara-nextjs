@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 
 export default function RecentPostBlock({ notes }) {
     return (
-        <div className="z-[5] md:justify-between pt-12 pb-4 px-8 w-full bg-white dark:bg-second">
+        // <div className="z-[5] md:justify-between pt-12 pb-4 px-8 w-full bg-white dark:bg-second">
+        <div className="z-[5] md:justify-between pt-12 pb-4 px-8 w-full">
             <div className="mx-auto md:w-3/4">
                 <h3 className="text-[2rem] md:text-[3rem] font-black mb-2">
                     Featured Notes

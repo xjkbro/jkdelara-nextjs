@@ -32,8 +32,8 @@ export default async function Home() {
                 <TextToScreen />
             </div> */}
             <FeaturedProjectsBlock projects={projects} />
-            {/* <ServiceBlock />
-            <WhereBlock /> */}
+            {/* <ServiceBlock /> */}
+            {/* <WhereBlock /> */}
             <RecentPostBlock notes={notes}/>
         </div>
     );
