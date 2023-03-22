@@ -12,7 +12,7 @@ export default function ClientPageWrapper({ children }) {
     useEffect(() => {
         const storedDarkMode = localStorage.getItem("DARK_MODE");
         // storedDarkMode == "false" ? setBoolDark(false) : setBoolDark(true)
-        
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
         storedDarkMode == "false" ? (boolDark = false) : (boolDark = true);
         localStorage.setItem("DARK_MODE", String(boolDark));
@@ -28,8 +28,8 @@ export default function ClientPageWrapper({ children }) {
             <motion.body
                 className={
                     isDark
-                        ? "dark bg-first text-fifth"
-                        : "bg-fifth text-first"
+                        ? "dark bg-first text-fifth transition-colors"
+                        : "bg-fifth text-first transition-colors"
                 }
             >
                 <Navigation
