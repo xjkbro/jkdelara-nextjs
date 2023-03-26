@@ -1,6 +1,7 @@
 "use client";
 import { motion, Variants } from "framer-motion";
 import { Catamaran } from "@next/font/google";
+import Image from "next/image";
 const QuoteFont = Catamaran({
     weight: ["500", "700", "900"],
     subsets: ["latin"],
@@ -52,8 +53,16 @@ export default function DisplayQuote({ quote, quotee }) {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.8 }}
-            className="flex items-center justify-center py-16 overflow-hidden h-fit md:overflow-visible w-[90vw] md:w-2/3 mx-auto"
+            className="flex items-center justify-center py-16 overflow-hidden h-fit md:overflow-visible w-[90vw] md:w-2/3 mx-auto relative"
         >
+            {/* <Image
+                src="https://images.unsplash.com/photo-1562907550-096d3bf9b25c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3024&q=80"
+                // width={1000}
+                // height={800}
+                fill
+                className="dark:block hidden object-cover object-center  w-full"
+                alt="s"
+            /> */}
             <div
                 className={
                     "grid grid-cols-3 md:grid-cols-[100px_minmax(900px,_1fr)_100px] mx-auto text-center align-middle " +

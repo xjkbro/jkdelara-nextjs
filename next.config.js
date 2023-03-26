@@ -14,6 +14,7 @@ const nextConfig = {
             "localhost",
             "jkdelara.com",
             "jsondelara.com",
+            "images.unsplash.com",
         ],
     },
 };

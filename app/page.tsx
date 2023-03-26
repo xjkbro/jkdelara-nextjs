@@ -32,11 +32,11 @@ export default async function Home() {
             {/* <div className="z-[5] flex flex-col items-center mx-auto md:justify-between py-12 px-8 lg:flex-row bg-sixth dark:bg-second -ml-[5%] -mr-[5%] md:-ml-[25%] md:-mr-[25%]">
                 <TextToScreen />
             </div> */}
+            <SkillBlock />
             <FeaturedProjectsBlock projects={projects} />
             {/* <ServiceBlock /> */}
-            {/* <SkillBlock /> */}
             {/* <WhereBlock /> */}
-            <RecentPostBlock notes={notes} />
+            {/* <RecentPostBlock notes={notes} /> */}
         </div>
     );
 }
