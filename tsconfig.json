@@ -25,6 +25,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/unsplash/unsplash.jpages/spotify/spotify.jsfy.js", "app/page.tsx", "app/(Pages)/dashboard/page.tsx", "app/(Pages)/notes/note/[slug]/page.bk", "constants/socials.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/unsplash/unsplash.jpages/spotify/spotify.jsfy.js", "app/page.tsx", "app/(Pages)/dashboard/page.tsx", "app/(Pages)/notes/note/[slug]/page.bk", "constants/socials.js", "components/FramerBG.tsx"],
   "exclude": ["node_modules"]
 }

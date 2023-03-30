@@ -1,7 +1,8 @@
 {
   "name": "jkdelara-nextjs",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "author": "Jason-Kyle De Lara",
+  "license": "MIT",
   "scripts": {
     "turbo-dev": "next dev --turbo",
     "dev": "next dev",
