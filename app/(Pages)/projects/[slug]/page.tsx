@@ -21,7 +21,7 @@ export default async function Note(
     const project = res.data[0]
     return (
             <div className="w-[90vw] md:w-2/3 mx-auto">
-            <Image src={project?.attributes?.image?.data?.attributes?.url} width={1920} height={500} className="object-contain object-top w-full h-[50vh] mb-4" alt={project.attributes.title} />
+            <Image src={project?.attributes?.image?.data?.attributes?.url} width={800} height={800} className="object-contain object-top w-full h-[50vh] mb-4" alt={project.attributes.title} />
                 <div id="feature-image" className="mx-auto font-thin prose dark:prose-invert">
                     <h1 className="">{project.attributes.title}</h1>
                     <div className="flex flex-wrap gap-1">
