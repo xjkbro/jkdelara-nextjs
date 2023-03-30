@@ -48,11 +48,11 @@ export const commandLibrary = [
     },
     {
         name: "cv",
-        output: "<a class='text-eighth hover:underline' href='https://jkdelara.com/resume2022b.pdf'>Jason-Kyle De Lara's CV</a>",
+        output: "<a class='text-eighth hover:underline' href='https://jkdelara.com/Resume2023.pdf'>Jason-Kyle De Lara's CV</a>",
     },
     {
         name: "resume",
-        output: "<a class='text-eighth hover:underline' href='https://jkdelara.com/resume2022b.pdf'>Jason-Kyle De Lara's Resume</a>",
+        output: "<a class='text-eighth hover:underline' href='https://jkdelara.com/Resume2023.pdf'>Jason-Kyle De Lara's Resume</a>",
     },
     {
         name: "cd",

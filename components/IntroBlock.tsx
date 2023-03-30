@@ -38,7 +38,7 @@ export default function IntroBlock() {
                             damping: 10,
                         }}
                         className="block font-bold text-[1.5rem] bg-eighth hover:bg-seventh rounded-full p-2 w-24 text-white text-center mt-2"
-                        href="/resume2022b.pdf"
+                        href="/Resume2023.pdf"
                         download
                     >
                         <FontAwesomeIcon
@@ -50,7 +50,7 @@ export default function IntroBlock() {
                 </div>
                 <div
                     id="home-avatar"
-                    className="mx-auto w-fit md:hidden md:order-2 order-1"
+                    className="order-1 mx-auto w-fit md:hidden md:order-2"
                 >
                     {/* <AnimatedBorder> */}
                         <Image
