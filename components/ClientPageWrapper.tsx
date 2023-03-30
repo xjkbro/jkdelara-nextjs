@@ -24,19 +24,27 @@ export default function ClientPageWrapper({ children }) {
     /* =========================== */
     const [overlay, setOverlay] = useState(false);
     return (
-        <AnimatePresence>
+        <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
             <motion.body
                 className={
                     isDark
                         ? "dark bg-first text-fifth transition-colors"
                         : "bg-fifth text-first transition-colors"
                 }
+                
             >
                 <Navigation
                     isDark={isDark}
                     setIsDark={setIsDark}
                     overlay={overlay}
                     setOverlay={setOverlay}
+                />
+                <div 
+                    className={
+                    isDark
+                        ? "h-[100vh] fixed -z-20 top-0 left-0 w-full bg-gradient-to-t from-first to-transparent"
+                        : "h-[100vh] fixed -z-20 top-0 left-0 w-full bg-gradient-to-t from-fifth to-transparent"
+                }
                 />
                 {children}
                 <Footer />

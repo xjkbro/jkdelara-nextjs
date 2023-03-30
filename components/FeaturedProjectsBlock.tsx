@@ -12,7 +12,7 @@ export default function FeaturedProjectsBlock({ projects }) {
                     Featured Projects
                 </h3>
 
-                <div className="flex flex-col gap-8 md:gap-2 my-8">
+                <div className="flex flex-col gap-8 my-8 md:gap-2">
                     {projects?.data?.map((project, i) => (
                         <motion.div
                             initial={{ opacity: 0, translateX: -25 }}
@@ -22,19 +22,19 @@ export default function FeaturedProjectsBlock({ projects }) {
                             key={i}
                         >
                             <Link
-                                href={"/note/" + project.attributes.slug}
-                                className="flex flex-col items-start justify-center gap-2 h-32 p-4 transition-all border-l-4 group border-eighth hover:translate-x-1 hover:dark:bg-third hover:bg-sixth"
+                                href={"/projects/" + project.attributes.slug}
+                                className="flex flex-col items-start justify-center h-32 gap-2 p-4 transition-all border-l-4 group border-eighth hover:translate-x-1 hover:dark:bg-third hover:bg-sixth"
                             >
-                                <span className="font-bold text-left font-catamaran text-eighth">
+                                <span className="text-lg font-bold text-left font-catamaran text-eighth">
                                     {project.attributes.name}
                                 </span>
-                                <span className="font-thin text-left text-sm font-notosans">
+                                <span className="text-sm font-light text-left font-notosans">
                                     {stripTags(
                                         project.attributes.description
                                     ).substring(0, 200)}
                                     ...
                                 </span>
-                                <span className="font-thin text-xs font-mono md:flex gap-4 hidden dark:text-fourth text-third">
+                                <span className="hidden gap-4 font-mono text-xs font-normal md:flex dark:text-fourth text-third">
                                     {project.attributes.technologies.data.map(
                                         (tech, i) => (
                                             <span key={i}>

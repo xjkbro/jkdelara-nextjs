@@ -20,21 +20,21 @@ export default async function Note(
     const res = await getProject(slug);
     const project = res.data[0]
     return (
-        <div className="w-[90vw] md:w-2/3 mx-auto">
-            <div id="feature-image" className="mx-auto font-thin prose dark:prose-invert">
-                <Image src={project?.attributes?.image?.data?.attributes?.url} width={1000} height={1000} alt={project.attributes.title} />
-                <h1 className="">{project.attributes.title}</h1>
-                <div className="flex flex-wrap gap-1">
-                    {project.attributes.technologies.data.map((tech) => (
-                        <span className="px-4 py-2 mr-1 text-sm font-semibold text-white rounded-full whitespace-nowrap dark:text-white bg-seventh" key={tech.id}>{tech.attributes.name}</span>
-                    )
-                    )}
+            <div className="w-[90vw] md:w-2/3 mx-auto">
+            <Image src={project?.attributes?.image?.data?.attributes?.url} width={1920} height={500} className="object-contain object-top w-full h-[50vh] mb-4" alt={project.attributes.title} />
+                <div id="feature-image" className="mx-auto font-thin prose dark:prose-invert">
+                    <h1 className="">{project.attributes.title}</h1>
+                    <div className="flex flex-wrap gap-1">
+                        {project.attributes.technologies.data.map((tech) => (
+                            <span className="px-4 py-2 mr-1 text-sm font-semibold text-white rounded-full whitespace-nowrap dark:text-white bg-seventh" key={tech.id}>{tech.attributes.name}</span>
+                        )
+                        )}
+                    </div>
+                    <div className="" dangerouslySetInnerHTML={{ __html: project.attributes.description }} />
+                    <h3>Links</h3>
+                    {project.attributes.links.map((source) => (<a className="mr-4" key={source.id} href={source.link}>{source.name}</a>))}
                 </div>
-                <div className="" dangerouslySetInnerHTML={{ __html: project.attributes.description }} />
-                <h3>Links</h3>
-                {project.attributes.links.map((source) => (<a className="mr-4" key={source.id} href={source.link}>{source.name}</a>))}
             </div>
-        </div>
     )
 }
 

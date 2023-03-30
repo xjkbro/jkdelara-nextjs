@@ -10,7 +10,7 @@ export default async function Projects() {
         <div className="w-[90vw] md:w-2/3 mx-auto">
             <div id="project-system" className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                 {projects.data.map((project,i) => (
-                    <SingleProject key={project.id} project={project}  option={3} i={i}/>
+                    <SingleProject key={project.id} project={project} i={i}/>
                 ))}
             </div>
         </div>

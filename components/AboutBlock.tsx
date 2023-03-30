@@ -19,22 +19,25 @@ export default function AboutBlock() {
     // ];
     return (
         <>
-            <div className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-white dark:bg-second">
-                <motion.div
-                    initial={{ opacity: 0, translateY: 10 }}
-                    animate={{ opacity: 1, translateY: 0 }}
-                    exit={{ opacity: 0, translateY: 50 }}
-                    transition={{ duration: 0.3 }}
+            <motion.div
+                initial={{ opacity: 0, translateY: 10 }}
+                whileInView={{ opacity: 1, translateY: 0 }}
+                viewport={{ once: true }}
+                exit={{ opacity: 0, translateY: 50 }}
+                transition={{ duration: 0.3 }}
+                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-white dark:bg-second">
+                <div
+                    
                     className="flex flex-wrap items-center justify-between mx-auto md:w-3/4"
                 >
                     <div className="order-2 w-full md:w-1/2 md:order-1">
                         <h3 className="text-[2rem] md:text-[3rem] font-black">
                             Who
                         </h3>
-                        {/* {text3.map((p,i) =>  <p className="font-thin text-justify font-notosans mb-2" key={i}>{p}</p> )} */}
+                        {/* {text3.map((p,i) =>  <p className="mb-2 font-light text-justify font-notosans" key={i}>{p}</p> )} */}
                         {/* {text2.map((p,i) =>  <p className="mb-1 text-sm md:text-normal md:text-justify" key={i}>{p}</p> )} */}
-                        {/* <p className="font-thin text-justify font-notosans">{text}</p> */}
-                        <p className="font-thin text-justify font-notosans mb-2">
+                        {/* <p className="font-light text-justify font-notosans">{text}</p> */}
+                        <p className="mb-2 font-light text-justify font-notosans">
                             Hello, my name is Jason-Kyle but I really go by
                             Jason. I like to create things. Whether that be
                             programs, apps, videos, food, gadgets, etc.
@@ -42,11 +45,11 @@ export default function AboutBlock() {
                             ideas. I want to make an impact in the world and
                             create something that will benefit many people.
                         </p>
-                        <p className="font-thin text-justify font-notosans mb-2">
+                        <p className="mb-2 font-light text-justify font-notosans">
                             I started my coding journey at the age of 12 when I
                             found out about a platform called{" "}
                             <a
-                                className="underline font-normal text-eighth"
+                                className="font-normal underline text-eighth"
                                 href="https://www.gaiaonline.com/"
                             >
                                 GaiaOnline
@@ -56,10 +59,10 @@ export default function AboutBlock() {
                             options for their profiles that gave me exposure to
                             HTML and CSS.
                         </p>
-                        <p className="font-thin text-justify font-notosans mb-2">
+                        <p className="mb-2 font-light text-justify font-notosans">
                             Today, I am fortunate enough to be working at{" "}
                             <a
-                                className="underline font-normal text-eighth"
+                                className="font-normal underline text-eighth"
                                 href="https://www.icpdas-usa.com/"
                             >
                                 ICP DAS USA
@@ -72,11 +75,11 @@ export default function AboutBlock() {
                             applications. Let&apos;s build something together!
                             😁
                         </p>
-                        <p className="font-thin text-justify font-notosans mb-2">
+                        <p className="mb-2 font-light text-justify font-notosans">
                             Here are a few technologies I&apos;ve been working
                             with recently:
                         </p>
-                        <ul className="grid grid-cols-2 font-thin font-mono text-sm">
+                        <ul className="grid grid-cols-2 font-mono text-sm font-light">
                             <li className="before:content-['\00BB'] before:mr-1">
                                 Next.js
                             </li>
@@ -114,8 +117,8 @@ export default function AboutBlock() {
                             {/* </AnimatedBorder> */}
                         </div>
                     </div>
-                </motion.div>
-            </div>
+                </div>
+            </motion.div>
         </>
     );
 }

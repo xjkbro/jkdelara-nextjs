@@ -14,7 +14,7 @@ export default function FramerBG() {
                         height: 150,
                         borderRadius: 30,
                     }}
-                    className="fixed -z-10 top-60 right-5 md:right-24 opacity-30 bg-eighth"
+                    className="fixed -z-30 top-60 right-5 md:right-24 opacity-30 bg-eighth"
                     initial={{ scale: 2, rotate: 70 }}
                     animate={{
                         rotate: 430,
@@ -30,7 +30,7 @@ export default function FramerBG() {
                         height: 150,
                         borderRadius: 10,
                     }}
-                    className="fixed -z-10 top-60 right-5 md:right-[60vw] opacity-30 bg-eighth"
+                    className="fixed -z-30 top-60 right-5 md:right-[60vw] opacity-30 bg-eighth"
                     initial={{ scale: 2, rotate: 25 }}
                     animate={{
                         rotate: -385,
@@ -45,7 +45,7 @@ export default function FramerBG() {
                         width: 150,
                         height: 150,
                     }}
-                    className="fixed bottom-0 rounded-full -z-10 md:top-96 left-5 md:left-24 opacity-30 bg-eighth"
+                    className="fixed bottom-0 rounded-full -z-30 md:top-96 left-5 md:left-24 opacity-30 bg-eighth"
                     initial={{
                         scale: 2,
                     }}
@@ -64,7 +64,7 @@ export default function FramerBG() {
                         width: 150,
                         height: 150,
                     }}
-                    className="fixed bottom-0 rounded-full -z-10 md:top-[65vh] left-[10vw] md:left-[50vw] opacity-30 bg-eighth"
+                    className="fixed bottom-0 rounded-full -z-30 md:top-[65vh] left-[10vw] md:left-[50vw] opacity-30 bg-eighth"
                     animate={{
                         x: [0, 0, 30, 30, 0],
                         y: [0, 20, 20, 0, 0],

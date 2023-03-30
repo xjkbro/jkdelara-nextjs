@@ -20,23 +20,23 @@ export default function SkillBlock() {
                     animate={{ opacity: 1, translateY: 0, translateX: -0 }}
                     exit={{ opacity: 0, translateY: 50 }}
                     transition={{ duration: 0.3 }}
-                    className="flex flex-col flex-wrap items-center justify-between mx-auto w-11/12 md:w-3/4"
+                    className="flex flex-col flex-wrap items-center justify-between w-11/12 mx-auto md:w-3/4"
                 >
                     <h3 className="text-[2rem] md:text-[3rem] font-black">
                         What
                     </h3>
-                    <p className="font-thin text-center font-notosans my-4 md:w-3/4 tmx-auto">
+                    <p className="my-4 font-light text-center font-notosans md:w-3/4 tmx-auto">
                         My primary goal is to bring your ideas to reality on
                         time and on budget. I offer a wide variety of
                         development. A landing page, web application, Wordpress
                         site, blog, you name it, I will make your dream ideas
                         come true.
                     </p>
-                    {/* <p className="font-thin text-center font-notosans my-4 w-3/4 mx-auto">
+                    {/* <p className="w-3/4 mx-auto my-4 font-light text-center font-notosans">
                         Here is a list of my skills.
                     </p> */}
                     <div className="w-full">
-                        <div className=" mx-auto ">
+                        <div className="mx-auto ">
                             {skills.map((skill, i) => (
                                 <motion.div
                                     initial={{ opacity: 0, translateY: 20 }}
@@ -49,12 +49,12 @@ export default function SkillBlock() {
                                         delay: 0.2 * i,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
-                                    className="w-full flex py-1"
+                                    className="flex w-full py-1"
                                     key={i}
                                 >
-                                    <div className="w-full md:w-1/6 h-8 rounded-l-sm flex items-center justify-between md:justify-start overflow-hidden text-xs px-2 font-mono">
+                                    <div className="flex items-center justify-between w-full h-8 px-2 overflow-hidden font-mono text-xs rounded-l-sm md:w-1/6 md:justify-start">
                                         {skill.type}{" "}
-                                        <span className="block md:hidden font-thin text-sm">
+                                        <span className="block text-sm font-light md:hidden">
                                             {skill.level}%
                                         </span>
                                     </div>
@@ -73,7 +73,7 @@ export default function SkillBlock() {
                                             once: true,
                                             amount: 0.8,
                                         }}
-                                        className="hidden md:block w-5/6 h-8"
+                                        className="hidden w-5/6 h-8 md:block"
                                     >
                                         <motion.div
                                             initial={{
@@ -91,7 +91,7 @@ export default function SkillBlock() {
                                                 once: true,
                                                 amount: 0.8,
                                             }}
-                                            className="border-2 border-nineth bg-transparent h-8 rounded-r-lg flex items-center justify-end pr-2 font-thin text-sm"
+                                            className="flex items-center justify-end h-8 pr-2 text-sm font-light bg-transparent border-2 rounded-r-lg border-nineth"
                                         >
                                             {skill.level}%
                                         </motion.div>
