@@ -24,7 +24,7 @@ export default function ClientPageWrapper({ children }) {
     /* =========================== */
     const [overlay, setOverlay] = useState(false);
     return (
-        <AnimatePresence mode="wait" initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+        <AnimatePresence>
             <motion.body
                 className={
                     isDark
