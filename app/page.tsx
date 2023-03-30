@@ -17,7 +17,7 @@ export const metadata = { ...meta, title: "Home" };
 export default async function Home() {
     const data = await getQuote();
     const notes = await getNotes();
-    const projects = await getProjects();
+    // const projects = await getProjects();
     const { quote, quotee } = data;
     return (
         <div className="">
@@ -33,7 +33,7 @@ export default async function Home() {
                 <TextToScreen />
             </div> */}
             <SkillBlock />
-            <FeaturedProjectsBlock projects={projects} />
+            {/* <FeaturedProjectsBlock projects={projects} /> */}
             {/* <ServiceBlock /> */}
             {/* <WhereBlock /> */}
             {/* <RecentPostBlock notes={notes} /> */}

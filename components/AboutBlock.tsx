@@ -37,10 +37,10 @@ export default function AboutBlock() {
                         <p className="font-thin text-justify font-notosans mb-2">
                             Hello, my name is Jason-Kyle but I really go by
                             Jason. I like to create things. Whether that be
-                            programs, apps, videos, food, gadgets, etc. I&apos;ve
-                            always been a creative person with big ideas. I want
-                            to make an impact in the world and create something
-                            that will benefit many people.
+                            programs, apps, videos, food, gadgets, etc.
+                            I&apos;ve always been a creative person with big
+                            ideas. I want to make an impact in the world and
+                            create something that will benefit many people.
                         </p>
                         <p className="font-thin text-justify font-notosans mb-2">
                             I started my coding journey at the age of 12 when I
@@ -69,7 +69,8 @@ export default function AboutBlock() {
                             with recent technologies. With the help of VS Code,
                             Chrome, and a scoop of preworkout, I help transform
                             business ideas into tangible full scale
-                            applications. Let&apos;s build something together! 😁
+                            applications. Let&apos;s build something together!
+                            😁
                         </p>
                         <p className="font-thin text-justify font-notosans mb-2">
                             Here are a few technologies I&apos;ve been working

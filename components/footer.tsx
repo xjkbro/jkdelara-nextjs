@@ -15,7 +15,7 @@ export default function Footer() {
 
     const date = new Date();
     return (
-        <footer className="dark:text-fifth body-font w-[90vw] md:w-2/3 mx-auto">
+        <footer className="dark:text-fifth body-font w-full md:w-2/3 mx-auto">
             <div className="dark:bg-first">
                 <div className="container flex flex-col flex-wrap px-5 py-4 mx-auto sm:flex-row">
                     <p className="text-sm text-center sm:text-left">
