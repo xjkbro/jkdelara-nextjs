@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: { slug: string }; }
     const note = await getNoteMetaData(params?.slug);
     const img = note?.data[0]?.attributes?.feature?.data?.attributes?.url ?  note?.data[0]?.attributes?.feature?.data?.attributes?.url : ""
     return {
-        title: note?.data[0]?.attributes?.title + " | Jason Kyle De Lara", 
+        title: note?.data[0]?.attributes?.title, 
         description: note?.data[0]?.attributes?.summary,
         twitter: {
             card: 'summary_large_image',
