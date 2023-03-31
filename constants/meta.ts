@@ -26,6 +26,13 @@ export const meta : Metadata = {
         description: 'A Full-Stack Developer based in Southern California. I help transform businesses ideas into tangible full scale application. ',
         url: 'https://jkdelara.com',
         siteName: 'JKDELARA',
+        images: [
+            {
+              url: 'https://jkdelara.com/favicon/android-chrome-192x192.png',
+              width: 192,
+              height: 192,
+            }
+        ],
         locale: 'en-US',
         type: 'website',
     },
@@ -37,6 +44,14 @@ export const meta : Metadata = {
           { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
         ],
       },
+    twitter: {
+        card: 'summary',
+        title: 'Jason-Kyle De Lara',
+        description: 'A Full-Stack Developer based in Southern California. I help transform businesses ideas into tangible full scale application. ',
+        creator: '@json_delara',
+        creatorId: '1640890839705718784',
+        images: ['https://jkdelara.com/favicon/android-chrome-192x192.png'],
+    },
     themeColor: [
         { media: '(prefers-color-scheme: light)', color: 'white' },
         { media: '(prefers-color-scheme: dark)', color: 'black' },

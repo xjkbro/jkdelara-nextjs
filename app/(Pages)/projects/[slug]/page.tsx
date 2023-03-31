@@ -5,8 +5,19 @@ import type { Metadata } from 'next'
 
 export async function generateMetadata({ params }: { params: { slug: string }; }): Promise<Metadata> {
     const note = await getProjectMetaData(params?.slug);
+    const img = note?.data[0]?.attributes?.image?.data?.attributes?.url ?  note?.data[0]?.attributes?.image?.data?.attributes?.url : ""
+
     return {
-        title: note?.data[0]?.attributes?.name + " | Jason Kyle De Lara", description: note?.data[0]?.attributes?.title
+        title: note?.data[0]?.attributes?.name + " | Jason Kyle De Lara", 
+        description: note?.data[0]?.attributes?.title,
+        twitter: {
+            card: 'summary_large_image',
+            title: note?.data[0]?.attributes?.name,
+            description: note?.data[0]?.attributes?.title,
+            creator: '@json_delara',
+            creatorId: '1640890839705718784',
+            images: [img],
+          },
     };
 }
 export default async function Note(
@@ -46,7 +57,7 @@ async function getProject(slug: string) {
     return res.json();
 }
 async function getProjectMetaData(slug: string) {
-    const URL = "https://cms.jsondelara.com/api/projects?filters[slug][$eq]=" + slug + "&fields[0]=name&fields[1]=description&fields[3]=title";
+    const URL = "https://cms.jsondelara.com/api/projects?filters[slug][$eq]=" + slug + "&fields[0]=name&fields[1]=description&fields[3]=title&populate[image][fields][0]=url";
     const res = await fetch(URL, { cache: 'no-store' })
     return res.json();
 }
