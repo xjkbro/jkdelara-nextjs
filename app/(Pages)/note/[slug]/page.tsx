@@ -1,9 +1,9 @@
 import useSWR from "swr";
-import { registerView } from "@/pages/api/strapi/viewCounter";
 import Image from "next/image";
 import Link from "next/link";
 import NutritionLabel from "../../../../components/NutritionLabel/NutritionLabel";
 import type { Metadata } from "next";
+import { updateView } from "@/lib/views";
 
 export async function generateMetadata({
     params,
@@ -37,7 +37,7 @@ export default async function Note({
 }) {
     const slug: string = params.slug;
     const note = await getNote(slug);
-    const { views } = await getNoteViewCount(slug);
+    const views = await updateView("notes", slug);
     const postData = note.data[0];
     return (
         <>
@@ -133,12 +133,6 @@ async function getNote(slug: string) {
         `https://cms.jsondelara.com/api/posts?filters[slug][$eq]=${slug}&populate=*`,
         { cache: "no-store" }
     );
-    return res.json();
-}
-async function getNoteViewCount(slug: string) {
-    const res = await fetch(`https://jkdelara.com/api/views/notes/${slug}`, {
-        method: "POST",
-    });
     return res.json();
 }
 async function getNoteMetaData(slug: string) {

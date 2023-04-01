@@ -1,8 +1,6 @@
 "use client";
 import useSWR from "swr";
-import { getViews } from "@/pages/api/strapi/viewCounter";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 async function fetcher<JSON = any>(
     input: RequestInfo,

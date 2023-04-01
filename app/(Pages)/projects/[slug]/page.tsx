@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import Image from "next/image";
-
 import type { Metadata } from "next";
+import { updateView } from "@/lib/views";
 
 export async function generateMetadata({
     params,
@@ -35,7 +35,8 @@ export default async function Note({
 }) {
     const slug: string = params.slug;
     const res = await getProject(slug);
-    const { views } = await getProjectViewCount(slug);
+    const views = await updateView("projects", slug);
+
     const project = res.data[0];
     return (
         <div className="w-[90vw] md:w-2/3 mx-auto">
@@ -91,12 +92,6 @@ async function getProject(slug: string) {
     // const res = await fetch(URL, { next: { revalidate: 60 } })
     const res = await fetch(URL, { cache: "no-store" });
 
-    return res.json();
-}
-async function getProjectViewCount(slug: string) {
-    const res = await fetch(`https://jkdelara.com/api/views/projects/${slug}`, {
-        method: "POST",
-    });
     return res.json();
 }
 async function getProjectMetaData(slug: string) {
