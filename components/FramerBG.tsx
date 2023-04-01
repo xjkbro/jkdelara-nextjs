@@ -7,6 +7,7 @@ export default function FramerBG() {
         <AnimatePresence>
             {/* <motion.div> */}
             <motion.div
+                key={"bigcircle"}
                 style={{
                     width: 260,
                     height: 150,
@@ -23,6 +24,7 @@ export default function FramerBG() {
                 transition={{ ease: "linear", duration: 75, repeat: Infinity }}
             />
             <motion.div
+                key={"smallcircle"}
                 style={{
                     width: 150,
                     height: 150,
@@ -39,6 +41,7 @@ export default function FramerBG() {
                 transition={{ ease: "linear", duration: 60, repeat: Infinity }}
             />
             <motion.div
+                key={"square"}
                 style={{
                     width: 150,
                     height: 150,
@@ -58,6 +61,7 @@ export default function FramerBG() {
                 }}
             />
             <motion.div
+                key={"rectangle"}
                 style={{
                     width: 150,
                     height: 150,

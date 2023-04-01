@@ -1,9 +1,21 @@
 "use client";
-
+import useSWR from "swr";
 import { getViews } from "@/pages/api/strapi/viewCounter";
 import { motion } from "framer-motion";
 import Link from "next/link";
+
+async function fetcher<JSON = any>(
+    input: RequestInfo,
+    init?: RequestInit
+): Promise<JSON> {
+    const res = await fetch(input, init);
+    return res.json();
+}
 export default function SingleNote({ note, i }) {
+    const { data } = useSWR<{ views: number }>(
+        `/api/views/notes/${note.attributes.slug}`,
+        fetcher
+    );
     const regex = /(<([^>]+)>)/gi;
     return (
         <motion.div
@@ -16,7 +28,7 @@ export default function SingleNote({ note, i }) {
                     <div className="mb-2">
                         {note.attributes?.categories?.data.map((cat) => {
                             return (
-                                <span 
+                                <span
                                     key={cat.id}
                                     className="z-10 px-2 py-1 text-sm rounded-full bg-eighth text-fifth"
                                 >
@@ -25,7 +37,7 @@ export default function SingleNote({ note, i }) {
                             );
                         })}
                         <span className="ml-2 text-sm text-second dark:text-fourth">
-                            {note.attributes.views} views
+                            {data?.views ? data?.views : 0} views
                         </span>
                     </div>
                     <span className="block text-lg font-bold">
