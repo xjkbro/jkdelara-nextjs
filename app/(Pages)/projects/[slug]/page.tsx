@@ -94,12 +94,9 @@ async function getProject(slug: string) {
     return res.json();
 }
 async function getProjectViewCount(slug: string) {
-    const res = await fetch(
-        `${process.env.BASE_FETCH_URL}/api/views/projects/${slug}`,
-        {
-            method: "POST",
-        }
-    );
+    const res = await fetch(`https://jkdelara.com/api/views/projects/${slug}`, {
+        method: "POST",
+    });
     return res.json();
 }
 async function getProjectMetaData(slug: string) {

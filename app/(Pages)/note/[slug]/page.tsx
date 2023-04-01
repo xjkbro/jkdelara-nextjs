@@ -136,12 +136,9 @@ async function getNote(slug: string) {
     return res.json();
 }
 async function getNoteViewCount(slug: string) {
-    const res = await fetch(
-        `${process.env.BASE_FETCH_URL}/api/views/notes/${slug}`,
-        {
-            method: "POST",
-        }
-    );
+    const res = await fetch(`https://jkdelara.com/api/views/notes/${slug}`, {
+        method: "POST",
+    });
     return res.json();
 }
 async function getNoteMetaData(slug: string) {
