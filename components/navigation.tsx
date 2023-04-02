@@ -42,7 +42,7 @@ export default function Navigation({ isDark, setIsDark, overlay, setOverlay }) {
         pathname = "/projects";
     }
     return (
-        <div className=" w-[90vw] md:w-2/3 mx-auto">
+        <header className=" w-[90vw] md:w-2/3 mx-auto">
             {/* <nav className="flex-row items-center justify-between hidden my-8 md:flex">
                 <div className="flex flex-row overflow-scroll md:overflow-auto gap-x-8 md:gap-12">
                     <Link href="/dashboard" className="text-xl font-light hover:text-sixth">Dashboard</Link>
@@ -67,7 +67,7 @@ export default function Navigation({ isDark, setIsDark, overlay, setOverlay }) {
                 setOverlay={setOverlay}
                 pathname={pathname}
             />
-        </div>
+        </header>
     );
 }
 
@@ -145,6 +145,7 @@ function MobileNav({ isDark, setIsDark, overlay, setOverlay, pathname }) {
                     />
                 </motion.a>
                 <button
+                    title="Menu"
                     className="md:block"
                     onClick={() => setOverlay(!overlay)}
                 >

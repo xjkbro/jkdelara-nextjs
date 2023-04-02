@@ -16,50 +16,46 @@ export default function Footer() {
     const date = new Date();
     return (
         <footer className="w-full mx-auto dark:text-fifth body-font md:w-2/3">
-            <div className="">
-                <div className="container flex flex-col flex-wrap px-5 py-4 mx-auto sm:flex-row">
-                    <p className="text-sm text-center sm:text-left">
-                        © <>{date.getFullYear()}</> —
+            <div className="container flex flex-col flex-wrap px-5 py-4 mx-auto sm:flex-row">
+                <p className="text-sm text-center sm:text-left">
+                    © <>{date.getFullYear()}</> —
+                    <a
+                        href="https://twitter.com/jkdelara"
+                        rel="noopener noreferrer"
+                        className="ml-1"
+                        target="_blank"
+                    >
+                        Jason-Kyle De Lara
+                    </a>
+                </p>
+                <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
+                    {socials.data.map((social) => (
                         <a
-                            href="https://twitter.com/jkdelara"
-                            rel="noopener noreferrer"
-                            className="ml-1"
-                            target="_blank"
+                            className="mr-2 "
+                            aria-label={social.attributes.name + " icon link"}
+                            key={social.id}
+                            href={social.attributes.url}
                         >
-                            Jason-Kyle De Lara
+                            {social.attributes.name == "Twitter" ? (
+                                <FontAwesomeIcon icon={Twitter} />
+                            ) : social.attributes.name == "Instagram" ? (
+                                <FontAwesomeIcon icon={Instagram} />
+                            ) : social.attributes.name == "LinkedIn" ? (
+                                <FontAwesomeIcon icon={LinkedIn} />
+                            ) : social.attributes.name == "Facebook" ? (
+                                <FontAwesomeIcon icon={Facebook} />
+                            ) : social.attributes.name == "YouTube" ? (
+                                <FontAwesomeIcon icon={YouTube} />
+                            ) : social.attributes.name == "GitHub" ? (
+                                <FontAwesomeIcon icon={GitHub} />
+                            ) : social.attributes.name == "Unsplash" ? (
+                                <FontAwesomeIcon icon={Unsplash} />
+                            ) : (
+                                <></>
+                            )}
                         </a>
-                    </p>
-                    <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
-                        {socials.data.map((social) => (
-                            <a
-                                className="mr-2 "
-                                aria-label={
-                                    social.attributes.name + " icon link"
-                                }
-                                key={social.id}
-                                href={social.attributes.url}
-                            >
-                                {social.attributes.name == "Twitter" ? (
-                                    <FontAwesomeIcon icon={Twitter} />
-                                ) : social.attributes.name == "Instagram" ? (
-                                    <FontAwesomeIcon icon={Instagram} />
-                                ) : social.attributes.name == "LinkedIn" ? (
-                                    <FontAwesomeIcon icon={LinkedIn} />
-                                ) : social.attributes.name == "Facebook" ? (
-                                    <FontAwesomeIcon icon={Facebook} />
-                                ) : social.attributes.name == "YouTube" ? (
-                                    <FontAwesomeIcon icon={YouTube} />
-                                ) : social.attributes.name == "GitHub" ? (
-                                    <FontAwesomeIcon icon={GitHub} />
-                                ) : social.attributes.name == "Unsplash" ? (
-                                    <FontAwesomeIcon icon={Unsplash} />
-                                ) : (
-                                    <></>
-                                )}
-                            </a>
-                        ))}
-                    </span>
-                </div>
+                    ))}
+                </span>
             </div>
         </footer>
     );

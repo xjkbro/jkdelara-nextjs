@@ -18,7 +18,7 @@ export default function AboutBlock() {
     //     "Today, I am fortunate enough to be working at ICP DAS USA as their web master. My main focus is to drive the company forward by bringing their ideas to real life with recent technologies. With the help of VS Code, Chrome, and a scoop of preworkout, I help transform businesses ideas into tangible full scale application. Let's build something together! =)",
     // ];
     return (
-        <>
+        <section>
             <motion.div
                 initial={{ opacity: 0, translateY: 10 }}
                 whileInView={{ opacity: 1, translateY: 0 }}
@@ -114,6 +114,6 @@ export default function AboutBlock() {
                     </div>
                 </div>
             </motion.div>
-        </>
+        </section>
     );
 }

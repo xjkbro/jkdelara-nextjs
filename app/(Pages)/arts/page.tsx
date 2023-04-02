@@ -12,10 +12,10 @@ export default async function Art() {
     const arts = await getArt();
     const regex = /(<([^>]+)>)/gi;
     return (
-        <div className="w-[90vw] md:w-2/3 mx-auto">
+        <section className="w-[90vw] md:w-2/3 mx-auto">
             <div className="mb-4 ">
                 <h1 className="font-bold text-[2rem]">Arts</h1>
-                <div className="text-sm">
+                <p className="text-sm">
                     Featuring another passion of mine, Photography. While I
                     still am fairly new and don&apos;t have the best equipment,
                     you can{" "}
@@ -26,20 +26,20 @@ export default async function Art() {
                         contact
                     </Link>{" "}
                     me for any small inquiries.
-                </div>
+                </p>
             </div>
 
             {/* <Suspense fallback={<>Loading</>}> */}
 
             <div id="art-system" className="grid gap-4 md:grid-cols-4">
                 {arts.data.map((art, i) => (
-                    <div key={art.id} className="w-full h-full">
+                    <article key={art.id} className="w-full h-full">
                         <ImageModal art={art} i={i} />
-                    </div>
+                    </article>
                 ))}
             </div>
             {/* </Suspense>  */}
-        </div>
+        </section>
     );
 }
 

@@ -13,7 +13,7 @@ const skills = [
 ];
 export default function SkillBlock() {
     return (
-        <>
+        <section>
             <div className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-fifth dark:bg-second">
                 <motion.div
                     initial={{ opacity: 0, translateY: 0, translateX: -20 }}
@@ -102,6 +102,6 @@ export default function SkillBlock() {
                     </div>
                 </motion.div>
             </div>
-        </>
+        </section>
     );
 }

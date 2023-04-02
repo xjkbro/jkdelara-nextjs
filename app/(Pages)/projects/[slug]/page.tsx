@@ -2,6 +2,7 @@ import useSWR from "swr";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { updateView } from "@/lib/views";
+import Link from "next/link";
 
 export async function generateMetadata({
     params,
@@ -39,7 +40,7 @@ export default async function Note({
 
     const project = res.data[0];
     return (
-        <div className="w-[90vw] md:w-2/3 mx-auto">
+        <article className="w-[90vw] md:w-2/3 mx-auto">
             <Image
                 src={project?.attributes?.image?.data?.attributes?.url}
                 width={800}
@@ -57,30 +58,30 @@ export default async function Note({
                         {views} views
                     </span>
                 </h1>
-                <div className="flex flex-wrap gap-1">
+                <ul className="flex flex-wrap gap-1">
                     {project.attributes.technologies.data.map((tech) => (
-                        <span
+                        <li
                             className="px-4 py-2 mr-1 text-sm font-semibold text-white rounded-full whitespace-nowrap dark:text-white bg-seventh"
                             key={tech.id}
                         >
                             {tech.attributes.name}
-                        </span>
+                        </li>
                     ))}
-                </div>
+                </ul>
                 <div
                     className=""
                     dangerouslySetInnerHTML={{
                         __html: project.attributes.description,
                     }}
                 />
-                <h3>Links</h3>
+                <h2>Links</h2>
                 {project.attributes.links.map((source) => (
-                    <a className="mr-4" key={source.id} href={source.link}>
+                    <Link className="mr-4" key={source.id} href={source.link}>
                         {source.name}
-                    </a>
+                    </Link>
                 ))}
             </div>
-        </div>
+        </article>
     );
 }
 

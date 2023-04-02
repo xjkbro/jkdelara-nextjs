@@ -31,7 +31,6 @@ export default function ClientPageWrapper({ children }) {
                         ? "dark bg-first text-fifth transition-colors"
                         : "bg-fifth text-first transition-colors"
                 }
-                
             >
                 <Navigation
                     isDark={isDark}
@@ -39,12 +38,12 @@ export default function ClientPageWrapper({ children }) {
                     overlay={overlay}
                     setOverlay={setOverlay}
                 />
-                <div 
+                <div
                     className={
-                    isDark
-                        ? "h-[100vh] fixed -z-20 top-0 left-0 w-full bg-gradient-to-t from-first to-transparent"
-                        : "h-[100vh] fixed -z-20 top-0 left-0 w-full bg-gradient-to-t from-fifth to-transparent"
-                }
+                        isDark
+                            ? "h-[100vh] fixed -z-20 top-0 left-0 w-full bg-gradient-to-t from-first to-transparent"
+                            : "h-[100vh] fixed -z-20 top-0 left-0 w-full bg-gradient-to-t from-fifth to-transparent"
+                    }
                 />
                 {children}
                 <Footer />

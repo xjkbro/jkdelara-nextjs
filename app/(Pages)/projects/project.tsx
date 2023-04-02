@@ -6,7 +6,7 @@ export default function SingleProject({ project, i }) {
     const regex = /(<([^>]+)>)/gi;
 
     return (
-        <motion.div
+        <motion.article
             initial={{ opacity: 0, translateY: 50 }}
             animate={{ opacity: 1, translateY: 0 }}
             exit={{ opacity: 0, scale: 10, translateY: 10 }}
@@ -16,27 +16,23 @@ export default function SingleProject({ project, i }) {
                 href={"/projects/" + project.attributes.slug}
                 className="p-4 mb-2 transition-all hover:scale-[101%] "
             >
-                <div className="transition-all rounded-[11px] h-full">
-                    <div className="w-full h-[260px] ">
-                        <Image
-                            src={
-                                project?.attributes?.image?.data?.attributes
-                                    ?.url
-                            }
-                            alt={project.attributes.name}
-                            width={500}
-                            height={250}
-                            className="ounded-[11px]"
-                        />
-                    </div>
-                    <div className="flex flex-col justify-center mx-auto">
+                <figure className="transition-all rounded-[11px] h-full">
+                    <Image
+                        src={project?.attributes?.image?.data?.attributes?.url}
+                        alt={project.attributes.name}
+                        width={500}
+                        height={250}
+                        className="w-full h-[260px] "
+                        // className="ounded-[11px]"
+                    />
+                    <figcaption className="flex flex-col justify-center mx-auto text-sm font-light mt-1 text-center">
                         {/* <span className="text-lg font-semibold text-center">{project.attributes.name}</span> */}
-                        <span className="text-sm font-light text-center">
-                            {project.attributes.title}
-                        </span>
-                    </div>
-                </div>
+                        {/* <figcaption className=""> */}
+                        {project.attributes.title}
+                        {/* </figcaption> */}
+                    </figcaption>
+                </figure>
             </Link>
-        </motion.div>
+        </motion.article>
     );
 }

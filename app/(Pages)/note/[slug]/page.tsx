@@ -41,7 +41,7 @@ export default async function Note({
     const postData = note.data[0];
     return (
         <>
-            <div className="mx-auto prose dark:prose-invert w-[90vw] md:w-2/3">
+            <article className="mx-auto prose dark:prose-invert w-[90vw] md:w-2/3">
                 {postData?.attributes?.feature?.data?.attributes?.url ? (
                     <Image
                         src={
@@ -83,8 +83,8 @@ export default async function Note({
                         __html: postData.attributes.body,
                     }}
                 />
-            </div>
-            <div>
+            </article>
+            <article>
                 {postData?.attributes?.categories?.data[0].attributes.slug ==
                     "recipe" && postData?.attributes?.custom != null ? (
                     <div className="flex justify-center lg:block lg:fixed lg:left-1/4 lg:top-1/2 lg:translate-y-[-50%] lg:translate-x-[-100%]">
@@ -123,7 +123,7 @@ export default async function Note({
                 ) : (
                     <></>
                 )}
-            </div>
+            </article>
         </>
     );
 }

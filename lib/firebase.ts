@@ -4,8 +4,8 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCMy2Zhiq0P7uspjGmLeMrcF6sf-yx4PJw",
-    authDomain: "jkdelara.firebaseapp.com",
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
     databaseURL: "https://jkdelara-default-rtdb.firebaseio.com",
     projectId: "jkdelara",
     storageBucket: "jkdelara.appspot.com",

@@ -20,8 +20,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <ClientPageWrapper>
-                {children}
-                <FramerBG />
+                <main>
+                    {children}
+                    <FramerBG />
+                </main>
             </ClientPageWrapper>
         </html>
     );

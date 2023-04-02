@@ -74,7 +74,7 @@ export default function ImageModal({ art, i }) {
                         onClick={() => setShouldFetch(false)}
                     >
                         {data ? (
-                            <>
+                            <figure>
                                 <Image
                                     src={
                                         data.data?.attributes?.photograph?.data
@@ -92,19 +92,19 @@ export default function ImageModal({ art, i }) {
                                     height={1000}
                                     quality={100}
                                 />
-                                <div className="h-8">
+                                <figcaption className="h-8">
                                     {/* EXIF DATA DISPLAY */}
-                                </div>
-                            </>
+                                </figcaption>
+                            </figure>
                         ) : (
-                            <>
+                            <figure>
                                 <Image
                                     alt="Loading..."
                                     src="/spinner.svg"
                                     width={50}
                                     height={50}
                                 />
-                            </>
+                            </figure>
                         )}
                     </motion.div>
                 </motion.div>

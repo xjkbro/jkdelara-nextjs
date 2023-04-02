@@ -16,7 +16,7 @@ export default function SingleNote({ note, i }) {
     );
     const regex = /(<([^>]+)>)/gi;
     return (
-        <motion.div
+        <motion.article
             initial={{ opacity: 0, translateY: 25 }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{ duration: 0.3, delay: i * 0.07 }}
@@ -50,6 +50,6 @@ export default function SingleNote({ note, i }) {
                     )}
                 </p>
             </div>
-        </motion.div>
+        </motion.article>
     );
 }

@@ -6,16 +6,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function IntroBlock() {
     return (
-        <>
+        <section>
             <motion.div
                 initial={{ opacity: 0, translateY: 10 }}
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: 50 }}
                 transition={{ duration: 0.3 }}
-                className="z-[5] flex flex-col items-center justify-start md:justify-between h-fit pb-12 md:pb-0 md:h-[80vh] lg:flex-row w-[90vw] md:w-2/3 mx-auto"
+                className="z-[5] flex flex-col items-center justify-start md:justify-between min-h-[85vh] pb-12 md:pb-0 md:h-[80vh] lg:flex-row w-[90vw] md:w-2/3 mx-auto"
             >
                 <div
-                    className="order-2 w-full mx-auto my-2 md:my-8 md:w-fit md:order-1"
+                    className="order-2 w-full  mx-auto my-2 md:my-8 md:w-fit md:order-1"
                     id="title"
                 >
                     <div className="flex flex-col">
@@ -60,12 +60,12 @@ export default function IntroBlock() {
                         CV
                     </motion.a>
                 </div>
-                <div
+                {/* <div
                     id="home-avatar"
                     className="order-1 mx-auto w-fit md:hidden md:order-2"
-                >
-                    {/* <AnimatedBorder> */}
-                    <Image
+                > */}
+                {/* <AnimatedBorder> */}
+                {/* <Image
                         className="mx-auto bg-transparent rounded-xl"
                         src="/feature.png"
                         // priority
@@ -73,10 +73,10 @@ export default function IntroBlock() {
                         width={400}
                         height={400}
                         alt="Photo of Jason Kyle De Lara"
-                    />
-                    {/* </AnimatedBorder> */}
-                </div>
+                    /> */}
+                {/* </AnimatedBorder> */}
+                {/* </div> */}
             </motion.div>
-        </>
+        </section>
     );
 }
