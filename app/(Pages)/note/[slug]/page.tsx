@@ -39,9 +39,38 @@ export default async function Note({
     const note = await getNote(slug);
     const views = await updateView("notes", slug);
     const postData = note.data[0];
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        author: {
+            "@type": "Person",
+            name: "Jason-Kyle De Lara",
+            url: "https://jkdelara.com",
+        },
+        creator: {
+            "@type": "Person",
+            name: "Jason-Kyle De Lara",
+            url: "https://jkdelara.com",
+        },
+        headline: postData.attributes.title,
+        image: postData?.attributes?.feature?.data?.attributes?.url,
+        url: `http://jkdelara.com/note/${slug}`,
+        description: postData?.attributes?.summary,
+        dateCreated: postData.attributes.createdAt,
+        datePublished: postData.attributes.publishedAt,
+        dateModified: postData.attributes.updatedAt,
+        inLanguage: "en-US",
+    };
+
     return (
         <>
             <article className="mx-auto prose dark:prose-invert w-[90vw] md:w-2/3">
+                {/* Add JSON-LD to your page */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
                 {postData?.attributes?.feature?.data?.attributes?.url ? (
                     <Image
                         src={
@@ -84,7 +113,7 @@ export default async function Note({
                     }}
                 />
             </article>
-            <article>
+            <aside>
                 {postData?.attributes?.categories?.data[0].attributes.slug ==
                     "recipe" && postData?.attributes?.custom != null ? (
                     <div className="flex justify-center lg:block lg:fixed lg:left-1/4 lg:top-1/2 lg:translate-y-[-50%] lg:translate-x-[-100%]">
@@ -123,7 +152,7 @@ export default async function Note({
                 ) : (
                     <></>
                 )}
-            </article>
+            </aside>
         </>
     );
 }
