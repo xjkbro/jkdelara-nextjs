@@ -78,6 +78,7 @@ export default async function Note({
                         }
                         width={700}
                         height={400}
+                        priority
                         alt={postData.attributes.title}
                     />
                 ) : (

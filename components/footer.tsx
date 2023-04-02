@@ -28,28 +28,49 @@ export default function Footer() {
                         Jason-Kyle De Lara
                     </a>
                 </p>
-                <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
+                <span className="inline-flex justify-center gap-8 md:gap-4 mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
                     {socials.data.map((social) => (
                         <a
-                            className="mr-2 "
+                            className="justify-center"
                             aria-label={social.attributes.name + " icon link"}
                             key={social.id}
                             href={social.attributes.url}
                         >
                             {social.attributes.name == "Twitter" ? (
-                                <FontAwesomeIcon icon={Twitter} />
+                                <FontAwesomeIcon
+                                    icon={Twitter}
+                                    style={{ height: "1.5rem" }}
+                                />
                             ) : social.attributes.name == "Instagram" ? (
-                                <FontAwesomeIcon icon={Instagram} />
+                                <FontAwesomeIcon
+                                    icon={Instagram}
+                                    style={{ height: "1.5rem" }}
+                                />
                             ) : social.attributes.name == "LinkedIn" ? (
-                                <FontAwesomeIcon icon={LinkedIn} />
+                                <FontAwesomeIcon
+                                    icon={LinkedIn}
+                                    style={{ height: "1.5rem" }}
+                                />
                             ) : social.attributes.name == "Facebook" ? (
-                                <FontAwesomeIcon icon={Facebook} />
+                                <FontAwesomeIcon
+                                    icon={Facebook}
+                                    style={{ height: "1.5rem" }}
+                                />
                             ) : social.attributes.name == "YouTube" ? (
-                                <FontAwesomeIcon icon={YouTube} />
+                                <FontAwesomeIcon
+                                    icon={YouTube}
+                                    style={{ height: "1.5rem" }}
+                                />
                             ) : social.attributes.name == "GitHub" ? (
-                                <FontAwesomeIcon icon={GitHub} />
+                                <FontAwesomeIcon
+                                    icon={GitHub}
+                                    style={{ height: "1.5rem" }}
+                                />
                             ) : social.attributes.name == "Unsplash" ? (
-                                <FontAwesomeIcon icon={Unsplash} />
+                                <FontAwesomeIcon
+                                    icon={Unsplash}
+                                    style={{ height: "1.5rem" }}
+                                />
                             ) : (
                                 <></>
                             )}
