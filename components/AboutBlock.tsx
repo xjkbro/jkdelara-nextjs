@@ -25,18 +25,13 @@ export default function AboutBlock() {
                 viewport={{ once: true }}
                 exit={{ opacity: 0, translateY: 50 }}
                 transition={{ duration: 0.3 }}
-                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-white dark:bg-second">
-                <div
-                    
-                    className="flex flex-wrap items-center justify-between mx-auto md:w-3/4"
-                >
+                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-white dark:bg-second"
+            >
+                <div className="flex flex-wrap items-center justify-between mx-auto md:w-3/4">
                     <div className="order-2 w-full md:w-1/2 md:order-1">
                         <h3 className="text-[2rem] md:text-[3rem] font-black">
                             Who
                         </h3>
-                        {/* {text3.map((p,i) =>  <p className="mb-2 font-light text-justify font-notosans" key={i}>{p}</p> )} */}
-                        {/* {text2.map((p,i) =>  <p className="mb-1 text-sm md:text-normal md:text-justify" key={i}>{p}</p> )} */}
-                        {/* <p className="font-light text-justify font-notosans">{text}</p> */}
                         <p className="mb-2 font-light text-justify font-notosans">
                             Hello, my name is Jason-Kyle but I really go by
                             Jason. I like to create things. Whether that be
@@ -120,15 +115,5 @@ export default function AboutBlock() {
                 </div>
             </motion.div>
         </>
-    );
-}
-
-function AnimatedBorder({ children }) {
-    return (
-        <div className="animate-border rounded-full h-full bg-white from-teal-500 via-purple-500 to-pink-500 bg-[length:400%_400%] p-1 transition bg-gradient-to-r">
-            <div className="w-full h-full transition-all rounded-full dark:bg-second bg-fifth">
-                {children}
-            </div>
-        </div>
     );
 }

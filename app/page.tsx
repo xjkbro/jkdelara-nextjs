@@ -65,7 +65,7 @@ const getQuote = async () => {
 
 async function getNotes() {
     const res = await fetch(
-        "https://cms.jsondelara.com/api/posts?populate=*&sort=publishedAt:desc&pagination[pageSize]=3&pagination[page]=1",
+        "https://cms.jkdelara.com/api/posts?populate=*&sort=publishedAt:desc&pagination[pageSize]=3&pagination[page]=1",
         { next: { revalidate: 120 } }
     );
     return res.json();
@@ -73,7 +73,7 @@ async function getNotes() {
 
 async function getProjects() {
     const res = await fetch(
-        "https://cms.jsondelara.com/api/projects?fields[0]=name&fields[1]=description&fields[3]=title&fields[3]=slug&fields[4]=started&populate[links]=*&populate[technologies][fields][0]=name&populate[image][fields][0]=url&sort=publishedAt:desc&pagination[pageSize]=3&pagination[page]=1",
+        "https://cms.jkdelara.com/api/projects?fields[0]=name&fields[1]=description&fields[3]=title&fields[3]=slug&fields[4]=started&populate[links]=*&populate[technologies][fields][0]=name&populate[image][fields][0]=url&sort=publishedAt:desc&pagination[pageSize]=3&pagination[page]=1",
         { next: { revalidate: 120 } }
     );
     return res.json();

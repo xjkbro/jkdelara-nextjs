@@ -36,7 +36,7 @@ export default async function Notes({
 
 async function getNotes(page) {
     const res = await fetch(
-        "https://cms.jsondelara.com/api/posts?populate=*&sort=publishedAt:desc&pagination[pageSize]=10&pagination[page]=" +
+        "https://cms.jkdelara.com/api/posts?populate=*&sort=publishedAt:desc&pagination[pageSize]=10&pagination[page]=" +
             page,
         { next: { revalidate: 120 } }
     );
@@ -45,7 +45,7 @@ async function getNotes(page) {
 
 async function getCategories() {
     const res = await fetch(
-        "https://cms.jsondelara.com/api/categories?populate=*",
+        "https://cms.jkdelara.com/api/categories?populate=*",
         { next: { revalidate: 120 } }
     );
     return res.json();

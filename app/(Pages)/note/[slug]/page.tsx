@@ -130,13 +130,13 @@ export default async function Note({
 
 async function getNote(slug: string) {
     const res = await fetch(
-        `https://cms.jsondelara.com/api/posts?filters[slug][$eq]=${slug}&populate=*`,
+        `https://cms.jkdelara.com/api/posts?filters[slug][$eq]=${slug}&populate=*`,
         { cache: "no-store" }
     );
     return res.json();
 }
 async function getNoteMetaData(slug: string) {
-    const URL = `https://cms.jsondelara.com/api/posts?filters[slug][$eq]=${slug}&fields[0]=title&fields[1]=summary&populate[feature][fields][0]=url`;
+    const URL = `https://cms.jkdelara.com/api/posts?filters[slug][$eq]=${slug}&fields[0]=title&fields[1]=summary&populate[feature][fields][0]=url`;
     const res = await fetch(URL, { cache: "no-store" });
     return res.json();
 }

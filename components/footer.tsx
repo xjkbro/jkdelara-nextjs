@@ -33,6 +33,9 @@ export default function Footer() {
                         {socials.data.map((social) => (
                             <a
                                 className="mr-2 "
+                                aria-label={
+                                    social.attributes.name + " icon link"
+                                }
                                 key={social.id}
                                 href={social.attributes.url}
                             >
@@ -64,7 +67,7 @@ export default function Footer() {
 
 async function getSocials() {
     const res = await fetch(
-        "https://cms.jsondelara.com/api/socials?fields[0]=name&fields[1]=url",
+        "https://cms.jkdelara.com/api/socials?fields[0]=name&fields[1]=url",
         { cache: "no-store" }
     );
     return res.json();

@@ -114,6 +114,7 @@ function DesktopNav({ isDark, setIsDark, pathname }) {
                  <li className="text-xl font-light hover:text-sixth"><a href="/arts">Arts</a></li> */}
             </ul>
             <button
+                title="Toggle Dark Mode"
                 className="hidden w-8 h-8 border-2 rounded-full shadow-md md:block"
                 onClick={() => setIsDark(!isDark)}
             >
@@ -217,6 +218,7 @@ function MobileNav({ isDark, setIsDark, overlay, setOverlay, pathname }) {
                             </li>
                             <li className="my-2 mt-12">
                                 <button
+                                    title="Toggle Dark Mode"
                                     className="w-8 h-8 border-2 rounded-full shadow-md dark:border-fifth border-first md:block"
                                     onClick={() => setIsDark(!isDark)}
                                 >

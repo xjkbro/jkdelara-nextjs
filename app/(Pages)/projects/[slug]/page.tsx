@@ -86,7 +86,7 @@ export default async function Note({
 
 async function getProject(slug: string) {
     const URL =
-        "https://cms.jsondelara.com/api/projects?filters[slug][$eq]=" +
+        "https://cms.jkdelara.com/api/projects?filters[slug][$eq]=" +
         slug +
         "&fields[0]=name&fields[1]=description&fields[3]=title&fields[3]=slug&populate[links]=*&populate[technologies][fields][0]=name&populate[image][fields][0]=url";
     // const res = await fetch(URL, { next: { revalidate: 60 } })
@@ -96,7 +96,7 @@ async function getProject(slug: string) {
 }
 async function getProjectMetaData(slug: string) {
     const URL =
-        "https://cms.jsondelara.com/api/projects?filters[slug][$eq]=" +
+        "https://cms.jkdelara.com/api/projects?filters[slug][$eq]=" +
         slug +
         "&fields[0]=name&fields[1]=description&fields[3]=title&populate[image][fields][0]=url";
     const res = await fetch(URL, { cache: "no-store" });
