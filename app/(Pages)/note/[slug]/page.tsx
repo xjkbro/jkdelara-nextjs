@@ -117,7 +117,7 @@ export default async function Note({
             <aside>
                 {postData?.attributes?.categories?.data[0].attributes.slug ==
                     "recipe" && postData?.attributes?.custom != null ? (
-                    <div className="flex justify-center lg:block lg:fixed lg:left-1/4 lg:top-1/2 lg:translate-y-[-50%] lg:translate-x-[-100%]">
+                    <div className="flex justify-center lg:block xl:fixed lg:left-1/4 lg:top-1/2 lg:translate-y-[-50%] lg:translate-x-[-100%]">
                         <NutritionLabel
                             servingSize={
                                 postData?.attributes?.custom?.servingSize

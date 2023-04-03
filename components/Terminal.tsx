@@ -6,6 +6,7 @@ const consoleText = IBM_Plex_Mono({
     subsets: ["latin"],
 });
 import { socials } from "@/constants/socials";
+import { motion } from "framer-motion";
 
 export const commandLibrary = [
     {
@@ -26,7 +27,7 @@ export const commandLibrary = [
     },
     {
         name: "about",
-        output: "Jason is cool.",
+        output: "Hello, I'm Jason and I like to create things. With the help of VS Code, Chrome, and a scoop of preworkout, I help transform businesses ideas into tangible full scale application. Let's build something together! =)",
     },
     {
         name: "ls",
@@ -42,9 +43,11 @@ export const commandLibrary = [
     },
     {
         name: "socials",
-        output: `${socials.data.map((social)=>{
-            return `<a href='${social.attributes.url}'>${social.attributes.name}</a><br>`
-        }).join('')}`
+        output: `${socials.data
+            .map((social) => {
+                return `<a href='${social.attributes.url}'>${social.attributes.name}</a><br>`;
+            })
+            .join("")}`,
     },
     {
         name: "cv",
@@ -56,132 +59,160 @@ export const commandLibrary = [
     },
     {
         name: "cd",
-        output: "Changing directory..."
-    }
+        output: "Changing directory...",
+    },
 ];
 
 export default function Terminal() {
     const input = useRef<HTMLInputElement>(null);
-    const [lastCmd, setLastCmd] = useState([])
+    const [lastCmd, setLastCmd] = useState([]);
     const terminalContainer = useRef<HTMLDivElement>(null);
     const [cmdCount, setCmdCount] = useState(0);
     useEffect(() => {
         input.current ? input.current.focus() : "";
     }, [cmdCount]);
     return (
-        <>
-            <div
-                id="terminal"
-                className="w-full h-64 mb-4 bg-black border border-gray-300 rounded-md shadow-md"
-                onClick={() => {
-                    input.current ? input.current.focus() : "";
-                }}
-            >
-                <div className="flex w-full gap-2 p-1 rounded-t-sm bg-gradient-to-tr from-gray-300 to-gray-400 h-fit">
-                    <span className="w-4 h-4 bg-red-500 rounded-full"></span>
-                    <span className="w-4 h-4 bg-yellow-300 rounded-full"></span>
-                    <span className="w-4 h-4 bg-green-500 rounded-full"></span>
-                </div>
+        <motion.div drag>
+            <AnimatedBorder>
                 <div
-                    className={
-                        "text-white h-56 w-full p-4 overflow-y-scroll " +
-                        consoleText.className
-                    }
-                    ref={terminalContainer}
+                    id="terminal"
+                    className="w-full h-64  bg-first border-0 border-gray-300 rounded-md shadow-md"
+                    onClick={() => {
+                        input.current ? input.current.focus() : "";
+                    }}
                 >
-                    {Array.from({ length: cmdCount+1 }).map((_, index) => (
-                        <CommandLine
-                            key={index}
-                            refToInput={input}
-                            cmdCount={cmdCount}
-                            setCmdCount={setCmdCount}
-                            terminalContainer={terminalContainer}
-                            lastCmd={lastCmd}
-                            setLastCmd={setLastCmd}
-                        />
-                    ))}
+                    {/* <div className="flex w-full gap-2 p-1 rounded-t-sm bg-gradient-to-tr from-gray-300 to-gray-400 h-fit"> */}
+                    <div className="flex w-full gap-2 p-1 rounded-t-md bg-gradient-to-tr from-gray-300 to-gray-400 h-fit">
+                        <span className="w-4 h-4 bg-red-500 rounded-full"></span>
+                        <span className="w-4 h-4 bg-yellow-300 rounded-full"></span>
+                        <span className="w-4 h-4 bg-green-500 rounded-full"></span>
+                    </div>
+                    <div
+                        className={
+                            "text-white h-56 w-full p-4 overflow-y-scroll " +
+                            consoleText.className
+                        }
+                        ref={terminalContainer}
+                    >
+                        {Array.from({ length: cmdCount + 1 }).map(
+                            (_, index) => (
+                                <CommandLine
+                                    key={index}
+                                    refToInput={input}
+                                    cmdCount={cmdCount}
+                                    setCmdCount={setCmdCount}
+                                    terminalContainer={terminalContainer}
+                                    lastCmd={lastCmd}
+                                    setLastCmd={setLastCmd}
+                                />
+                            )
+                        )}
+                    </div>
                 </div>
-            </div>
-            <p className="mb-4 text-sm">Feel free to use this command window to get any quick information. Use &apos; help &apos; to see the available commands.</p>
-
-        </>
+                {/* <p className="mb-4 text-sm">
+                    Feel free to use this command window to get any quick
+                    information. Use &apos; help &apos; to see the available
+                    commands.
+                </p> */}
+            </AnimatedBorder>
+        </motion.div>
     );
 }
 
-export function CommandLine({ refToInput, cmdCount, setCmdCount,terminalContainer, lastCmd, setLastCmd }) {
+export function CommandLine({
+    refToInput,
+    cmdCount,
+    setCmdCount,
+    terminalContainer,
+    lastCmd,
+    setLastCmd,
+}) {
     const [output, setOutput] = useState("");
-    const [historyCheck ,setHistoryCheck] = useState(cmdCount)
+    const [historyCheck, setHistoryCheck] = useState(cmdCount);
     const commandChecker = (e) => {
-        console.log(e.code)
+        console.log(e.code);
         if (e.code == "Enter") {
             let found = false;
             commandLibrary.map((cmd) => {
                 if (cmd.name == e.target.value) {
                     setOutput(cmd.output);
                     found = true;
-                } 
+                }
             });
-            
-            if (e.target.value == 'clear') {
+
+            if (e.target.value == "clear") {
                 setOutput("");
                 setCmdCount(0);
                 while (terminalContainer.current.hasChildNodes()) {
-                    terminalContainer.current.removeChild(terminalContainer.current.lastChild);
+                    terminalContainer.current.removeChild(
+                        terminalContainer.current.lastChild
+                    );
                 }
-            } 
-
-            
-            if(!found && e.target.value != "") {
-                setOutput(`Invalid Command: ${e.target.value }`)
             }
-            if(e.target.value.split(" ")[0] == "cd") {
-                const arr = e.target.value.split(" ")
-                const avail_routes=['dashboard', 'story', 'projects', 'notes', 'arts', 'contact']
-                console.log(arr)
-                if(arr.length < 2) 
+
+            if (!found && e.target.value != "") {
+                setOutput(`Invalid Command: ${e.target.value}`);
+            }
+            if (e.target.value.split(" ")[0] == "cd") {
+                const arr = e.target.value.split(" ");
+                const avail_routes = [
+                    "dashboard",
+                    "story",
+                    "projects",
+                    "notes",
+                    "arts",
+                    "contact",
+                ];
+                console.log(arr);
+                if (arr.length < 2)
                     setOutput("A second argument is required...");
                 else {
-                    if(avail_routes.includes(arr[1])){
+                    if (avail_routes.includes(arr[1])) {
                         setOutput("Changing directory...");
-                        if(arr[1] == 'home')
-                            window.location.href = "/";
-                        else
-                            window.location.href = "/"+arr[1];
-                    }
-                    else
-                        setOutput("Folder not available...");
+                        if (arr[1] == "home") window.location.href = "/";
+                        else window.location.href = "/" + arr[1];
+                    } else setOutput("Folder not available...");
                 }
             }
             setCmdCount(cmdCount + 1);
-            setLastCmd([...lastCmd, e.target.value])
+            setLastCmd([...lastCmd, e.target.value]);
         }
-        if(e.code == "ArrowUp") {
-            refToInput.current.value = lastCmd[historyCheck-1]
-            if(historyCheck > 1)
-                setHistoryCheck(historyCheck-1)
+        if (e.code == "ArrowUp") {
+            refToInput.current.value = lastCmd[historyCheck - 1];
+            if (historyCheck > 1) setHistoryCheck(historyCheck - 1);
         }
-        if(e.code == "ArrowDown") {
-            refToInput.current.value = lastCmd[historyCheck]
-            if(historyCheck < cmdCount){
-                setHistoryCheck(historyCheck+1)
-            }else{
-                refToInput.current.value = ""
+        if (e.code == "ArrowDown") {
+            refToInput.current.value = lastCmd[historyCheck];
+            if (historyCheck < cmdCount) {
+                setHistoryCheck(historyCheck + 1);
+            } else {
+                refToInput.current.value = "";
             }
         }
-        console.log(historyCheck)
-        console.log(lastCmd)
+        console.log(historyCheck);
+        console.log(lastCmd);
     };
-    refToInput.c
+    refToInput.c;
     return (
         <>
             <span className="text-green-400"> @jkdelara ~ &gt; </span>
             <input
                 type="text"
                 ref={refToInput}
-                className="bg-black cursor-default text-white-400 focus:outline-none w-fit"
+                className="bg-first cursor-default text-white-400 focus:outline-none w-fit"
                 onKeyDown={commandChecker}
             />
-            <div dangerouslySetInnerHTML={{__html: output}} />
+            <div dangerouslySetInnerHTML={{ __html: output }} />
         </>
+    );
+}
+
+function AnimatedBorder({ children }) {
+    return (
+        <div className="animate-border rounded-xl h-full w-full bg-white from-teal-500 via-purple-500 to-pink-500 bg-[length:400%_400%] p-1 transition bg-gradient-to-r">
+            <div className="transition-all h-full w-full rounded-[11px] dark:bg-first bg-fifth">
+                {children}
+            </div>
+        </div>
     );
 }

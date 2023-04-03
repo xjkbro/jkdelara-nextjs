@@ -40,7 +40,7 @@ export default async function Note({
 
     const project = res.data[0];
     return (
-        <article className="w-[90vw] md:w-2/3 mx-auto">
+        <article className="w-[90vw] md:w-2/3 mx-auto mb-12">
             <Image
                 src={project?.attributes?.image?.data?.attributes?.url}
                 width={800}
@@ -58,7 +58,7 @@ export default async function Note({
                         {views} views
                     </span>
                 </h1>
-                <ul className="flex flex-wrap gap-1">
+                <ul className="flex flex-wrap gap-1 list-none pl-0">
                     {project.attributes.technologies.data.map((tech) => (
                         <li
                             className="px-4 py-2 mr-1 text-sm font-semibold text-white rounded-full whitespace-nowrap dark:text-white bg-seventh"
