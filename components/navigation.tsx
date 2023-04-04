@@ -171,7 +171,7 @@ function MobileNav({ isDark, setIsDark, overlay, setOverlay, pathname }) {
                     >
                         <ul className="flex flex-col justify-center text-center gap-x-8 md:gap-12">
                             <li className="flex justify-center mb-4 text-xl font-light hover:text-sixth">
-                                <a href="/">
+                                <Link href="/">
                                     <Image
                                         className=""
                                         src="/favicon/android-chrome-192x192.png"
@@ -179,7 +179,7 @@ function MobileNav({ isDark, setIsDark, overlay, setOverlay, pathname }) {
                                         height={30}
                                         alt="Logo"
                                     />
-                                </a>
+                                </Link>
                             </li>
                             <li
                                 className="text-xl font-light hover:text-sixth"

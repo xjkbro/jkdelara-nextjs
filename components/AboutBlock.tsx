@@ -20,14 +20,14 @@ export default function AboutBlock() {
     return (
         <section>
             <motion.div
-                initial={{ opacity: 0, translateY: 10 }}
+                initial={{ opacity: 0, translateY: 25 }}
                 whileInView={{ opacity: 1, translateY: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.4 }}
                 exit={{ opacity: 0, translateY: 50 }}
                 transition={{ duration: 0.3 }}
                 className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-white dark:bg-second"
             >
-                <div className="flex flex-wrap items-center justify-between mx-auto md:w-3/4">
+                <motion.div className="flex flex-wrap items-center justify-between mx-auto md:w-3/4">
                     <div className="order-2 w-full md:w-1/2 md:order-1">
                         <h3 className="text-[2rem] md:text-[3rem] font-black">
                             Who
@@ -112,7 +112,7 @@ export default function AboutBlock() {
                             {/* </AnimatedBorder> */}
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </motion.div>
         </section>
     );
