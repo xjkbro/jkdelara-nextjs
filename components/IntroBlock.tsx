@@ -12,7 +12,7 @@ export default function IntroBlock() {
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: 50 }}
                 transition={{ duration: 0.3 }}
-                className="z-[5] flex flex-col items-center justify-start md:justify-between mt-[10vh] md:mt-0 min-h-[85vh] pb-12 md:pb-0 md:h-[90vh] lg:flex-row w-[90vw] md:w-2/3 mx-auto"
+                className="z-[5] flex flex-col items-center justify-start md:justify-between mt-[10vh] md:mt-0 min-h-[60vh] pb-12 md:pb-0 md:h-[90vh] lg:flex-row w-[90vw] md:w-2/3 mx-auto"
             >
                 <div
                     className="order-2 w-full  mx-auto my-2 md:my-8 md:w-fit md:order-1"

@@ -6,7 +6,7 @@ const consoleText = IBM_Plex_Mono({
     subsets: ["latin"],
 });
 import { socials } from "@/constants/socials";
-import { motion } from "framer-motion";
+import { motion, useDragControls } from "framer-motion";
 
 export const commandLibrary = [
     {
@@ -68,11 +68,15 @@ export default function Terminal() {
     const [lastCmd, setLastCmd] = useState([]);
     const terminalContainer = useRef<HTMLDivElement>(null);
     const [cmdCount, setCmdCount] = useState(0);
+    const controls = useDragControls();
+    function startDrag(event) {
+        controls.start(event);
+    }
     useEffect(() => {
         input.current ? input.current.focus() : "";
     }, [cmdCount]);
     return (
-        <motion.div drag>
+        <motion.div drag dragListener={false} dragControls={controls}>
             <AnimatedBorder>
                 <div
                     id="terminal"
@@ -82,7 +86,10 @@ export default function Terminal() {
                     }}
                 >
                     {/* <div className="flex w-full gap-2 p-1 rounded-t-sm bg-gradient-to-tr from-gray-300 to-gray-400 h-fit"> */}
-                    <div className="flex w-full gap-2 p-1 rounded-t-md bg-gradient-to-tr from-gray-300 to-gray-400 h-fit">
+                    <div
+                        onPointerDown={startDrag}
+                        className="flex w-full gap-2 p-1 rounded-t-md bg-gradient-to-tr from-gray-300 to-gray-400 h-fit"
+                    >
                         <span className="w-4 h-4 bg-red-500 rounded-full"></span>
                         <span className="w-4 h-4 bg-yellow-300 rounded-full"></span>
                         <span className="w-4 h-4 bg-green-500 rounded-full"></span>

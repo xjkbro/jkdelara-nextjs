@@ -25,14 +25,14 @@ export default function AboutBlock() {
                 viewport={{ once: true, amount: 0.4 }}
                 exit={{ opacity: 0, translateY: 50 }}
                 transition={{ duration: 0.3 }}
-                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-white dark:bg-second"
+                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-2 md:px-8 lg:flex-row bg-white dark:bg-second"
             >
                 <motion.div className="flex flex-wrap items-center justify-between mx-auto md:w-3/4">
                     <div className="order-2 w-full md:w-1/2 md:order-1">
                         <h3 className="text-[2rem] md:text-[3rem] font-black">
                             Who
                         </h3>
-                        <p className="mb-2 font-light text-justify font-notosans">
+                        <p className="mb-2 font-light md:text-justify font-notosans">
                             Hello, my name is Jason-Kyle but I really go by
                             Jason. I like to create things. Whether that be
                             programs, apps, videos, food, gadgets, etc.
@@ -40,7 +40,7 @@ export default function AboutBlock() {
                             ideas. I want to make an impact in the world and
                             create something that will benefit many people.
                         </p>
-                        <p className="mb-2 font-light text-justify font-notosans">
+                        <p className="mb-2 font-light md:text-justify font-notosans">
                             I started my coding journey at the age of 12 when I
                             found out about a platform called{" "}
                             <a
@@ -54,7 +54,7 @@ export default function AboutBlock() {
                             options for their profiles that gave me exposure to
                             HTML and CSS.
                         </p>
-                        <p className="mb-2 font-light text-justify font-notosans">
+                        <p className="mb-2 font-light md:text-justify font-notosans">
                             Today, I am fortunate enough to be working at{" "}
                             <a
                                 className="font-normal underline text-eighth"
@@ -70,7 +70,7 @@ export default function AboutBlock() {
                             applications. Let&apos;s build something together!
                             😁
                         </p>
-                        <p className="mb-2 font-light text-justify font-notosans">
+                        <p className="mb-2 font-light md:text-justify font-notosans">
                             Here are a few technologies I&apos;ve been working
                             with recently:
                         </p>

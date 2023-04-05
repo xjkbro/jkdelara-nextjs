@@ -20,19 +20,19 @@ export default function SkillBlock() {
                 viewport={{ once: true, amount: 0.4 }}
                 exit={{ opacity: 0, translateY: 50 }}
                 transition={{ duration: 0.3 }}
-                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-8 lg:flex-row bg-fifth dark:bg-second"
+                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-2 md:px-8 lg:flex-row bg-fifth dark:bg-second"
             >
                 <motion.div
                     initial={{ opacity: 0, translateY: 0, translateX: -20 }}
                     animate={{ opacity: 1, translateY: 0, translateX: -0 }}
                     exit={{ opacity: 0, translateY: 50 }}
                     transition={{ duration: 0.3 }}
-                    className="flex flex-col flex-wrap items-center justify-between w-11/12 mx-auto md:w-3/4"
+                    className="flex flex-col flex-wrap md:items-center justify-between w-11/12 mx-auto md:w-3/4"
                 >
                     <h3 className="text-[2rem] md:text-[3rem] font-black">
                         What
                     </h3>
-                    <p className="my-4 font-light text-center font-notosans md:w-3/4 tmx-auto">
+                    <p className="my-4 font-light md:text-center font-notosans md:w-3/4 tmx-auto">
                         My primary goal is to bring your ideas to reality on
                         time and on budget. I offer a wide variety of
                         development. A landing page, web application, Wordpress
@@ -56,7 +56,7 @@ export default function SkillBlock() {
                                         delay: 0.2 * i,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
-                                    className="flex w-full py-1"
+                                    className="flex w-full md:py-1"
                                     key={i}
                                 >
                                     <div className="flex items-center justify-between w-full h-8 px-2 overflow-hidden font-mono text-xs rounded-l-sm md:w-1/6 md:justify-start">
