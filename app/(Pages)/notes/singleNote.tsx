@@ -14,6 +14,7 @@ export default function SingleNote({ note, i }) {
         `/api/views/notes/${note.attributes.slug}`,
         fetcher
     );
+
     const regex = /(<([^>]+)>)/gi;
     return (
         <motion.article
@@ -24,7 +25,7 @@ export default function SingleNote({ note, i }) {
             <div className="p-4 transition-all rounded-md h-fit md:min-h-[12rem] dark:bg-second shadow-xl hover:-translate-y-1 duration-200 bg-white hover:bg-fifth">
                 <div className="md:mb-2">
                     <div className="mb-2">
-                        {note.attributes?.categories?.data.map((cat) => {
+                        {note.attributes?.categories?.data.map((cat, i) => {
                             return (
                                 <span
                                     key={cat.id}
@@ -35,7 +36,18 @@ export default function SingleNote({ note, i }) {
                             );
                         })}
                         <span className="ml-2 text-sm text-second dark:text-fourth">
-                            {data?.views ? data?.views : 0} views
+                            {data?.views ? (
+                                data?.views
+                            ) : (
+                                <span
+                                // className="inline-block h-5 animate-pulse w-12 bg-second"
+                                // style={{
+                                //     animationDelay: `${i * 0.05}s`,
+                                //     animationDuration: "1s",
+                                // }}
+                                ></span>
+                            )}{" "}
+                            views
                         </span>
                     </div>
                     <span className="block text-lg font-bold">

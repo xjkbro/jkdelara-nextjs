@@ -38,17 +38,21 @@ export default async function Category({
                     </Link>
                 ))}
             </div>
-            <Pages meta={catNotes.meta} page={currentPage} />
+            {/* <Pages meta={catNotes.meta} page={currentPage} /> */}
         </div>
     );
 }
 
 async function getCategoryNotes(slug: string, page: string | number) {
+    // const URL =
+    //     "https://cms.jkdelara.com/api/posts?filters[categories][slug][$eq]=" +
+    //     slug +
+    //     "&populate=*&sort=publishedAt:desc&pagination[pageSize]=10&pagination[page]=" +
+    //     page;
     const URL =
         "https://cms.jkdelara.com/api/posts?filters[categories][slug][$eq]=" +
         slug +
-        "&populate=*&sort=publishedAt&pagination[pageSize]=10&pagination[page]=" +
-        page;
+        "&populate=*&sort=publishedAt:desc";
     // console.log(URL)
     const res = await fetch(URL, { cache: "no-store" });
     return res.json();

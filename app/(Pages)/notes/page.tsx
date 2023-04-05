@@ -30,18 +30,17 @@ export default async function Notes({
                     </Link>
                 ))}
             </div>
-            <Pages meta={notes.meta} page={currentPage} />
+            {/* <Pages meta={notes.meta} page={currentPage} /> */}
             {/* <NoteGrid page={currentPage} /> */}
         </div>
     );
 }
 
 async function getNotes(page) {
-    const res = await fetch(
-        "https://cms.jkdelara.com/api/posts?populate=*&sort=publishedAt:desc&pagination[pageSize]=10&pagination[page]=" +
-            page,
-        { next: { revalidate: 120 } }
-    );
+    // const ß
+    const url =
+        "https://cms.jkdelara.com/api/posts?populate=*&sort=publishedAt:desc";
+    const res = await fetch(url, { next: { revalidate: 120 } });
     return res.json();
 }
 
