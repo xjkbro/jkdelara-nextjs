@@ -4,7 +4,7 @@ import NoteNav from "./NoteNav";
 import SingleNote from "./singleNote";
 import Pages from "./pagination";
 import { currentPageSetup } from "@/lib/pagination";
-import NoteGrid from "./NoteGrid";
+// import NoteGrid from "./NoteGrid";
 
 export const metadata = { title: "Notes" };
 
@@ -23,15 +23,15 @@ export default async function Notes({
                 categories={categories}
                 results={notes?.meta.pagination.total}
             />
-            {/* <div className="grid gap-4 md:grid-cols-2 mt-4 min-h-[20vh]">
+            <div className="grid gap-4 md:grid-cols-2 mt-4 min-h-[20vh]">
                 {notes.data.map((note, i) => (
                     <Link key={note.id} href={"/note/" + note.attributes.slug}>
                         <SingleNote note={note} i={i} />
                     </Link>
                 ))}
             </div>
-            <Pages meta={notes.meta} page={currentPage} /> */}
-            <NoteGrid page={currentPage} />
+            <Pages meta={notes.meta} page={currentPage} />
+            {/* <NoteGrid page={currentPage} /> */}
         </div>
     );
 }
