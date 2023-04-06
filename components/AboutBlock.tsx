@@ -100,7 +100,6 @@ export default function AboutBlock() {
                             id="home-avatar"
                             className="mx-auto my-8 w-[300px] h-[300px] rounded-lg outline outline-2 p-0.5 outline-eighth"
                         >
-                            {/* <AnimatedBorder> */}
                             <Image
                                 className="mx-auto bg-transparent rounded-lg w-[300px] h-[300px]"
                                 src="/feature.png"
@@ -109,7 +108,6 @@ export default function AboutBlock() {
                                 height={300}
                                 alt="Photo of Jason Kyle De Lara"
                             />
-                            {/* </AnimatedBorder> */}
                         </div>
                     </div> */}
                 </motion.div>
