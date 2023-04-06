@@ -32,7 +32,7 @@ export default function ClientPageWrapper({ children }) {
                         : "bg-fifth text-first transition-colors"
                 }
             >
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 1 }}
                     animate={{
                         opacity: 0,
@@ -75,11 +75,11 @@ export default function ClientPageWrapper({ children }) {
                             d="M63.7505 0H43.688V66.9375C43.688 70 43.2349 72.5781 42.3287 74.6719C41.4224 76.7656 40.0943 78.3594 38.3443 79.4531C36.6255 80.5156 34.5162 81.0469 32.0162 81.0469C29.6412 81.0469 27.5787 80.5781 25.8287 79.6406C24.1099 78.6719 22.7505 77.2969 21.7505 75.5156C20.7818 73.7031 20.2662 71.5313 20.2037 69H0.000526684C-0.0307233 75.375 1.32865 80.6719 4.07865 84.8906C6.82865 89.0781 10.5474 92.2031 15.2349 94.2656C19.9537 96.2969 25.2037 97.3125 30.9849 97.3125C37.4849 97.3125 43.188 96.0781 48.0943 93.6094C53.0005 91.1406 56.8287 87.625 59.5787 83.0625C62.3599 78.5 63.7505 73.125 63.7505 66.9375V58.1909L65.3471 56.2396L92.3293 97H116.314L80.1909 42.4305L114.907 2.86102e-06H88.1042L63.7505 29.7656V0Z"
                         />
                     </motion.svg>
-                </motion.div>
+                </motion.div> */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 2.7 }}
+                // initial={{ opacity: 0 }}
+                // animate={{ opacity: 1 }}
+                // transition={{ duration: 0.3, delay: 2.7 }}
                 >
                     <Navigation
                         isDark={isDark}

@@ -34,7 +34,7 @@ export default function IntroBlock() {
                                 animate={{
                                     rotate: [0, -10, 10, -10, 10, -10, 0],
                                 }}
-                                transition={{ duration: 0.5, delay: 3.5 }}
+                                transition={{ duration: 0.5, delay: 1.5 }}
                                 className="text-[2.5rem] md:text-[7.5rem]"
                             >
                                 👋
