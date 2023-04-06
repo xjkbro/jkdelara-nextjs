@@ -95,7 +95,7 @@ export default function AboutBlock() {
                             </li>
                         </ul>
                     </div>
-                    <div className="order-1 hidden w-full md:w-96 md:order-2 md:block">
+                    {/* <div className="order-1 hidden w-full md:w-96 md:order-2 md:block">
                         <div
                             id="home-avatar"
                             className="mx-auto my-8 w-[300px] h-[300px] rounded-lg outline outline-2 p-0.5 outline-eighth"
@@ -111,7 +111,7 @@ export default function AboutBlock() {
                             />
                             {/* </AnimatedBorder> */}
                         </div>
-                    </div>
+                    </div> */}
                 </motion.div>
             </motion.div>
         </section>
