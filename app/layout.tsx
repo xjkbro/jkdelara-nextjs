@@ -1,4 +1,5 @@
-import "../styles/globals.css";
+import "../styles/build.css";
+// import "../styles/global.css";
 import "../styles/custom.css";
 import ClientPageWrapper from "@/components/ClientPageWrapper";
 

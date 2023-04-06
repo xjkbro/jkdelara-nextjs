@@ -2,6 +2,9 @@
 const nextConfig = {
     experimental: {
         appDir: true,
+        experimental: {
+            nextScriptWorkers: true,
+        },
         fontLoaders: [
             { loader: "next/font/google", options: { subsets: ["latin"] } },
         ],

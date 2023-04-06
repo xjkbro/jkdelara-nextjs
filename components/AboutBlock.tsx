@@ -102,11 +102,11 @@ export default function AboutBlock() {
                         >
                             {/* <AnimatedBorder> */}
                             <Image
-                                className="mx-auto bg-transparent rounded-full"
+                                className="mx-auto bg-transparent rounded-full w-[300px] h-[300px]"
                                 src="/feature.png"
-                                priority
-                                width={300}
-                                height={300}
+                                // priority
+                                width={100}
+                                height={100}
                                 alt="Photo of Jason Kyle De Lara"
                             />
                             {/* </AnimatedBorder> */}
