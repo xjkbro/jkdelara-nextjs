@@ -98,15 +98,15 @@ export default function AboutBlock() {
                     <div className="order-1 hidden w-full md:w-96 md:order-2 md:block">
                         <div
                             id="home-avatar"
-                            className="mx-auto my-8 w-[300px] h-[300px]"
+                            className="mx-auto my-8 w-[300px] h-[300px] rounded-lg outline outline-2 p-0.5 outline-eighth"
                         >
                             {/* <AnimatedBorder> */}
                             <Image
-                                className="mx-auto bg-transparent rounded-full w-[300px] h-[300px]"
+                                className="mx-auto bg-transparent rounded-lg w-[300px] h-[300px]"
                                 src="/feature.png"
-                                // priority
-                                width={100}
-                                height={100}
+                                priority
+                                width={300}
+                                height={300}
                                 alt="Photo of Jason Kyle De Lara"
                             />
                             {/* </AnimatedBorder> */}
