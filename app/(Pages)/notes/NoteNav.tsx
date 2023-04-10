@@ -13,7 +13,7 @@ const navLinks = {
     },
 };
 export default function NoteNav({ categories, results }) {
-    categories.data.map((cat) => {
+    categories?.data?.map((cat) => {
         navLinks[`/notes/${cat.attributes.slug}`] = {
             name: `${cat.attributes.title}`,
         };

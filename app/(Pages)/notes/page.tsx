@@ -21,14 +21,18 @@ export default async function Notes({
             <NoteHeading category={null} />
             <NoteNav
                 categories={categories}
-                results={notes?.meta.pagination.total}
+                results={notes && notes?.meta?.pagination?.total}
             />
             <div className="grid gap-4 md:grid-cols-2 mt-4 min-h-[20vh]">
-                {notes.data.map((note, i) => (
-                    <Link key={note.id} href={"/note/" + note.attributes.slug}>
-                        <SingleNote note={note} i={i} />
-                    </Link>
-                ))}
+                {notes &&
+                    notes?.data?.map((note, i) => (
+                        <Link
+                            key={note.id}
+                            href={"/note/" + note.attributes.slug}
+                        >
+                            <SingleNote note={note} i={i} />
+                        </Link>
+                    ))}
             </div>
             {/* <Pages meta={notes.meta} page={currentPage} /> */}
             {/* <NoteGrid page={currentPage} /> */}
