@@ -37,7 +37,6 @@ export default async function Notes({
 }
 
 async function getNotes(page) {
-    // const ß
     const url =
         "https://cms.jkdelara.com/api/posts?populate=*&sort=publishedAt:desc";
     const res = await fetch(url, { next: { revalidate: 120 } });
