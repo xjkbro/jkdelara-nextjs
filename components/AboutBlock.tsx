@@ -88,7 +88,7 @@ export default function AboutBlock() {
                                 PHP
                             </li>
                             <li className="before:content-['\00BB'] before:mr-1">
-                                Tailwind
+                                TailwindCSS
                             </li>
                             <li className="before:content-['\00BB'] before:mr-1">
                                 Node.js
