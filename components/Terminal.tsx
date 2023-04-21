@@ -27,7 +27,7 @@ export const commandLibrary = [
     },
     {
         name: "about",
-        output: "Hello, I'm Jason and I like to create things. With the help of VS Code, Chrome, and a scoop of preworkout, I help transform businesses ideas into tangible full scale application. Let's build something together! =)",
+        output: "Hello, I'm Jason-Kyle! I like to create things with the help of VS Code, Chrome, and a scoop of pre-workout! I transform abstract business ideas into tangible full-scale applications. Let's build something together! =)",
     },
     {
         name: "ls",
@@ -158,7 +158,8 @@ export function CommandLine({
             }
 
             if (!found && e.target.value != "") {
-                setOutput(`Invalid Command: ${e.target.value}`);
+                setOutput(`Invalid Command: ${e.target.value} 
+                Try typing 'help'`);
             }
             if (e.target.value.split(" ")[0] == "cd") {
                 const arr = e.target.value.split(" ");

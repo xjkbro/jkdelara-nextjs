@@ -52,6 +52,7 @@ export default function ContactForm() {
                                 <input
                                     type="text"
                                     name="name"
+                                    value={name}
                                     onChange={(e) => {
                                         setName(e.target.value);
                                     }}
@@ -66,6 +67,7 @@ export default function ContactForm() {
                                 <input
                                     type="text"
                                     name="email"
+                                    value={email}
                                     onChange={(e) => {
                                         setEmail(e.target.value);
                                     }}
@@ -80,6 +82,7 @@ export default function ContactForm() {
                                 <textarea
                                     name="message"
                                     rows={5}
+                                    value={message}
                                     onChange={(e) => {
                                         setMessage(e.target.value);
                                     }}
@@ -117,7 +120,7 @@ const SubmitButton = ({ submitted, name, email, message, handleSubmit }) => {
                     onClick={(e) => {
                         handleSubmit(e);
                     }}
-                    className="mt-5 rounded-md transition-all dark:bg-fifth hover:bg-second hover:dark:bg-sixth  bg-first px-10 py-2 text-white dark:text-first"
+                    className="mt-5 rounded-md transition-all cursor-pointer dark:bg-fifth hover:bg-second hover:dark:bg-sixth  bg-first px-10 py-2 text-white dark:text-first"
                 />
             );
         } else {
