@@ -4,6 +4,7 @@ import ClientPageWrapper from "@/components/ClientPageWrapper";
 
 import { meta } from "@/constants/meta";
 import FramerBG from "@/components/FramerBG";
+import { Analytics } from "@vercel/analytics/react";
 export const metadata = {
     ...meta,
     title: {
@@ -25,6 +26,7 @@ export default function RootLayout({
                     <FramerBG />
                 </main>
             </ClientPageWrapper>
+            <Analytics />
         </html>
     );
 }
