@@ -12,8 +12,9 @@ export default function NoteHeading({ category }) {
                 <div className="">
                     <h1 className="text-[2rem] font-bold">Notes</h1>
                     <p className="text-sm">
-                        This is a blog about coding, food journeys, and other
-                        writings by Jason-Kyle De Lara.
+                        This is Jason-Kyle De Lara&apos;s catalog of notes.
+                        Writings include developer, food, and lifestyle
+                        writings.
                     </p>
                 </div>
             </motion.div>

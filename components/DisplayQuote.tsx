@@ -5,6 +5,7 @@ import Image from "next/image";
 const QuoteFont = Catamaran({
     weight: ["500", "700", "900"],
     subsets: ["latin"],
+    preload: true,
 });
 
 const lQuoteVariants: Variants = {

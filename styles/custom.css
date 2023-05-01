@@ -10,11 +10,11 @@
     width: inherit;
 }
 
-#project-system img {
+/* #project-system img {
     object-fit: cover;
     overflow: hidden;
     height: 250px;
-}
+} */
 #home-avatar img {
     object-fit: cover;
     overflow: hidden;

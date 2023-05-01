@@ -13,9 +13,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const navItems = {
-    "/dashboard": {
-        name: "Dashboard",
-    },
     "/story": {
         name: "Story",
     },
@@ -107,11 +104,6 @@ function DesktopNav({ isDark, setIsDark, pathname }) {
                         </li>
                     );
                 })}
-                {/* <li className="text-xl font-light hover:text-sixth"><a href="/dashboard">Dashboard</a></li>
-                 <li className="text-xl font-light hover:text-sixth"><a href="/work">Work</a></li>
-                 <li className="text-xl font-light hover:text-sixth"><a href="/projects">Projects</a></li>
-                 <li className="text-xl font-light hover:text-sixth"><a href="/notes">Notes</a></li>
-                 <li className="text-xl font-light hover:text-sixth"><a href="/arts">Arts</a></li> */}
             </ul>
             <button
                 title="Toggle Dark Mode"
@@ -180,12 +172,6 @@ function MobileNav({ isDark, setIsDark, overlay, setOverlay, pathname }) {
                                         alt="Logo"
                                     />
                                 </Link>
-                            </li>
-                            <li
-                                className="text-xl font-light hover:text-sixth"
-                                onClick={() => setOverlay(false)}
-                            >
-                                <Link href="/dashboard">Dashboard</Link>
                             </li>
                             <li
                                 className="text-xl font-light hover:text-sixth"

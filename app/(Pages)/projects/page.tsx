@@ -4,13 +4,29 @@ export const metadata = { title: "Projects" };
 
 export default async function Projects() {
     const projects = await getProjects();
-    // Sort response in decending order by start date
+    // Sort response in descending order by start date
     projects.data.sort((project1, project2) =>
         project1.attributes.started < project2.attributes.started
             ? 1
             : project1.attributes.started > project2.attributes.started
             ? -1
             : 0
+    );
+
+    return (
+        <div className="w-[90vw] md:w-2/3 mx-auto">
+            <div className="mb-8 pb-16 px-6 mx-auto max-w-screen-xl ">
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    {projects.data.map((project, i) => (
+                        <SingleProject
+                            key={project.id}
+                            project={project}
+                            i={i}
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
     );
     return (
         <div className="w-[90vw] md:w-2/3 mx-auto">

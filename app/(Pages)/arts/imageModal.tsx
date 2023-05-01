@@ -66,9 +66,17 @@ export default function ImageModal({ art, i }) {
                     onClick={() => setShouldFetch(false)}
                 >
                     <motion.div
-                        initial={{ opacity: 0, translateY: 50 }}
+                        initial={{
+                            opacity: 0,
+                            translateY: 50,
+                        }}
                         animate={{ opacity: 1, translateY: 0 }}
-                        transition={{ duration: 0.2, delay: 0.1 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 100,
+                            duration: 1,
+                            delay: 0.3 * i,
+                        }}
                         className=" flex flex-col justify-center items-center w-[90%] md:w-fit"
                         onClick={() => setShouldFetch(false)}
                     >
@@ -113,9 +121,17 @@ export default function ImageModal({ art, i }) {
                 <></>
             )}
             <motion.div
-                initial={{ opacity: 0, translateY: 50 }}
+                initial={{
+                    opacity: 0,
+                    translateY: 50,
+                }}
                 animate={{ opacity: 1, translateY: 0 }}
-                transition={{ duration: 0.2, delay: i * 0.1 }}
+                transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    duration: 1,
+                    delay: 0.3 * i,
+                }}
                 className="w-full h-full"
             >
                 <Image
@@ -127,7 +143,7 @@ export default function ImageModal({ art, i }) {
                     }
                     width={300}
                     height={300}
-                    className="hover:cursor-pointer"
+                    className="hover:cursor-pointer rounded-[11px]"
                     onClick={(e) => handleClick(e, art?.id)}
                 />
             </motion.div>

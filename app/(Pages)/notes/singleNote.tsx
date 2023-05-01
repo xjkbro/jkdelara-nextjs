@@ -18,9 +18,17 @@ export default function SingleNote({ note, i }) {
     const regex = /(<([^>]+)>)/gi;
     return (
         <motion.article
-            initial={{ opacity: 0, translateY: 25 }}
+            initial={{
+                opacity: 0,
+                translateY: 50,
+            }}
             animate={{ opacity: 1, translateY: 0 }}
-            transition={{ duration: 0.3, delay: i * 0.07 }}
+            transition={{
+                type: "spring",
+                stiffness: 100,
+                duration: 1,
+                delay: 0.3 * i,
+            }}
         >
             <div className="p-4 transition-all rounded-md h-fit md:min-h-[12rem] dark:bg-second shadow-xl hover:-translate-y-1 duration-200 bg-white hover:bg-fifth">
                 <div className="md:mb-2">

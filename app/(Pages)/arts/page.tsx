@@ -3,6 +3,7 @@ import Link from "next/link";
 import ImageModal from "./imageModal";
 import "../../../public/spinner.svg";
 import { Suspense } from "react";
+// import AnimateImg from "./AnimateImg";
 
 export const metadata = {
     title: "Arts",
@@ -10,7 +11,7 @@ export const metadata = {
 
 export default async function Art() {
     const arts = await getArt();
-    const regex = /(<([^>]+)>)/gi;
+    // const regex = /(<([^>]+)>)/gi;
     return (
         <section className="w-[90vw] md:w-2/3 mx-auto">
             <div className="mb-4 ">
@@ -31,6 +32,11 @@ export default async function Art() {
 
             {/* <Suspense fallback={<>Loading</>}> */}
 
+            {/* <div id="art-system" className="grid gap-4 md:grid-cols-4">
+                {arts.data.map((art, i) => (
+                    <AnimateImg key={art.id} art={art} i={i} />
+                ))}
+            </div> */}
             <div id="art-system" className="grid gap-4 md:grid-cols-4">
                 {arts.data.map((art, i) => (
                     <article key={art.id} className="w-full h-full">

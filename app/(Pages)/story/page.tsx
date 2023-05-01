@@ -15,6 +15,8 @@ export default async function Story() {
     return (
         <div className="w-[90vw] md:w-2/3 mx-auto">
             <Timeline stories={stories} />
+            {/* Future Addition https://www.30secondsofcode.org/css/s/horizontal-scroll-snap/ */}
+            {/* <HorizontalSnapScroll stories={stories} />  */}
         </div>
     );
 }
