@@ -23,10 +23,9 @@ export default function RootLayout({
         <html lang="en" className=" antialiased scroll-smooth">
             <Script
                 id="Adsense-id"
-                data-ad-client={process.env.GOOGLE_ADS_KEY}
                 async
                 // strategy="beforeInteractive"
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+                src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADS_KEY}`}
             />
             <ClientPageWrapper>
                 <main>
