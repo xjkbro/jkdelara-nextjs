@@ -37,7 +37,7 @@ export default function FeaturedProjectsBlock({ projects }) {
                                     // className="flex flex-col md:flex-row items-center justify-center h-full gap-8 p-4 transition-all border-l-4 group border-eighth hover:translate-x-1 hover:dark:bg-second hover:bg-fifth"
                                 >
                                     {i == 0 && (
-                                        <div className="md:w-full h-full">
+                                        <div className="md:w-full h-full flex justify-center">
                                             <Image
                                                 src={
                                                     project.attributes.image
