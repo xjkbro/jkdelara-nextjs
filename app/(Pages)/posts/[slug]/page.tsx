@@ -32,7 +32,25 @@ export default async function Note({ params }) {
                         h1: ({ className, ...props }) => (
                             <h2
                                 className={clsx(
-                                    "relative mt-2 text-5xl font-bold text-rose-100/90",
+                                    "relative mt-2 text-5xl font-bold font-notosans  dark:text-slate-300 text-second",
+                                    className
+                                )}
+                                {...props}
+                            />
+                        ),
+                        h2: ({ className, ...props }) => (
+                            <h3
+                                className={clsx(
+                                    "relative mt-4 mb-2 text-2xl font-bold font-notosans  dark:text-slate-300 text-second",
+                                    className
+                                )}
+                                {...props}
+                            />
+                        ),
+                        p: ({ className, ...props }) => (
+                            <h2
+                                className={clsx(
+                                    "font-mono text-sm font-normal dark:text-slate-300 text-second",
                                     className
                                 )}
                                 {...props}
