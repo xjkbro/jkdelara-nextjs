@@ -1,15 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        // appDir: true,
-        // experimental: {
-        //     nextScriptWorkers: true,
-        // },
-        // fontLoaders: [
-        //     { loader: "next/font/google", options: { subsets: ["latin"] } },
-        // ],
-    },
-
     images: {
         domains: [
             "res.cloudinary.com",
@@ -21,5 +11,4 @@ const nextConfig = {
         ],
     },
 };
-
 module.exports = nextConfig;
