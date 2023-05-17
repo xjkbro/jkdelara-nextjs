@@ -36,7 +36,8 @@
         "app/(Pages)/dashboard/page.tsx",
         "app/(Pages)/notes/note/[slug]/page.bk",
         "constants/socials.js",
-        "components/FramerBG.tsx"
+        "components/FramerBG.tsx",
+        ".contentlayer/generated"
     ],
     "exclude": ["node_modules"]
 }
