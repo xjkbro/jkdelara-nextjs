@@ -33,7 +33,11 @@ export default function FeaturedProjectsBlock({ projects }) {
                                     href={
                                         "/projects/" + project.attributes.slug
                                     }
-                                    className="flex flex-col md:flex-row items-center justify-center min-h-[12rem] h-full gap-8 p-4 rounded-lg hover:bg-third/25 transition-all"
+                                    className={clsx(
+                                        "flex flex-col md:flex-row items-center justify-center min-h-[12rem] h-full gap-8 p-4 rounded-lg hover:bg-third/25 transition-all",
+                                        i == 0 &&
+                                            "dark:hover:bg-third/25 dark:bg-fourth/25 bg-sixth/25 "
+                                    )}
                                     // className="flex flex-col md:flex-row items-center justify-center h-full gap-8 p-4 transition-all border-l-4 group border-eighth hover:translate-x-1 hover:dark:bg-second hover:bg-fifth"
                                 >
                                     {i == 0 && (
@@ -65,7 +69,7 @@ export default function FeaturedProjectsBlock({ projects }) {
                                                           .description
                                                   ).substring(0, 120) + "..."}
                                         </p>
-                                        <span className="hidden gap-4 font-mono text-xs font-normal md:flex dark:text-slate-300 text-fourth">
+                                        <span className="hidden gap-4 font-mono text-xs font-normal md:flex dark:text-slate-300 text-sixth">
                                             {project.attributes.technologies.data.map(
                                                 (tech, i) => (
                                                     <span key={i}>
