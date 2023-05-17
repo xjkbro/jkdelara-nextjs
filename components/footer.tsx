@@ -16,7 +16,7 @@ export default function Footer() {
 
     const date = new Date();
     return (
-        <footer className="w-full mx-auto dark:text-fifth body-font md:w-2/3 my-12 min-h-[12rem] items-center flex justify-center">
+        <footer className="w-full mx-auto dark:text-fifth body-font md:w-2/3 my-12 min-h-[4rem] items-center flex justify-center">
             <div className="container flex flex-col flex-wrap px-5 py-4 mx-auto sm:flex-row">
                 <p className="text-sm text-center sm:text-left">
                     © <>{date.getFullYear()}</> —

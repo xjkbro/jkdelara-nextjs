@@ -5,11 +5,12 @@ const skills = [
     { type: "HTML", level: 90 },
     { type: "CSS/Tailwind", level: 80 },
     { type: "Javascript", level: 85 },
+    { type: "Typescript", level: 45 },
     { type: "React/NextJS", level: 55 },
-    { type: "PHP", level: 50 },
+    { type: "PHP", level: 75 },
     { type: "NodeJS", level: 45 },
-    { type: "Wordpress", level: 60 },
-    { type: "MySQL/PostgreSQL", level: 75 },
+    { type: "WordPress", level: 60 },
+    { type: "SQL", level: 75 },
 ];
 export default function SkillBlock() {
     return (
