@@ -12,6 +12,7 @@ import ServiceBlock from "@/components/ServiceBlock";
 import WhereBlock from "@/components/WhereBlock";
 import FeaturedProjectsBlock from "@/components/FeaturedProjectsBlock";
 import SkillBlock from "@/components/SkillBlock";
+
 export const metadata = { ...meta, title: "Home" };
 
 export default async function Home() {

@@ -21,12 +21,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className=" antialiased scroll-smooth">
-            <Script
+            {/* <Script
                 id="Adsense-id"
                 async
                 // strategy="beforeInteractive"
                 src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADS_KEY}`}
-            />
+            /> */}
             <ClientPageWrapper>
                 <main>
                     {children}

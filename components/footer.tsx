@@ -8,6 +8,7 @@ import {
     faUnsplash as Unsplash,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import { socials } from "../constants/socials";
 
 export default function Footer() {
@@ -15,18 +16,19 @@ export default function Footer() {
 
     const date = new Date();
     return (
-        <footer className="w-full mx-auto dark:text-fifth body-font md:w-2/3 my-12">
+        <footer className="w-full mx-auto dark:text-fifth body-font md:w-2/3 my-12 min-h-[12rem] items-center flex justify-center">
             <div className="container flex flex-col flex-wrap px-5 py-4 mx-auto sm:flex-row">
                 <p className="text-sm text-center sm:text-left">
                     © <>{date.getFullYear()}</> —
-                    <a
-                        href="https://twitter.com/jkdelara"
+                    <Link
+                        href="https://twitter.com/json_delara"
                         rel="noopener noreferrer"
                         className="ml-1"
+                        aria-label="Twitter"
                         target="_blank"
                     >
                         Jason-Kyle De Lara
-                    </a>
+                    </Link>
                 </p>
                 <span className="inline-flex justify-center gap-8 md:gap-4 mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
                     {socials.data.map((social) => (

@@ -1,4 +1,4 @@
-import { Libre_Franklin } from "@next/font/google";
+import { Libre_Franklin } from "next/font/google";
 const libre = Libre_Franklin({ subsets: ["latin"] });
 export default function Header(props) {
     const { classes, servingSize, servingsPerContainer } = props;

@@ -5,29 +5,30 @@ import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function AboutBlock() {
-    // const text =
-    //     "Hello, I'm Jason and I like to create things. With the help of VS Code, Chrome, and a scoop of preworkout, I help transform businesses ideas into tangible full scale application. Let's build something together! =)";
-    // const text2 = [
-    //     `Hello! My name is Jason! I'm a creative, outgoing, goal oriented individual who is always looking for ways to improve. My programming journey started back in middle school where I learned HTML from an elective course and was exposed to CSS due to a social media platform named GaiaOnline. On that platform, users were abled to customize their profiles by using CSS. I later took a halt in learning web development to learn a different beast in high school, Java. In high school, I had the opportunity to learn Java from my Computer Science I and AP courses. But with the knowledge, I found myself uninterested in subject because my initial thought about it as a career was "I don't want to have an office job where I would sit down all day." So I took on a different beast, Computer Engineering when I entered college.`,
-    //     `Many challenges and sacrifices needed to be made and I had to find a new major. I fortunately found many reasons to come back to Computer Science, one of which was video game development and because of it I began tackling algorithms, theories and concepts. My studies in Web Development picked back up when I lost interest in wanting to develop video games and learning software development. I found more joy creating websites and seeing everything visually come together in web development. From there, I graduated College and took on a bootcamp where I learned more concepts and technologies in web development that helped provided the skills I need to deploy real world applications and start many big projects with front end technologies, backend technologies and deployment.`,
-    //     `Besides programming, I enjoy going to the gym and being active by playing basketball, volleyball or hiking. I also enjoy taking care of aquatic life and aqua scaping.`,
-    // ];
-    // const text3 = [
-    //     "Hello, my name is Jason-Kyle but I really go by Jason. I like to create things. Whether that be programs, apps, videos, food, gadgets, etc. I've always been a creative person with big ideas. I want to make an impact in the world and create something that will benefit many people.",
-    //     "I started my coding journey at the age of 12 when I found out about a platform called GaiaOnline. A social media platform that catered to anime and video game lovers. They had great customization options for their profiles that gave me exposure to HTML and CSS.",
-    //     "Today, I am fortunate enough to be working at ICP DAS USA as their web master. My main focus is to drive the company forward by bringing their ideas to real life with recent technologies. With the help of VS Code, Chrome, and a scoop of preworkout, I help transform businesses ideas into tangible full scale application. Let's build something together! =)",
-    // ];
     return (
-        <section>
-            <motion.div
-                initial={{ opacity: 0, translateY: 25 }}
-                whileInView={{ opacity: 1, translateY: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                exit={{ opacity: 0, translateY: 50 }}
-                transition={{ duration: 0.3 }}
-                className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-2 md:px-8 lg:flex-row bg-white dark:bg-second"
-            >
-                <motion.div className="flex flex-wrap items-center justify-between mx-auto md:w-3/4">
+        <motion.section
+            initial={{ opacity: 0, translateY: 25 }}
+            whileInView={{ opacity: 1, translateY: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            exit={{ opacity: 0, translateY: 50 }}
+            transition={{ duration: 0.3 }}
+        >
+            <div className="w-full bottom-0 left-0 overflow-hidden leading-none ">
+                <svg
+                    data-name="Layer 1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                    className="relative block w-['calc(100% + 1.3px)'] h-[150px]"
+                >
+                    <path
+                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                        className="dark:fill-second fill-white"
+                    ></path>
+                </svg>
+            </div>
+            <div className="z-[5] flex flex-col items-center mx-auto md:justify-between h-fit py-12 px-2 md:px-8 lg:flex-row bg-white dark:bg-second">
+                <div className="flex flex-wrap items-center justify-between mx-auto md:w-3/4">
                     <div className="order-2 w-full md:w-1/2 md:order-1">
                         <h3 className="text-[2rem] md:text-[3rem] font-black">
                             Who
@@ -110,8 +111,32 @@ export default function AboutBlock() {
                             />
                         </div>
                     </div>
-                </motion.div>
-            </motion.div>
-        </section>
+                </div>
+            </div>
+            <div className="w-full top-0 left-0 overflow-hidden leading-none ">
+                <svg
+                    data-name="Layer 1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                    className="relative block w-['calc(100% + 1.3px)'] h-[150px]"
+                >
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                        opacity=".25"
+                        className="dark:fill-second fill-white"
+                    ></path>
+                    <path
+                        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                        opacity=".5"
+                        className="dark:fill-second fill-white"
+                    ></path>
+                    <path
+                        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                        className="dark:fill-second fill-white"
+                    ></path>
+                </svg>
+            </div>
+        </motion.section>
     );
 }

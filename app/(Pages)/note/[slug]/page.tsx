@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import Image from "next/image";
 import Link from "next/link";
-import NutritionLabel from "../../../../components/NutritionLabel/NutritionLabel";
+import NutritionLabel from "@/components/NutritionLabel/NutritionLabel";
 import type { Metadata } from "next";
 import { updateView } from "@/lib/views";
 
@@ -116,7 +116,7 @@ export default async function Note({
             </article>
             <aside>
                 {postData?.attributes?.categories?.data[0].attributes.slug ==
-                    "recipe" && postData?.attributes?.custom != null ? (
+                    "recipes" && postData?.attributes?.custom != null ? (
                     <div className="flex justify-center lg:block xl:fixed lg:left-1/4 lg:top-1/2 lg:translate-y-[-50%] lg:translate-x-[-100%]">
                         <NutritionLabel
                             servingSize={

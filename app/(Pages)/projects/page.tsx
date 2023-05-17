@@ -45,7 +45,7 @@ export default async function Projects() {
 async function getProjects() {
     // const res = await fetch('https://cms.jkdelara.com/api/projects?populate=*')
     const res = await fetch(
-        "https://cms.jkdelara.com/api/projects?fields[0]=name&fields[1]=description&fields[3]=title&fields[3]=slug&fields[4]=started&populate[links]=*&populate[technologies][fields][0]=name&populate[image][fields][0]=url",
+        "https://cms.jkdelara.com/api/projects?fields[0]=name&fields[1]=description&fields[3]=title&fields[3]=slug&fields[4]=started&populate[links]=*&populate[technologies][fields][0]=name&populate[image][fields][0]=url&sort=publishedAt:desc",
         { next: { revalidate: 120 } }
     );
     return res.json();

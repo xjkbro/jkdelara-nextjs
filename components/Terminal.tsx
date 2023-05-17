@@ -1,5 +1,5 @@
 "use client";
-import { IBM_Plex_Mono } from "@next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 import { useEffect, useRef, useState } from "react";
 const consoleText = IBM_Plex_Mono({
     weight: ["400", "500"],

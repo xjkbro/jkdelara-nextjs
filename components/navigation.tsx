@@ -107,7 +107,7 @@ function DesktopNav({ isDark, setIsDark, pathname }) {
             </ul>
             <button
                 title="Toggle Dark Mode"
-                className="hidden w-8 h-8 border-2 rounded-full shadow-md md:block"
+                className="hidden w-8 h-8 border-2 dark:border-white border-black rounded-full shadow-md md:block"
                 onClick={() => setIsDark(!isDark)}
             >
                 {isDark ? (

@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        appDir: true,
+        // appDir: true,
         // experimental: {
         //     nextScriptWorkers: true,
         // },
-        fontLoaders: [
-            { loader: "next/font/google", options: { subsets: ["latin"] } },
-        ],
+        // fontLoaders: [
+        //     { loader: "next/font/google", options: { subsets: ["latin"] } },
+        // ],
     },
 
     images: {
