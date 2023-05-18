@@ -27,6 +27,9 @@ export default async function Note({ params }) {
                 ← Go Back
             </Link>
             <div className="md:col-span-3">
+                <h1 className="relative mb-4 text-5xl font-bold font-notosans  dark:text-slate-300 text-second">
+                    {note.title}
+                </h1>
                 <Content
                     components={{
                         h1: ({ className, ...props }) => (
@@ -48,13 +51,24 @@ export default async function Note({ params }) {
                             />
                         ),
                         p: ({ className, ...props }) => (
-                            <h2
+                            <p
                                 className={clsx(
                                     "font-mono text-sm font-normal dark:text-slate-300 text-second",
                                     className
                                 )}
                                 {...props}
                             />
+                        ),
+                        iframe: ({ className, ...props }) => (
+                            <iframe
+                                // className={clsx(
+                                //     "h-96 w-full py-4 border",
+                                //     "h-96 w-full py-4 border",
+                                //     className
+                                // )}
+                                className="h-96 border"
+                                {...props}
+                            ></iframe>
                         ),
                         code: ({ className, ...props }) => (
                             <pre className="w-full p-4 my-6 mx-2 rounded-lg bg-slate-700 border-2 border-slate-600">
