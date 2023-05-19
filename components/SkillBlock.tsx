@@ -1,6 +1,24 @@
 "use client";
 import { motion } from "framer-motion";
 import { skills } from "@/constants/skills";
+import clsx from "clsx";
+const service = [
+    {
+        title: "Web Applications",
+        description:
+            "I specialize in creating custom web applications using the latest JavaScript technologies. With a focus on delivering visually stunning interfaces and building robust back-end systems, I empower businesses in the digital era to achieve their goals.",
+    },
+    {
+        title: "Responsive Design",
+        description:
+            "I offer a responsive design service that guarantees your website will look and function seamlessly on all devices. This ensures an optimal user experience and maximizes engagement with your audience.",
+    },
+    {
+        title: "Business Oriented",
+        description:
+            "I leverage visual identity, SEO optimization, and business development techniques to promote your company, expand outreach, and effectively grow your brand. Together, we can enhance your online presence and achieve your business goals.",
+    },
+];
 export default function SkillBlock() {
     return (
         <motion.section
@@ -40,19 +58,83 @@ export default function SkillBlock() {
                     animate={{ opacity: 1, translateY: 0, translateX: -0 }}
                     exit={{ opacity: 0, translateY: 50 }}
                     transition={{ duration: 0.3 }}
-                    className="flex flex-col flex-wrap md:items-center justify-between w-11/12 mx-auto md:w-3/4"
+                    className=" w-11/12 mx-auto md:w-3/4"
                 >
                     <h3 className="text-[2rem] md:text-[3rem] font-black">
                         What
                     </h3>
-                    <p className="my-4 font-light md:text-center font-notosans md:w-3/4 tmx-auto">
-                        My primary goal is to bring your ideas to reality on
-                        time and on budget. I offer a wide variety of
-                        development. A landing page, web application, Wordpress
-                        site, blog, you name it, I will make your dream ideas
-                        come true.
+                    <p className="my-4 mb-8 font-light font-notosans">
+                        My primary goal is to bring your ideas to life. On time
+                        and on budget. I possess a wide variety of development
+                        technologies to build with. A landing page, web
+                        application, Wordpress site, blog, you name it, I will
+                        make your dream ideas come true.
                     </p>
-                    <div className="w-full">
+
+                    <div className="my-4 grid md:grid-cols-3 gap-4">
+                        {service.map((item, i) => (
+                            <div key={i} className="">
+                                <h4 className="font-bold text-xl">
+                                    {item.title}
+                                </h4>
+                                <p className="font-light mt-2 text-justify text-md font-notosans">
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                    <div className=" my-8 font-mono font-light flex gap-2 justify-center flex-wrap">
+                        {skills.map((item) => {
+                            // <div
+                            //     key={item.type}
+                            //     className="before:content-['\00BB'] before:mr-1 w-fit h-full"
+                            // >
+                            //     {item.type}/
+                            //     <span className="text-xs">{item.level}%</span>
+                            // </div>
+                            const level = item.level - 115;
+                            return (
+                                <div
+                                    key={item.type}
+                                    className="w-32 h-32 bg-third rounded-full flex items-center justify-center relative overflow-hidden"
+                                >
+                                    <motion.div
+                                        initial={{
+                                            opacity: 0,
+                                            translateY: 115,
+                                        }}
+                                        // animate={{
+                                        //     opacity: 1,
+                                        //     translateY: -level,
+                                        // }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            translateY: -level,
+                                        }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 30,
+                                            duration: 1,
+                                            delay: 0.7,
+                                        }}
+                                        className="w-32 h-32  bg-eighth"
+                                    ></motion.div>
+                                    <div
+                                        className="w-32 h-32 z-10 flex items-center justify-center text-sm absolute text-white"
+                                        title={`My knowledge on ${item.type} is around ${item.level}%`}
+                                    >
+                                        <div>
+                                            {item.type}
+                                            <hr />
+                                            {item.level}%
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    {/* <div className="w-full">
                         <div className="mx-auto ">
                             {skills.map((skill, i) => (
                                 <motion.div
@@ -116,7 +198,7 @@ export default function SkillBlock() {
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
+                    </div> */}
                 </motion.div>
             </div>
             <div className="w-full top-0 left-0 overflow-hidden leading-none rotate-180 ">

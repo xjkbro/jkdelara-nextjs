@@ -34,8 +34,8 @@ export default function FeaturedProjectsBlock({ projects }) {
                                     }
                                     className={clsx(
                                         "flex flex-col md:flex-row items-center justify-center min-h-[12rem] h-full gap-8 p-4 rounded-lg hover:bg-third/25 transition-all",
-                                        i == 0 &&
-                                            "dark:hover:bg-third/25 dark:bg-fourth/25 bg-sixth/25 "
+                                        i == 0 && ""
+                                        // "dark:hover:bg-third/25 dark:bg-fourth/25 bg-sixth/25 "
                                     )}
                                 >
                                     {i == 0 && (

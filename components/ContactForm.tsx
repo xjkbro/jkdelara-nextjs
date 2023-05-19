@@ -17,6 +17,7 @@ export default function ContactForm() {
             email,
             message,
         };
+        if (!ValidateEmail(email)) return;
         fetch("/api/contact", {
             method: "POST",
             headers: {
@@ -80,7 +81,7 @@ export default function ContactForm() {
                             </div>
                             <div className="relative z-0">
                                 <input
-                                    type="text"
+                                    type="email"
                                     name="email"
                                     value={email}
                                     onChange={(e) => {
@@ -125,19 +126,27 @@ export default function ContactForm() {
 
 const SubmitButton = ({ submitted, name, email, message, handleSubmit }) => {
     if (submitted == "") {
-        if (name && email && message) {
-            return (
-                <input
-                    type="submit"
-                    value={"Send Message"}
-                    onClick={handleSubmit}
-                    className="mt-5 rounded-md transition-all cursor-pointer dark:bg-fifth hover:bg-second hover:dark:bg-sixth  bg-first px-10 py-2 text-white dark:text-first"
-                />
-            );
-        } else {
-            return <></>;
-        }
+        return (
+            <input
+                type="submit"
+                value={"Send Message"}
+                onClick={handleSubmit}
+                disabled={!(name && email && message)}
+                className="mt-5 rounded-md transition-all cursor-pointer disabled:cursor-default dark:disabled:bg-neutral-600 dark:disabled:text-neutral-400 dark:bg-fifth hover:bg-second hover:dark:bg-sixth  bg-first px-10 py-2 text-white dark:text-first"
+            />
+        );
     } else {
         return <div className="text-center text-sm mt-2">{submitted}</div>;
+    }
+};
+
+const ValidateEmail = (email) => {
+    var validRegex =
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (email.match(validRegex)) {
+        return true;
+    } else {
+        alert("Invalid email address!");
+        return false;
     }
 };
