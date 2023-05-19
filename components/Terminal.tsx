@@ -85,7 +85,6 @@ export default function Terminal() {
                         input.current ? input.current.focus() : "";
                     }}
                 >
-                    {/* <div className="flex w-full gap-2 p-1 rounded-t-sm bg-gradient-to-tr from-gray-300 to-gray-400 h-fit"> */}
                     <div
                         onPointerDown={startDrag}
                         className="flex w-full gap-2 p-1 rounded-t-md bg-gradient-to-tr from-gray-300 to-gray-400 h-fit"
@@ -116,11 +115,6 @@ export default function Terminal() {
                         )}
                     </div>
                 </div>
-                {/* <p className="mb-4 text-sm">
-                    Feel free to use this command window to get any quick
-                    information. Use &apos; help &apos; to see the available
-                    commands.
-                </p> */}
             </AnimatedBorder>
         </motion.div>
     );

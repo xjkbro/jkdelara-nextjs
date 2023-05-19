@@ -1,9 +1,7 @@
-import ClientWrapper from "./ClientWrapper"
+import Contact from "@/components/Contact";
 
-export const metadata = { title: "Contact" }
+export const metadata = { title: "Contact" };
 
-export default function Contact() {
-    return (
-        <ClientWrapper/>
-  )
+export default function ContactPage() {
+    return <Contact />;
 }

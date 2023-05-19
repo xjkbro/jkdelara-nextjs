@@ -1,7 +1,6 @@
 "use client";
 import { motion, Variants } from "framer-motion";
 import { Catamaran } from "next/font/google";
-import Image from "next/image";
 const QuoteFont = Catamaran({
     weight: ["500", "700", "900"],
     subsets: ["latin"],

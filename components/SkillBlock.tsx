@@ -1,17 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-
-const skills = [
-    { type: "HTML", level: 90 },
-    { type: "CSS/Tailwind", level: 80 },
-    { type: "Javascript", level: 85 },
-    { type: "Typescript", level: 45 },
-    { type: "React/NextJS", level: 65 },
-    { type: "PHP", level: 75 },
-    { type: "NodeJS", level: 45 },
-    { type: "WordPress", level: 60 },
-    { type: "SQL", level: 75 },
-];
+import { skills } from "@/constants/skills";
 export default function SkillBlock() {
     return (
         <motion.section
@@ -63,9 +52,6 @@ export default function SkillBlock() {
                         site, blog, you name it, I will make your dream ideas
                         come true.
                     </p>
-                    {/* <p className="w-3/4 mx-auto my-4 font-light text-center font-notosans">
-                        Here is a list of my skills.
-                    </p> */}
                     <div className="w-full">
                         <div className="mx-auto ">
                             {skills.map((skill, i) => (

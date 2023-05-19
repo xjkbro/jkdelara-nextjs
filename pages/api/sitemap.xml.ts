@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-// import { getAllContentPagesQuery, getAllShopProductsQuery } from './utils/requests'
 const origin = "https://jkdelara.com";
 
 function generateSiteMap(note, notes, projects) {

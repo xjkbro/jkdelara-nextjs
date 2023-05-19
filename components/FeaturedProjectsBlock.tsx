@@ -9,7 +9,6 @@ export default function FeaturedProjectsBlock({ projects }) {
     return (
         <section>
             <div className="z-[5] md:justify-between pt-12 pb-4 px-8 w-full">
-                {/* bg-white dark:bg-second"> */}
                 <div className="mx-auto md:w-3/4">
                     <h3 className="text-[2rem] md:text-[3rem] font-black mb-2">
                         Featured Projects
@@ -38,7 +37,6 @@ export default function FeaturedProjectsBlock({ projects }) {
                                         i == 0 &&
                                             "dark:hover:bg-third/25 dark:bg-fourth/25 bg-sixth/25 "
                                     )}
-                                    // className="flex flex-col md:flex-row items-center justify-center h-full gap-8 p-4 transition-all border-l-4 group border-eighth hover:translate-x-1 hover:dark:bg-second hover:bg-fifth"
                                 >
                                     {i == 0 && (
                                         <div className="md:w-full h-full flex justify-center">

@@ -1,6 +1,5 @@
 // "use client"
 import DisplayQuote from "@/components/DisplayQuote";
-import TextToScreen from "@/components/TextToScreen";
 import Introduction from "@/components/introduction";
 
 import { meta } from "@/constants/meta";

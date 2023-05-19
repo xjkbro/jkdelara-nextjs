@@ -59,22 +59,6 @@ export default function Introduction() {
                     </AnimatedBorder>
                 </div>
             </motion.div>
-            {/* <div className="overflow-hidden z-[2] ">
-            <motion.div 
-                initial={{opacity: 0, rotate: -70, translateY: 50, scale: 1, translateX: -200}} 
-                animate={{opacity: .3, rotate: 40, translateY: 0, scale: 2, translateX: 0}} 
-                exit={{opacity: 0, translateY: 50}} 
-                transition={{duration:1}}
-                className="w-[30vw] h-[10vh] bg-seventh top-96 left-0 absolute">
-            </motion.div>
-            <motion.div 
-                initial={{opacity: 0, rotate: -70, translateY: 100, scale: 1, translateX: 2200}} 
-                animate={{opacity: .1, rotate: 40, translateY: -200, scale: 2, translateX: 1100}} 
-                exit={{opacity: 0, translateY: 50}} 
-                transition={{duration:1}}
-                className="absolute left-0 w-64 h-64 rounded-full bg-seventh top-96">
-            </motion.div>
-        </div> */}
         </>
     );
 }

@@ -1,8 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function AboutBlock() {
     return (

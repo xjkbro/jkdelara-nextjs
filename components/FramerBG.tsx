@@ -5,7 +5,6 @@ import React from "react";
 export default function FramerBG() {
     return (
         <AnimatePresence>
-            {/* <motion.div> */}
             <motion.div
                 key={"bigcircle"}
                 style={{
@@ -77,7 +76,6 @@ export default function FramerBG() {
                     repeat: Infinity,
                 }}
             />
-            {/* </motion.div> */}
         </AnimatePresence>
     );
 }

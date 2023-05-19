@@ -1,13 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
-export default function ContactForm() {
+export default function Contact() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const [submitted, setSubmitted] = useState(false);
+    const [submitted, setSubmitted] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,20 +24,35 @@ export default function ContactForm() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-        }).then((res) => {
+        }).then(async (res) => {
+            const data = await res.json();
+            console.log(res);
             console.log("Response received");
-            if (res.status === 200) {
-                console.log("Response succeeded!");
-                console.log(submitted);
-                setSubmitted(true);
+            if (res.status === 200 || res.status === 429) {
+                setSubmitted(data.message);
                 setName("");
                 setEmail("");
                 setMessage("");
+            } else {
+                setSubmitted("Something went wrong.");
             }
         });
     };
     return (
-        <>
+        <motion.div
+            initial={{
+                opacity: 0,
+                translateY: 50,
+            }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{
+                type: "spring",
+                stiffness: 100,
+                duration: 1,
+                delay: 0.1,
+            }}
+            className="overflow-hidden  w-[90vw] md:w-2/3 mx-auto"
+        >
             <div className="flex min-h-[80vh] items-center justify-start">
                 <div className="mx-auto w-full max-w-lg">
                     <h1 className="text-4xl font-medium">Contact Me</h1>
@@ -94,32 +109,28 @@ export default function ContactForm() {
                                 </label>
                             </div>
                         </div>
-                        <>
-                            <SubmitButton
-                                submitted={submitted}
-                                name={name}
-                                email={email}
-                                message={message}
-                                handleSubmit={handleSubmit}
-                            />
-                        </>
+                        <SubmitButton
+                            submitted={submitted}
+                            name={name}
+                            email={email}
+                            message={message}
+                            handleSubmit={handleSubmit}
+                        />
                     </form>
                 </div>
             </div>
-        </>
+        </motion.div>
     );
 }
 
 const SubmitButton = ({ submitted, name, email, message, handleSubmit }) => {
-    if (!submitted) {
+    if (submitted == "") {
         if (name && email && message) {
             return (
                 <input
                     type="submit"
                     value={"Send Message"}
-                    onClick={(e) => {
-                        handleSubmit(e);
-                    }}
+                    onClick={handleSubmit}
                     className="mt-5 rounded-md transition-all cursor-pointer dark:bg-fifth hover:bg-second hover:dark:bg-sixth  bg-first px-10 py-2 text-white dark:text-first"
                 />
             );
@@ -127,10 +138,6 @@ const SubmitButton = ({ submitted, name, email, message, handleSubmit }) => {
             return <></>;
         }
     } else {
-        return (
-            <div className="text-center text-sm mt-2">
-                Thank you for your submission!
-            </div>
-        );
+        return <div className="text-center text-sm mt-2">{submitted}</div>;
     }
 };

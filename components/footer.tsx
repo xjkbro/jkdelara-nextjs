@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { socials } from "../constants/socials";
+import { socials } from "@/constants/socials";
 
 export default function Footer() {
     // const socials = await getSocials();

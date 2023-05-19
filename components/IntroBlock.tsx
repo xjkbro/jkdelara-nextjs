@@ -60,22 +60,6 @@ export default function IntroBlock() {
                         CV
                     </motion.a>
                 </div>
-                {/* <div
-                    id="home-avatar"
-                    className="order-1 mx-auto w-fit md:hidden md:order-2"
-                > */}
-                {/* <AnimatedBorder> */}
-                {/* <Image
-                        className="mx-auto bg-transparent rounded-xl"
-                        src="/feature.png"
-                        // priority
-                        loading="lazy"
-                        width={400}
-                        height={400}
-                        alt="Photo of Jason Kyle De Lara"
-                    /> */}
-                {/* </AnimatedBorder> */}
-                {/* </div> */}
             </motion.div>
         </section>
     );

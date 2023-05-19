@@ -40,18 +40,6 @@ export default function Navigation({ isDark, setIsDark, overlay, setOverlay }) {
     }
     return (
         <header className=" w-[90vw] md:w-2/3 mx-auto">
-            {/* <nav className="flex-row items-center justify-between hidden my-8 md:flex">
-                <div className="flex flex-row overflow-scroll md:overflow-auto gap-x-8 md:gap-12">
-                    <Link href="/dashboard" className="text-xl font-light hover:text-sixth">Dashboard</Link>
-                    <Link href="/work" className="text-xl font-light hover:text-sixth">Work</Link>
-                    <Link href="/projects" className="text-xl font-light hover:text-sixth">Projects</Link>
-                    <Link href="/notes" className="text-xl font-light hover:text-sixth">Notes</Link>
-                    <Link href="/arts" className="text-xl font-light hover:text-sixth">Arts</Link>
-                </div>
-                
-                
-                <button className="hidden w-8 h-8 border-2 rounded-full shadow-md md:block" onClick={() => setIsDark(!isDark)}>{isDark ? <FontAwesomeIcon icon={MoonOn}/> : <FontAwesomeIcon icon={MoonOff}/>}</button>
-            </nav> */}
             <DesktopNav
                 isDark={isDark}
                 setIsDark={setIsDark}
@@ -107,7 +95,7 @@ function DesktopNav({ isDark, setIsDark, pathname }) {
             </ul>
             <button
                 title="Toggle Dark Mode"
-                className="hidden w-8 h-8 border-2 dark:border-white border-black rounded-full shadow-md md:block"
+                className="hidden w-8 h-8 border-2 md:flex justify-center dark:border-white border-black rounded-full shadow-md items-center"
                 onClick={() => setIsDark(!isDark)}
             >
                 {isDark ? (
