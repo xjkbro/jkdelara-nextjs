@@ -8,6 +8,7 @@ export default function ClientPageWrapper({ children }) {
     /* ==== Dark Mode Set Up ===== */
     let boolDark = true;
     const [isDark, setIsDark] = useState(boolDark);
+
     useEffect(() => {
         const storedDarkMode = localStorage.getItem("DARK_MODE");
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -15,6 +16,7 @@ export default function ClientPageWrapper({ children }) {
         localStorage.setItem("DARK_MODE", String(boolDark));
         setIsDark(boolDark);
     }, [boolDark]);
+
     useEffect(() => {
         localStorage.setItem("DARK_MODE", String(isDark));
     }, [isDark]);

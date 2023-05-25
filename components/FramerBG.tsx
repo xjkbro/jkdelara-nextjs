@@ -30,7 +30,7 @@ export default function FramerBG() {
                     borderRadius: 10,
                 }}
                 className="fixed -z-30 top-60 right-5 md:right-[60vw] opacity-30 bg-eighth"
-                initial={{ scale: 2, rotate: 25 }}
+                initial={{ scale: 2, rotate: -25 }}
                 animate={{
                     rotate: -385,
                     scale: [2, 1.5, 2],
