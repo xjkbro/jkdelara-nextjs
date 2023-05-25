@@ -32,6 +32,16 @@ export const Note = defineDocumentType(() => ({
         category: {
             type: "string",
         },
+        categories: {
+            type: "list",
+            of: { type: "string" },
+        },
+        image: {
+            type: "string",
+        },
+        publishedDate: {
+            type: "date",
+        }
         // published: {
         //     type: "boolean",
         //     default: true,
