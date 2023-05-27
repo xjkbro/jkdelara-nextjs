@@ -1,0 +1,60 @@
+{
+    "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+    "frontMatter.taxonomy.contentTypes": [
+        {
+            "name": "default",
+            "fileType": "mdx",
+            "filePrefix": null,
+            "pageBundle": false,
+            "previewPath": null,
+            "fields": [
+                {
+                    "title": "Title",
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "title": "Summary",
+                    "name": "summary",
+                    "type": "string"
+                },
+                {
+                    "title": "Published date",
+                    "name": "publishedDate",
+                    "type": "datetime",
+                    "default": "{{now}}",
+                    "isPublishDate": true
+                },
+                {
+                    "title": "Image",
+                    "name": "image",
+                    "type": "image"
+                },
+                {
+                    "title": "Is in draft",
+                    "name": "draft",
+                    "type": "draft"
+                },
+                {
+                    "title": "Categories",
+                    "name": "categories",
+                    "type": "categories"
+                }
+            ]
+        }
+    ],
+    "frontMatter.framework.id": "next",
+    "frontMatter.content.publicFolder": "public",
+    "frontMatter.preview.host": "http://localhost:3000",
+    "frontMatter.content.pageFolders": [
+        {
+            "title": "notes",
+            "path": "[[workspace]]/content/notes"
+        },
+        {
+            "title": "projects",
+            "path": "[[workspace]]/content/projects"
+        }
+    ],
+    "frontMatter.taxonomy.categories": ["code", "diary", "food"]
+}
