@@ -1,0 +1,97 @@
+---
+title: Animating SVGs with HTML and CSS
+summary: Day 1 of my 100 Days of Code and I am learning about SVGs and animating them!
+image: /content/i-left-everything-for-my-dream.webp
+publishedDate: 03-31-2023
+categories: ["code"]
+---
+
+For the longest time, I've been avoiding SVGs and using them in my coding journey because they look so complicated. [Amy Dutton](https://selfteach.me/) had published a [video series](https://www.youtube.com/playlist?list=PLrz61zkUHJJHFhsK3BKi-G5FjBOsO-aOY) on YouTube about SVGs. Her explanations make learning about SVGs not so scary and in return I learned a lot of tricks in her less than an hour video series. What I'm featuring here is two examples of [animations for SVGs](https://www.youtube.com/watch?v=Q1XqDHlyqcw&list=PLrz61zkUHJJHFhsK3BKi-G5FjBOsO-aOY&index=5) one being the Menu Logo (Hamburger bars) and my logo. In Amy Dutton's video she makes her SVGs in Illustrator and since I'm broke I used Figma. Maybe I'll make a full blog post about it some day. SVGs have so many possibilities with the combination of CSS. You can make really anything.
+
+Here is the code:
+
+```jsx
+<svg
+    id="menu"
+    onclick="this.classList.toggle('toggle')"
+    width="150"
+    height="150"
+    viewBox="0 0 242 190"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        class="line"
+        d="M198 56.5001H44C21.5 56.5001 1.81198e-05 34.4999 13 16C27.548 -4.70286 52.5 19 68.5 34.5001L177 143"
+    />
+    <path
+        class="line"
+        d="M196.936 126.5L42.9359 126.5C20.4359 126.5 -1.06408 148.5 11.9359 167C26.4839 187.703 51.4359 164 67.4359 148.5L175.936 40"
+    />
+    <line class="line" x1="44" y1="91.5" x2="198" y2="91.5" />
+</svg>
+
+<svg
+    id="logo"
+    onclick="this.classList.toggle('toggle')"
+    width="185"
+    height="185"
+    viewBox="0 0 192 192"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M192 0H0V192H59.3814C57.6343 191.542 55.9498 190.964 54.3281 190.266C49.6406 188.203 45.9219 185.078 43.1719 180.891C40.4219 176.672 39.0625 171.375 39.0938 165H59.2969C59.3594 167.531 59.875 169.703 60.8438 171.516C61.8438 173.297 63.2031 174.672 64.9219 175.641C66.6719 176.578 68.7344 177.047 71.1094 177.047C73.6094 177.047 75.7188 176.516 77.4375 175.453C79.1875 174.359 80.5156 172.766 81.4219 170.672C82.3281 168.578 82.7812 166 82.7812 162.938V96H102.844V162.938C102.844 169.125 101.453 174.5 98.6719 179.062C95.9219 183.625 92.0938 187.141 87.1875 189.609C85.2021 190.608 83.0863 191.405 80.84 192H107.085V96H127.382V138.328H128.647L163.194 96H187.522L151.898 138.984L187.944 192H192V0ZM163.663 192L137.366 152.531L127.382 164.719V192H163.663Z"
+    />
+</svg>
+```
+
+```css
+#menu .line {
+    stroke: rgb(255, 94, 35);
+    stroke-width: 15px;
+    stroke-dasharray: 153 284;
+    stroke-dashoffset: 0;
+    transition: stroke-dasharray 200ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset
+            600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#menu.toggle path {
+    stroke-dasharray: 153 284;
+    stroke-dashoffset: -284;
+    transition: stroke-dasharray 200ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset
+            600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#menu.toggle line {
+    stroke-dasharray: 153 284;
+    stroke-dashoffset: 283;
+    transition: stroke-dasharray 200ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset
+            600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#menu path {
+    stroke-dasharray: 153 284;
+    stroke-dashoffset: 0;
+    transition: stroke-dasharray 200ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset
+            600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#logo path {
+    stroke: #ea591f;
+    stroke-width: 2px;
+    stroke-dasharray: 1314 1314;
+    stroke-dashoffset: -1314;
+    transition: stroke-dasharray 1000ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset
+            1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#logo.toggle path {
+    stroke-dasharray: 1314 1314;
+    stroke-dashoffset: 0;
+    transition: stroke-dasharray 1000ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset
+            1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+```

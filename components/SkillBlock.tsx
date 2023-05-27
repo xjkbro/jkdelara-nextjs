@@ -71,7 +71,7 @@ export default function SkillBlock() {
                         make your dream ideas come true.
                     </p>
 
-                    <div className="my-4 grid md:grid-cols-3 gap-4">
+                    {/* <div className="my-4 grid md:grid-cols-3 gap-4">
                         {service.map((item, i) => (
                             <div key={i} className="">
                                 <h4 className="font-bold text-xl">
@@ -82,16 +82,9 @@ export default function SkillBlock() {
                                 </p>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                     <div className=" my-8 font-mono font-light flex gap-2 justify-center flex-wrap">
                         {skills.map((item) => {
-                            // <div
-                            //     key={item.type}
-                            //     className="before:content-['\00BB'] before:mr-1 w-fit h-full"
-                            // >
-                            //     {item.type}/
-                            //     <span className="text-xs">{item.level}%</span>
-                            // </div>
                             const level = item.level - 115;
                             return (
                                 <div
@@ -103,10 +96,6 @@ export default function SkillBlock() {
                                             opacity: 0,
                                             translateY: 115,
                                         }}
-                                        // animate={{
-                                        //     opacity: 1,
-                                        //     translateY: -level,
-                                        // }}
                                         whileInView={{
                                             opacity: 1,
                                             translateY: -level,

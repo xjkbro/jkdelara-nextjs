@@ -1,0 +1,51 @@
+---
+title: Updating My Blogs View Counter
+summary: Used Firebase to create a view counter for my blog posts.
+image: /content/i-left-everything-for-my-dream.webp
+publishedDate: 04-01-2023
+categories: ["code"]
+---
+
+I writing up my blog post yesterday for my first day of #[100DaysofCode](https://twitter.com/hashtag/100DaysOfCode) and I discovered a bug. My blog post updatedAt field was getting updated when a page view was made. The way I set it up was, I created a view field for each blog post and when someone reached that page on my site, I made a PUT request to Strapi to update the field in the post. This was not something I wanted since I want to validate the information on each post as it ages.
+
+There were many ways I could have gone about this and really I should have done it using the Postgres database I have already set up for Strapi to use and made a direct relationship to the post table. But I thought why not try something I haven't done in a minute and used Firebase. The other reasons that I chose Firebase is that it separated the dedicated database for Strapi with something custom I wanted to do and I wasn't really happy with Strapi and I'm currently in the market for another CMS (might even build my very own from scratch 😉).
+
+So I went a head an whipped up a new firebase project. Made a firebase.s file in the lib directory and added the firebase configuration that was provided.
+
+```jsx
+import { getDatabase } from "firebase/database";
+const firebaseConfig = {
+...
+}
+export const app = initializeAp(firebaseConfig);
+export const database = getDatabase(app);
+```
+
+Then I created a views.js file in the same directory and created an exportable get and update function.
+
+```jsx
+import { ref, get, set } from "firebase/database";
+import { database } from "./firebase";
+
+export async function getViews(type, slug) {
+    const dbRef = ref(database, `views/${type}/${slug}`);
+    const snapshot = await get(dbRef);
+    return snapshot.val();
+}
+export async function updateView(type, slug) {
+    const dbRef = ref(database, `views/${type}/${slug}`);
+    const snapshot = await get(dbRef);
+    if (snapshot.exists()) {
+        await set(dbRef, snapshot.val() + 1);
+    } else {
+        await set(dbRef, 1);
+    }
+    return snapshot.val() + 1;
+}
+```
+
+Lastly to have everything work, I would import the update function for the blog page and save the result into variable as it should return the value of the view count after it's been updated.
+
+```jsx
+const views = await updateView("notes", slug);
+```

@@ -34,7 +34,7 @@
         "pages/unsplash/unsplash.jpages/spotify/spotify.jsfy.js",
         "app/page.tsx",
         "app/(Pages)/dashboard/page.tsx",
-        "app/(Pages)/notes/note/[slug]/page.bk",
+        "app/(Pages)/posts/note/[slug]/page.bk",
         "constants/socials.ts",
         "components/FramerBG.tsx",
         ".contentlayer/generated"

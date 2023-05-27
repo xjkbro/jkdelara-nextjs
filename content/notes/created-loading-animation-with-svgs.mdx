@@ -1,0 +1,17 @@
+---
+title: Created A Loading Animation to My Website with SVGs
+summary: On day 4 of 100 Days of code, I created a loading animation using the skills that I learned on day 1.
+image: /content/i-left-everything-for-my-dream.webp
+publishedDate: 04-03-2023
+categories: ["code"]
+---
+
+I took inspiration of this from [Brittany Chiang's portfolio](https://brittanychiang.com/). She has her portfolio published on Github and actually allow others to fork her repository to use it as their own. Honestly, I wanted to reconstruct it without looking at how she did it. If you've been keeping up with my 100 Days of Code challenge. On my first day I had learned about SVGs and animating them. So it was time to test my skills and try and add this loading animation Brittany had added to her site. Here is a gif of how her loading screen looks like.
+
+![Brittany Chiang Loading Animation](/content/brittany_chiang_loading.gif)
+
+I started this project off by creating a better SVG of my Logo in Figma.Screenshot 2023-04-03 at 6.39.08 PM.pngHonestly, I think it could use more work but I really didn't want to spend a lot of time on the design. But the purpose of recreating it was to have a single stroke create the entire logo. The one I had featured in my previous post had 2 different strokes and made the animation pretty wonky.
+
+That being said. I took that exported it to an SVG file and got the SVG code for my logo and added it to a client component called Wrapper. This wrapper class handles all the client side components that are needed for every page and route so like the ability to create a transition for my dark mode or hold state of my menu overlay for mobile. And because I will be using framer motion to animate my loading logo, it also needed to be in a client component. In this component I created a motion div and used Tailwind to give it a full screen width and height, z-index of 10+, fixed position, center everything to the center with flexbox and background color of my choosing. There could be a better approach of styling it but screw it lol
+
+In this div tag I had my SVG code of my logo and applied a motion to each tag in my logo. Framer motion makes it so easy for us to animate SVGs from this example in their docs, it really is just adding a pathLength property to the initial and animate attributes for each svg component. This basically does all the hard work of finding the right dasharray and dashoffset for each component. Now for my animation, I wanted to draw my logo first, then fill it in with my orange. To achieve this all I had to do was mess around with the duration and delays of each components transition attribute and boom, done! This is the finish product!

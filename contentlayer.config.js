@@ -30,22 +30,22 @@ export const Note = defineDocumentType(() => ({
             type: "string",
         },
         category: {
-            type: "string",
+            type: "enum",
+            options: ["blogs", "diaries", "recipes", "goals"],
+            default: "blogsd",
         },
         categories: {
             type: "list",
             of: { type: "string" },
+            default: ["diary"],
         },
         image: {
             type: "string",
         },
         publishedDate: {
             type: "date",
-        }
-        // published: {
-        //     type: "boolean",
-        //     default: true,
-        // },
+            required: true,
+        },
     },
     computedFields,
 }));

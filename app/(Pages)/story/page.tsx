@@ -1,5 +1,6 @@
 // import Timeline from "./timeline";
-import StoryPanel from "./story";
+import StoryScroller from "./StoryScroller";
+// import StoryPanel from "./story";
 
 export const metadata = { title: "Story" };
 
@@ -14,7 +15,9 @@ export default async function Story() {
             : 0
     );
 
-    return <StoryPanel stories={stories} />;
+    return <StoryScroller stories={stories} />;
+
+    // return <StoryPanel stories={stories} />;
     // return (
     //     <div className="w-[90vw] md:w-2/3 mx-auto">
     //         <Timeline stories={stories} />
