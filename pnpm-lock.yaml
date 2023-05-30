@@ -115,6 +115,9 @@ dependencies:
   tailwind-merge:
     specifier: ^1.12.0
     version: 1.12.0
+  three:
+    specifier: ^0.152.2
+    version: 0.152.2
   typescript:
     specifier: ^4.9.5
     version: 4.9.5

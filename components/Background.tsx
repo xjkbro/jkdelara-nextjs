@@ -3,19 +3,30 @@ import * as THREE from "three";
 import React, { Suspense, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, useGLTF } from "@react-three/drei";
-import {
-    EffectComposer,
-    DepthOfField,
-    Noise,
-    Vignette,
-} from "@react-three/postprocessing";
+// import {
+//     EffectComposer,
+//     DepthOfField,
+//     Noise,
+//     Vignette,
+// } from "@react-three/postprocessing";
+
+import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+useGLTF.preload("/3d/pawn-transformed.glb");
+
+type GLTFResult = GLTF & {
+    nodes: any;
+    materials: any;
+};
 
 const Box = ({ z, dark }) => {
-    const ref = useRef();
+    const ref = useRef<any>();
     // const { nodes, materials } = useGLTF(
     //     "/3d/salmon-transformed.glb"
     // );
-    const { nodes, materials } = useGLTF("/3d/pawn-transformed.glb");
+    // const { nodes, materials } = useGLTF("/3d/pawn-transformed.glb");
+    const { nodes, materials } = useGLTF(
+        "/3d/pawn-transformed.glb"
+    ) as GLTFResult;
 
     const { viewport, camera } = useThree();
     const { width, height } = viewport.getCurrentViewport(camera, [0, 0, -10]);
@@ -52,7 +63,7 @@ const Box = ({ z, dark }) => {
         //     scale={0.08}
         // />
         <mesh
-            ref={ref}
+            ref={ref as any}
             geometry={nodes.Pawn_White_0.geometry}
             material={materials.White}
             position={[3.919, 0, 0]}
@@ -95,7 +106,7 @@ export default function Background({ count = 50, depth = 60, dark }) {
                             // z={-i}
                         />
                     ))}
-                    <EffectComposer>
+                    {/* <EffectComposer>
                         <DepthOfField
                             target={[0, 0, depth / 2]}
                             // focusDistance={5}
@@ -103,14 +114,9 @@ export default function Background({ count = 50, depth = 60, dark }) {
                             bokehScale={11}
                             height={700}
                         />
-                        {/* <Bloom
-                            luminanceThreshold={0}
-                            luminanceSmoothing={0.9}
-                            height={300}
-                        />*/}
                         <Noise opacity={0.01} />
                         <Vignette eskil={false} offset={0.1} darkness={0.5} />
-                    </EffectComposer>
+                    </EffectComposer> */}
                 </Suspense>
             </Canvas>
         </div>
