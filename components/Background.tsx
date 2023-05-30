@@ -69,14 +69,14 @@ const Box = ({ z, dark }) => {
             position={[3.919, 0, 0]}
             rotation={[-Math.PI / 2, 0, 0]}
             scale={3.5}
-            material-color={dark ? "#efefef" : "#2B2926"}
+            material-color={dark ? "#F07C42" : "#403D3A"}
         />
     );
 };
 
 export default function Background({ count = 50, depth = 60, dark }) {
     return (
-        <div className="w-full h-[115vh] absolute -z-10 top-0">
+        <div className="w-full h-[115vh] fixed -z-10 top-0">
             <Canvas
                 gl={{ alpha: false }}
                 camera={{ near: 0.01, far: 110, fov: 70 }}
