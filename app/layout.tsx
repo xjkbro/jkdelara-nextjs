@@ -30,7 +30,7 @@ export default function RootLayout({
             <ClientPageWrapper>
                 <main>
                     {children}
-                    <FramerBG />
+                    {/* <FramerBG /> */}
                 </main>
             </ClientPageWrapper>
             <Analytics />

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "./navigation";
 import Footer from "@/components/footer";
+import Background from "./Background";
 
 export default function ClientPageWrapper({ children }) {
     /* ==== Dark Mode Set Up ===== */
@@ -45,6 +46,7 @@ export default function ClientPageWrapper({ children }) {
                                 : "h-[100vh] fixed -z-20 top-0 left-0 w-full bg-gradient-to-t from-fifth to-transparent"
                         }
                     />
+                    <Background dark={isDark} />
                     {children}
                     <Footer />
                 </motion.div>
